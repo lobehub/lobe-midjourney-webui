@@ -1,0 +1,3 @@
+export const LOBE_THEME_APPEARANCE = 'LOBE_THEME_APPEARANCE';
+
+export const COOKIE_CACHE_DAYS = 30;

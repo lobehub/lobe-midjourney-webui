@@ -1,0 +1,20 @@
+{
+  "api": [
+    {
+      "name": "getCurrentTime",
+      "description": "获取当前时间",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ],
+  "identifier": "clock-time",
+  "type": "standalone",
+  "ui": {
+    "url": "https://clock-time.chat-plugin.lobehub.com",
+    "height": 350,
+    "width": 400
+  },
+  "version": "1"
+}
