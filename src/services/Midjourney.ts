@@ -62,10 +62,10 @@ interface ImagineResponse {
 }
 
 class MidjourneyService {
-  baseURL = '/api';
+  baseURL = '/api/midjourney';
 
-  private async get<U>(url: string) {
-    const res = await fetch(this.baseURL + url, {
+  private async get<U>(path: string) {
+    const res = await fetch(`${this.baseURL}?path=${encodeURIComponent(path)}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -74,8 +74,8 @@ class MidjourneyService {
     return res.json() as Promise<U>;
   }
 
-  private async post<T>(url: string, data?: T) {
-    const res = await fetch(this.baseURL + url, {
+  private async post<T>(path: string, data?: T) {
+    const res = await fetch(`${this.baseURL}?path=${encodeURIComponent(path)}`, {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
