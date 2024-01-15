@@ -19,7 +19,6 @@ export const POST = async (req: Request) => {
 
   const body = await req.text();
 
-  console.log(urlJoin(baseUrl, path));
   return fetch(urlJoin(baseUrl, path), {
     body,
     headers: { 'Content-Type': 'application/json' },
