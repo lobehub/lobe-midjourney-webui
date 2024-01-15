@@ -9,7 +9,7 @@ export interface AppState {
   inLobeChat?: boolean;
   isSettingsModalOpen: boolean;
   prompts: string;
-  requestError?: { type: string };
+  requestError?: { body: string | { type: string }; message: string; status: number };
   runningTaskIds: string[];
   settings: AppSettings;
   tasks: MidjourneyTask[];

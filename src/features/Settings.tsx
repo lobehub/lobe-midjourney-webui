@@ -8,8 +8,10 @@ import { Flexbox } from 'react-layout-kit';
 
 import { useStore } from '@/store';
 
-const getErrorContent = (errorType: string) => {
-  switch (errorType) {
+const getErrorContent = (errorType: string | { type: string }) => {
+  if (typeof errorType === 'string') return errorType;
+
+  switch (errorType.type) {
     case 'NO_BASE_URL': {
       return 'MIDJOURNEY API 代理地址为空，请填写后重试';
     }
@@ -36,7 +38,12 @@ const Settings = memo(() => {
       >
         <Flexbox gap={24}>
           {requestError && (
-            <Alert closable message={getErrorContent(requestError.type)} type={'error'} />
+            <Alert
+              closable
+              description={getErrorContent(requestError.body)}
+              message={`请求失败，错误码 ${requestError.status}`}
+              type={'error'}
+            />
           )}
           <Flexbox gap={12}>
             <div>MIDJOURNEY API 代理地址</div>

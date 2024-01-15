@@ -70,15 +70,24 @@ class MidjourneyService {
       });
       if (!res.ok) {
         const body = await res.text();
-        throw new Error(body);
+        throw new Error(JSON.stringify({ body, message: res.statusText, status: res.status }));
       }
 
       return res.json();
     } catch (error) {
       // show Error
+      const requestError = JSON.parse((error as any).message);
+
+      let body = requestError.body;
+      try {
+        body = JSON.parse(requestError.body);
+      } catch {
+        /* empty */
+      }
+
       useStore.setState({
         isSettingsModalOpen: true,
-        requestError: JSON.parse((error as any).message),
+        requestError: { ...requestError, body },
       });
 
       return {};
