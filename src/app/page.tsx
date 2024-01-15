@@ -21,7 +21,13 @@ const Page = memo(() => {
       padding={16}
       style={{ background: theme.colorBgLayout, height: '100vh' }}
     >
-      <App style={{ height: '100%', maxWidth: 1152, width: '100%' }} />
+      <App
+        style={{
+          height: '100%',
+          maxWidth: 1152,
+          width: '100%',
+        }}
+      />
     </Flexbox>
   );
 });
