@@ -1,6 +1,6 @@
 import { AppState } from './initialState';
 
-export const mockState: AppState = {
+export const mockState: Partial<AppState> = {
   activeTaskId: '1705298817774894',
   prompts: 'cute little duckling, soft fluffy feathers, bright eyes, standing by a pond',
   runningTaskIds: [],
