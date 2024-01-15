@@ -51,3 +51,4 @@ bun.lockb
 docs/.dumi/*
 public/docs
 .env
+tsconfig.tsbuildinfo
