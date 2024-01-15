@@ -4,6 +4,7 @@ import { useTheme } from 'antd-style';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import Settings from '@/features/Settings';
 import { useStore } from '@/store';
 
 import { App } from './App';
@@ -28,6 +29,7 @@ const Page = memo(() => {
           width: '100%',
         }}
       />
+      <Settings />
     </Flexbox>
   );
 });

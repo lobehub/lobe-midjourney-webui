@@ -1,3 +1,4 @@
+import { useStore } from '@/store';
 import { MidjourneyTask } from '@/types/task';
 
 interface DescribeDTO {
@@ -57,26 +58,39 @@ interface ImagineResponse {
 class MidjourneyService {
   baseURL = '/api/midjourney';
 
-  private async get<U>(path: string) {
-    const res = await fetch(`${this.baseURL}?path=${encodeURIComponent(path)}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'GET',
-    });
-    return res.json() as Promise<U>;
+  private async fetch(path: string, method: string, data?: any) {
+    try {
+      const res = await fetch(`${this.baseURL}?path=${encodeURIComponent(path)}`, {
+        body: data ? JSON.stringify(data) : undefined,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Midjourney-Proxy-Url': useStore.getState().settings.MIDJOURNEY_API_URL || '',
+        },
+        method,
+      });
+      if (!res.ok) {
+        const body = await res.text();
+        throw new Error(body);
+      }
+
+      return res.json();
+    } catch (error) {
+      // show Error
+      useStore.setState({
+        isSettingsModalOpen: true,
+        requestError: JSON.parse((error as any).message),
+      });
+
+      return {};
+    }
   }
 
-  private async post<T>(path: string, data?: T) {
-    const res = await fetch(`${this.baseURL}?path=${encodeURIComponent(path)}`, {
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
+  private async get<U>(path: string): Promise<U> {
+    return this.fetch(path, 'GET');
+  }
 
-    return res.json();
+  private async post<D, T>(path: string, data?: D): Promise<T> {
+    return this.fetch(path, 'POST', data);
   }
 
   async createImagineTask({ prompt, base64Array }: ImagineDTO) {
@@ -121,11 +135,6 @@ class MidjourneyService {
     const data: TaskListResponse = await this.post('/mj/task/list-by-condition', {
       ids,
     });
-    return data;
-  }
-
-  async getTaskQueue() {
-    const data: TaskListResponse = await this.get('/mj/task/queue');
     return data;
   }
 

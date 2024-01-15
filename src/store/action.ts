@@ -8,8 +8,7 @@ import { TaskDispatch, tasksReducer } from '@/store/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
 import { MidjourneyStore } from '.';
-import { mockState } from './_mockdata';
-import { AppState, initialState } from './initialState';
+import { AppSettings, AppState, initialState } from './initialState';
 
 interface MJFunction {
   prompts: string;
@@ -25,6 +24,7 @@ export interface StoreAction {
   toggleTaskLoading: (id: string, loading: boolean) => void;
   updateAppState: (state: Partial<AppState>, action?: any) => void;
   updatePrompts: (input: string) => void;
+  updateSettings: (settings: Partial<AppSettings>) => void;
   useInitApp: () => SWRResponse<AppState>;
 }
 
@@ -41,6 +41,7 @@ export const actions: StateCreator<
   createChangeTask: async (params) => {
     const { dispatchTask, activeTask, pollTaskStatus } = get();
     const taskId = await midjourneyService.createChangeTask(params);
+    if (!taskId) return;
 
     const task = await midjourneyService.getTaskById(taskId);
 
@@ -54,6 +55,7 @@ export const actions: StateCreator<
   createImagineTask: async (shouldActiveTask = true) => {
     const { dispatchTask, activeTask, pollTaskStatus } = get();
     const taskId = await midjourneyService.createImagineTask({ prompt: get().prompts });
+    if (!taskId) return;
 
     const task = await midjourneyService.getTaskById(taskId);
 
@@ -152,6 +154,9 @@ export const actions: StateCreator<
     set({ prompts: data });
   },
 
+  updateSettings: (settings) => {
+    set({ settings: { ...get().settings, ...settings } });
+  },
   useInitApp: () => {
     return useSWR<AppState>(
       'init',
@@ -160,9 +165,14 @@ export const actions: StateCreator<
 
         // 说明不在 LobeChat 中
         if (!payload) {
-          console.log('current not in LobeChat, use mockData to start');
+          // 开发环境下，使用 mock 数据
+          if (process.env.NODE_ENV === 'development') {
+            const { mockState } = await import('./_mockdata');
 
-          return mockState;
+            return mockState;
+          }
+
+          return;
         }
 
         if (payload?.name === 'showMJ') {

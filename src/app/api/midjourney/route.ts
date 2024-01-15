@@ -13,7 +13,7 @@ const getBase = (req: Request) => {
 export const POST = async (req: Request) => {
   const baseUrl = getBase(req);
 
-  if (!baseUrl) return new Response('no base url', { status: 400 });
+  if (!baseUrl) return new Response(JSON.stringify({ type: 'NO_BASE_URL' }), { status: 400 });
 
   const path = new URL(req.url).searchParams.get('path')!;
 
@@ -29,7 +29,7 @@ export const POST = async (req: Request) => {
 export const GET = async (req: Request) => {
   const baseUrl = getBase(req);
 
-  if (!baseUrl) return new Response('no base url', { status: 400 });
+  if (!baseUrl) return new Response(JSON.stringify({ type: 'NO_BASE_URL' }), { status: 400 });
 
   const path = new URL(req.url).searchParams.get('path')!;
 
