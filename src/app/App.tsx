@@ -1,7 +1,7 @@
 import { CSSProperties, memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
+import ImagePreview from 'src/features/Preview';
 
-import ImagePreview from '@/features/ImagePreview';
 import PromptInput from '@/features/Input';
 import TaskList from '@/features/TaskList';
 

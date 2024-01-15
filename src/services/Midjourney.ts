@@ -12,9 +12,9 @@ interface DescribeResponse {
 }
 
 interface SimpleChangeDTO {
-  content: string;
-  notifyHook?: string;
-  state?: string;
+  index: number;
+  taskId: string;
+  type: 'UPSCALE' | 'VARIATION';
 }
 interface SimpleChangeResponse {
   code: 1;
@@ -87,12 +87,11 @@ class MidjourneyService {
     return data.result;
   }
 
-  async createSimpleChangeTask({ content, notifyHook, state }: SimpleChangeDTO) {
-    const data: SimpleChangeResponse = await this.post('/mj/submit/simple-change', {
-      content,
-      notifyHook,
-      state,
-    });
+  async createSimpleChangeTask({ taskId, index, type }: SimpleChangeDTO) {
+    // e.g. 1320098173412546 U2
+    const content = `${taskId} ${type[0]}${index}`;
+
+    const data: SimpleChangeResponse = await this.post('/mj/submit/simple-change', { content });
     return data.result;
   }
 

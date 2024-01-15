@@ -143,5 +143,61 @@ export const mockState: AppState = {
       status: 'SUCCESS',
       submitTime: 1705308810603,
     },
+    {
+      action: 'IMAGINE',
+      description: '/imagine a bird',
+      failReason: null,
+      finishTime: 1705310324053,
+      id: '1705310285146113',
+      imageUrl:
+        'https://cdn.discordapp.com/attachments/1174150905801736255/1196382952741945424/meng1011_a_bird_822d0ff9-e8da-4a35-b71f-78f59ad4ee1f.png?ex=65b76d73&is=65a4f873&hm=bb30ac4aa536d22fa28d06943127ba7a955047ae8138d48f3e86ccfaa4a24975&',
+      progress: '100%',
+      prompt: 'a bird',
+      promptEn: 'a bird',
+      properties: {
+        discordInstanceId: '1174150905801736255',
+        finalPrompt: 'a bird --v 6.0 --s 250',
+        flags: 0,
+        messageHash: '822d0ff9-e8da-4a35-b71f-78f59ad4ee1f',
+        messageId: '1196382953580810310',
+        nonce: '1467932102711394304',
+        notifyHook: null,
+        progressMessageId: '1196382794021097573',
+      },
+      startTime: 1705310285146,
+      state: null,
+      status: 'SUCCESS',
+      submitTime: 1705310285146,
+    },
+    {
+      action: 'IMAGINE',
+      description:
+        '/imagine Dragon sleeping on clouds, translucent glass, zbrush, ruby and gold style, anime aesthetics, furry art, red and white, elaborate, c4d rendering, super high detail, 3d --ar 9:16 --stylize 250 --v 6.0',
+      failReason: null,
+      finishTime: 1705310645445,
+      id: '1705310583960676',
+      imageUrl:
+        'https://cdn.discordapp.com/attachments/1174150905801736255/1196384301101617262/meng1011_Dragon_sleeping_on_clouds_translucent_glass_zbrush_rub_4bed1f85-d7d9-4c68-b4d8-7652991e0b65.png?ex=65b76eb5&is=65a4f9b5&hm=198de4766243776970c66ba736a25a526110a051eadff6fcf46bbdeacda88d4d&',
+      progress: '100%',
+      prompt:
+        'Dragon sleeping on clouds, translucent glass, zbrush, ruby and gold style, anime aesthetics, furry art, red and white, elaborate, c4d rendering, super high detail, 3d --ar 9:16 --stylize 250 --v 6.0',
+      promptEn:
+        'Dragon sleeping on clouds, translucent glass, zbrush, ruby and gold style, anime aesthetics, furry art, red and white, elaborate, c4d rendering, super high detail, 3d --ar 9:16 --stylize 250 --v 6.0',
+      properties: {
+        discordInstanceId: '1174150905801736255',
+        finalPrompt:
+          'Dragon sleeping on clouds, translucent glass, zbrush, ruby and gold style, anime aesthetics, furry art, red and white, elaborate, c4d rendering, super high detail, 3d --ar 9:16 --stylize 250 --v 6.0',
+        flags: 0,
+        messageHash: '4bed1f85-d7d9-4c68-b4d8-7652991e0b65',
+        messageId: '1196384301479116861',
+        nonce: '1467933356028149760',
+        notifyHook: null,
+        progressMessageId: '1196384047509815366',
+      },
+      startTime: 1705310583961,
+      state: null,
+      status: 'SUCCESS',
+      submitTime: 1705310583960,
+    },
   ],
 };
