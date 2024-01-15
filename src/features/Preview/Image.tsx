@@ -69,6 +69,7 @@ const useStyles = createStyles(({ css, prefixCls }) => ({
 const ImagePreview = memo(() => {
   const { styles, cx, theme } = useStyles();
 
+  const [modal, setMask] = useState<boolean>(false);
   const [dim, setDims] = useState<Size>();
   const containerRef = useRef(null);
   const size = useSize(containerRef);
@@ -93,6 +94,7 @@ const ImagePreview = memo(() => {
         <div style={{ position: 'relative' }}>
           <Image
             className={styles.image}
+            preview={{ onVisibleChange: setMask, visible: modal }}
             src={currentTask.imageUrl}
             wrapperClassName={cx(
               styles.imageWrapper,
@@ -100,7 +102,7 @@ const ImagePreview = memo(() => {
             )}
             {...imageContainerSize}
           />
-          <Actions />
+          <Actions setMask={setMask} />
         </div>
       ) : (
         <Skeleton.Node

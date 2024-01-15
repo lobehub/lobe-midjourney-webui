@@ -3,7 +3,7 @@ import isEqual from 'fast-deep-equal';
 import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
-import { midjourneyService } from '@/services/Midjourney';
+import { ChangeTaskDTO, midjourneyService } from '@/services/Midjourney';
 import { TaskDispatch, tasksReducer } from '@/store/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
@@ -17,8 +17,10 @@ interface MJFunction {
 
 export interface StoreAction {
   activeTask: (id: string) => void;
+  createChangeTask: (params: ChangeTaskDTO) => Promise<void>;
   createImagineTask: (shouldActiveTask?: boolean) => Promise<void>;
   dispatchTask: (payload: TaskDispatch) => void;
+  pollTaskStatus: (id: string) => Promise<void>;
   removeTask: (id: string) => void;
   toggleTaskLoading: (id: string, loading: boolean) => void;
   updateAppState: (state: Partial<AppState>, action?: any) => void;
@@ -36,19 +38,49 @@ export const actions: StateCreator<
   activeTask: (id) => {
     get().updateAppState({ activeTaskId: id }, 'activeTaskId');
   },
+  createChangeTask: async (params) => {
+    const { dispatchTask, activeTask, pollTaskStatus } = get();
+    const taskId = await midjourneyService.createChangeTask(params);
+
+    const task = await midjourneyService.getTaskById(taskId);
+
+    // 添加任务
+    dispatchTask({ task, type: 'addTask' });
+
+    activeTask(taskId);
+
+    await pollTaskStatus(taskId);
+  },
   createImagineTask: async (shouldActiveTask = true) => {
-    const { toggleTaskLoading, dispatchTask, activeTask } = get();
+    const { dispatchTask, activeTask, pollTaskStatus } = get();
     const taskId = await midjourneyService.createImagineTask({ prompt: get().prompts });
 
     const task = await midjourneyService.getTaskById(taskId);
 
-    toggleTaskLoading(taskId, true);
+    // 添加任务
     dispatchTask({ task, type: 'addTask' });
 
     // 如果需要激活任务，更新 activeTask
     if (shouldActiveTask) {
       activeTask(taskId);
     }
+
+    await pollTaskStatus(taskId);
+  },
+  dispatchTask: (payload) => {
+    const { tasks, updateAppState } = get();
+
+    const nextTasks = tasksReducer(tasks, payload);
+
+    if (isEqual(tasks, nextTasks)) return;
+
+    updateAppState({ tasks: nextTasks }, { payload, type: `dispatchTasks/${payload.type}` });
+  },
+  pollTaskStatus: async (taskId) => {
+    const { toggleTaskLoading, dispatchTask } = get();
+    const task = await midjourneyService.getTaskById(taskId);
+
+    toggleTaskLoading(taskId, true);
 
     let finalTask: MidjourneyTask | undefined;
 
@@ -71,18 +103,10 @@ export const actions: StateCreator<
     }
 
     toggleTaskLoading(taskId, false);
+
     if (!finalTask) return;
 
     dispatchTask({ id: finalTask!.id, task: finalTask, type: 'updateTask' });
-  },
-  dispatchTask: (payload) => {
-    const { tasks, updateAppState } = get();
-
-    const nextTasks = tasksReducer(tasks, payload);
-
-    if (isEqual(tasks, nextTasks)) return;
-
-    updateAppState({ tasks: nextTasks }, { payload, type: `dispatchTasks/${payload.type}` });
   },
   removeTask: (id) => {
     const { dispatchTask, tasks, activeTaskId } = get();

@@ -17,13 +17,13 @@ const useStyles = createStyles(({ css }) => ({
   `,
 }));
 
-const Actions = memo(() => {
+const Actions = memo<{ setMask: (mask: boolean) => void }>(({ setMask }) => {
   const currentTask = useStore(midjourneySelectors.currentActiveTask);
   const { styles } = useStyles();
   const content = useMemo(() => {
     switch (currentTask?.action) {
       case 'IMAGINE': {
-        return <ImagineAction />;
+        return <ImagineAction id={currentTask.id || ''} setMask={setMask} />;
       }
       case 'UPSCALE': {
         break;
@@ -41,6 +41,8 @@ const Actions = memo(() => {
         break;
       }
     }
+
+    return null;
   }, [currentTask?.action]);
 
   return <Flexbox className={styles.container}>{content}</Flexbox>;

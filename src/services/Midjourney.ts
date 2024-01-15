@@ -11,15 +11,22 @@ interface DescribeResponse {
   result: number;
 }
 
-interface SimpleChangeDTO {
-  index: number;
-  taskId: string;
+export interface SimpleChangeTaskDTO {
+  id: string;
+  index: string;
   type: 'UPSCALE' | 'VARIATION';
 }
+
+export interface ChangeTaskDTO {
+  action: 'UPSCALE' | 'VARIATION' | 'REROLL';
+  index?: number;
+  taskId: string;
+}
+
 interface SimpleChangeResponse {
   code: 1;
   description: string;
-  result: number;
+  result: string;
 }
 
 interface TaskConditionDTO {
@@ -87,11 +94,21 @@ class MidjourneyService {
     return data.result;
   }
 
-  async createSimpleChangeTask({ taskId, index, type }: SimpleChangeDTO) {
+  async createSimpleChangeTask({ id, index, type }: SimpleChangeTaskDTO) {
     // e.g. 1320098173412546 U2
-    const content = `${taskId} ${type[0]}${index}`;
+    const content = `${id} ${type[0]}${index}`;
 
     const data: SimpleChangeResponse = await this.post('/mj/submit/simple-change', { content });
+    return data.result;
+  }
+
+  async createChangeTask({ taskId, index, action }: ChangeTaskDTO) {
+    const data: SimpleChangeResponse = await this.post('/mj/submit/change', {
+      action,
+      index,
+      taskId,
+    });
+
     return data.result;
   }
 

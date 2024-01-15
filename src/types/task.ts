@@ -11,8 +11,10 @@ interface TaskExtra {
   progressMessageId: string;
 }
 
+export type TaskActionType = 'IMAGINE' | 'UPSCALE' | 'VARIATION' | 'REROLL' | 'DESCRIBE' | 'BLEND'; // 任务类型
+
 export interface MidjourneyTask {
-  action: 'IMAGINE' | 'UPSCALE' | 'VARIATION' | 'REROLL' | 'DESCRIBE' | 'BLEND'; // 任务类型
+  action: TaskActionType;
   description: string; // 任务描述
   failReason?: string | null; // 失败原因
   finishTime: number; // 结束时间, 假设是时间戳

@@ -50,7 +50,7 @@
   "dependencies": {
     "@lobehub/chat-plugin-sdk": "^1",
     "@lobehub/chat-plugins-gateway": "^1",
-    "@lobehub/ui": "latest",
+    "@lobehub/ui": "^1",
     "ahooks": "^3.7.8",
     "antd": "^5",
     "antd-style": "^3",
