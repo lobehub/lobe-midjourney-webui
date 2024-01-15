@@ -1,9 +1,13 @@
 import { lobeChat } from '@lobehub/chat-plugin-sdk/client';
+import isEqual from 'fast-deep-equal';
 import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
-import { Store } from '.';
-import { MidjourneyTask, midjourneyService } from '../services/Midjourney';
+import { midjourneyService } from '@/services/Midjourney';
+import { TaskDispatch, tasksReducer } from '@/store/reducers/task';
+import { MidjourneyTask } from '@/types/task';
+
+import { MidjourneyStore } from '.';
 import { mockState } from './_mockdata';
 import { AppState, initialState } from './initialState';
 
@@ -12,26 +16,41 @@ interface MJFunction {
 }
 
 export interface StoreAction {
-  createImagineTask: () => Promise<void>;
-  updateAppState: (state: Partial<AppState>) => void;
+  activeTask: (id: string) => void;
+  createImagineTask: (shouldActiveTask?: boolean) => Promise<void>;
+  dispatchTask: (payload: TaskDispatch) => void;
+  removeTask: (id: string) => void;
+  toggleTaskLoading: (id: string, loading: boolean) => void;
+  updateAppState: (state: Partial<AppState>, action?: any) => void;
   updatePrompts: (input: string) => void;
-  useInitApp: () => SWRResponse<AppState | undefined>;
+  useInitApp: () => SWRResponse<AppState>;
 }
 
-export const actions: StateCreator<Store, [['zustand/devtools', never]], [], StoreAction> = (
-  set,
-  get,
-) => ({
+export const actions: StateCreator<
+  MidjourneyStore,
+  [['zustand/devtools', never]],
+  [],
+  StoreAction
+> = (set, get) => ({
   ...initialState,
-  createImagineTask: async () => {
-    const { updateAppState } = get();
+  activeTask: (id) => {
+    get().updateAppState({ activeTaskId: id }, 'activeTaskId');
+  },
+  createImagineTask: async (shouldActiveTask = true) => {
+    const { toggleTaskLoading, dispatchTask, activeTask } = get();
     const taskId = await midjourneyService.createImagineTask({ prompt: get().prompts });
 
     const task = await midjourneyService.getTaskById(taskId);
 
-    updateAppState({ task, taskId, taskLoading: true });
+    toggleTaskLoading(taskId, true);
+    dispatchTask({ task, type: 'addTask' });
 
-    let finalTask: MidjourneyTask;
+    // 如果需要激活任务，更新 activeTask
+    if (shouldActiveTask) {
+      activeTask(taskId);
+    }
+
+    let finalTask: MidjourneyTask | undefined;
 
     while (task.status !== 'SUCCESS') {
       // 每间隔 2s 查询一次任务状态
@@ -41,29 +60,76 @@ export const actions: StateCreator<Store, [['zustand/devtools', never]], [], Sto
 
       const task = await midjourneyService.getTaskById(taskId);
 
-      console.log(`task: ${task.id} [${task.status}] ${task.progress}%`, task.imageUrl);
+      console.log(`task: ${task.id} [${task.status}] ${task.progress}%`, task.prompt);
 
       if (task.status === 'SUCCESS') {
         finalTask = task;
         break;
       } else {
-        updateAppState({ task });
+        dispatchTask({ id: task.id, task, type: 'updateTask' });
       }
     }
 
-    updateAppState({ task: finalTask!, taskLoading: false });
+    toggleTaskLoading(taskId, false);
+    if (!finalTask) return;
+
+    dispatchTask({ id: finalTask!.id, task: finalTask, type: 'updateTask' });
   },
-  updateAppState: (state) => {
-    set({ ...state });
+  dispatchTask: (payload) => {
+    const { tasks, updateAppState } = get();
+
+    const nextTasks = tasksReducer(tasks, payload);
+
+    if (isEqual(tasks, nextTasks)) return;
+
+    updateAppState({ tasks: nextTasks }, { payload, type: `dispatchTasks/${payload.type}` });
+  },
+  removeTask: (id) => {
+    const { dispatchTask, tasks, activeTaskId } = get();
+
+    const index = tasks.findIndex((t) => t.id === id);
+    dispatchTask({ id, type: 'deleteTask' });
+    if (id !== activeTaskId) return;
+
+    const newItem = get().tasks[index];
+    const newIndex = index === 0 ? 0 : index - 1;
+
+    if (newItem) get().activeTask(newItem.id);
+    else get().activeTask(tasks[newIndex]?.id || '');
+  },
+  toggleTaskLoading: (id, loading) => {
+    if (loading) {
+      get().updateAppState(
+        { runningTaskIds: [...get().runningTaskIds, id] },
+        { id, loading, type: 'toggleTaskLoading' },
+      );
+    } else {
+      get().updateAppState(
+        {
+          runningTaskIds: get().runningTaskIds.filter((taskId) => taskId !== id),
+        },
+        { id, loading, type: 'toggleTaskLoading' },
+      );
+    }
+  },
+
+  updateAppState: (state, action) => {
+    set({ ...state }, false, action);
+
+    if (!get().inLobeChat) return;
+
+    // TODO: 替换为更好用的 setPluginState 方法
     for (const [key, value] of Object.entries(state)) {
       lobeChat.setPluginState(key, value);
     }
   },
+
   updatePrompts: (data) => {
     set({ prompts: data });
   },
+
   useInitApp: () => {
-    return useSWR(
+    return useSWR<AppState>(
       'init',
       async () => {
         const payload = await lobeChat.getPluginPayload<MJFunction>();
@@ -83,7 +149,7 @@ export const actions: StateCreator<Store, [['zustand/devtools', never]], [], Sto
       },
       {
         onSuccess: (data: AppState) => {
-          if (data) get().updateAppState(data);
+          if (data) get().updateAppState(data, 'initApp');
         },
         revalidateOnFocus: false,
       },

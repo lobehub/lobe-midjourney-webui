@@ -4,14 +4,12 @@ import { useTheme } from 'antd-style';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import ImagePreview from '@/features/ImagePreview';
-import PromptInput from '@/features/Input';
 import { useStore } from '@/store';
 
-import './global.css';
+import { App } from './App';
 
-const App = memo(() => {
-  const [useInitApp, inLobeChat] = useStore((s) => [s.useInitApp, s.inLobeChat]);
+const Page = memo(() => {
+  const [useInitApp] = useStore((s) => [s.useInitApp]);
 
   useInitApp();
 
@@ -19,14 +17,13 @@ const App = memo(() => {
 
   return (
     <Flexbox
-      gap={8}
+      align={'center'}
       padding={16}
-      style={{ background: inLobeChat ? undefined : theme.colorBgLayout, height: '100vh' }}
+      style={{ background: theme.colorBgLayout, height: '100vh' }}
     >
-      <PromptInput />
-      <ImagePreview />
+      <App style={{ height: '100%', maxWidth: 1152, width: '100%' }} />
     </Flexbox>
   );
 });
 
-export default App;
+export default Page;

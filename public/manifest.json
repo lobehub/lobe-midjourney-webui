@@ -12,7 +12,7 @@
   "identifier": "clock-time",
   "type": "standalone",
   "ui": {
-    "url": "https://clock-time.chat-plugin.lobehub.com",
+    "url": "https://clock-time.chat-plugin.lobehub.com/iframe",
     "height": 350,
     "width": 400
   },

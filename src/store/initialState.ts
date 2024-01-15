@@ -1,18 +1,17 @@
-import { MidjourneyTask } from '../services/Midjourney';
+import { MidjourneyTask } from '@/types/task';
 
 export interface AppState {
+  activeTaskId?: string;
   inLobeChat?: boolean;
   prompts: string;
-  task?: MidjourneyTask;
-  taskId?: string;
-  taskImageUrl?: string;
-  taskLoading: boolean;
+  runningTaskIds: string[];
+  tasks: MidjourneyTask[];
 }
 
 export const initialState: AppState = {
   inLobeChat: false,
   prompts: '',
-  taskId: undefined,
-  taskImageUrl: undefined,
-  taskLoading: false,
+  runningTaskIds: [],
+
+  tasks: [],
 };
