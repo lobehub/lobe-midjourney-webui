@@ -4,11 +4,11 @@
 
 <img height="120" src="https://registry.npmmirror.com/@lobehub/assets-emoji/1.3.0/files/assets/puzzle-piece.webp">
 <img height="120" src="https://gw.alipayobjects.com/zos/kitchen/qJ3l3EPsdW/split.svg">
-<img height="120" src="https://registry.npmmirror.com/@lobehub/assets-emoji-anim/1.0.0/files/assets/rocket.webp">
+<img height="120" src="https://github-production-user-asset-6210df.s3.amazonaws.com/28616219/281042486-5e3b9283-9f47-4201-b468-1cb8ef86b3d5.png">
 
-<h1>Plugin Template<br/><sup>LobeChat Plugin</sup></h1>
+<h1>Midjourney<br/><sup>LobeChat Plugin</sup></h1>
 
-This is the plugin template for LobeChat plugin development
+This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
 [![][🤯-🧩-lobehub-shield]][🤯-🧩-lobehub-link]
 [![][github-release-shield]][github-release-link]
@@ -57,10 +57,10 @@ This is the plugin template for LobeChat plugin development
 
 ## 🤯 Usage
 
-> [!IMPORTANT]\
+> \[!IMPORTANT]\
 > See detail on [📘 Template usage](https://chat-plugin-sdk.lobehub.com/guides/template)
 
-> [!Note]\
+> \[!Note]\
 > Plugins provide a means to extend the [Function Calling][fc-link] capabilities of LobeChat. They can be used to introduce new function calls, and even new ways to render message results. If you are interested in plugin development, please refer to our [📘 Plugin Development Guide](https://github.com/lobehub/lobe-chat/wiki/Plugin-Development) in the Wiki.
 >
 > - [@lobehub/lobe-chat-plugins][lobe-chat-plugins]: This is the plugin index for LobeChat. It accesses index.json from this repository to display a list of available plugins for LobeChat to the user.
@@ -90,8 +90,8 @@ Or clone it for local development:
 [![][bun-shield]][bun-link]
 
 ```bash
-$ git clone https://github.com/lobehub/chat-plugin-template.git
-$ cd chat-plugin-template
+$ git clone https://github.com/lobehub/chat-plugin-midjourney.git
+$ cd chat-plugin-midjourney
 $ bun install
 $ bun dev
 ```
@@ -131,7 +131,7 @@ Contributions of all types are more than welcome, if you are interested in contr
 
 #### 📝 License
 
-Copyright © 2023 [LobeHub][profile-url]. <br />
+Copyright © 2023-current [LobeHub][profile-url]. <br />
 This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
@@ -147,29 +147,29 @@ This project is [MIT](./LICENSE) licensed.
 [chat-plugin-web-crawler]: https://github.com/lobehub/chat-plugin-web-crawler
 [chat-plugins-gateway]: https://github.com/lobehub/chat-plugins-gateway
 [fc-link]: https://sspai.com/post/81986
-[github-action-release-link]: https://github.com/lobehub/chat-plugin-template/actions/workflows/release.yml
-[github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/chat-plugin-template/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
-[github-action-test-link]: https://github.com/lobehub/chat-plugin-template/actions/workflows/test.yml
-[github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/chat-plugin-template/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
-[github-codespace-link]: https://codespaces.new/lobehub/chat-plugin-template
+[github-action-release-link]: https://github.com/lobehub/chat-plugin-midjourney/actions/workflows/release.yml
+[github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/chat-plugin-midjourney/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-action-test-link]: https://github.com/lobehub/chat-plugin-midjourney/actions/workflows/test.yml
+[github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/chat-plugin-midjourney/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-codespace-link]: https://codespaces.new/lobehub/chat-plugin-midjourney
 [github-codespace-shield]: https://github.com/codespaces/badge.svg
-[github-contrib-link]: https://github.com/lobehub/chat-plugin-template/graphs/contributors
-[github-contrib-shield]: https://contrib.rocks/image?repo=lobehub%2Fchat-plugin-template
-[github-contributors-link]: https://github.com/lobehub/chat-plugin-template/graphs/contributors
-[github-contributors-shield]: https://img.shields.io/github/contributors/lobehub/chat-plugin-template?color=c4f042&labelColor=black&style=flat-square
-[github-forks-link]: https://github.com/lobehub/chat-plugin-template/network/members
-[github-forks-shield]: https://img.shields.io/github/forks/lobehub/chat-plugin-template?color=8ae8ff&labelColor=black&style=flat-square
-[github-issues-link]: https://github.com/lobehub/chat-plugin-template/issues
-[github-issues-shield]: https://img.shields.io/github/issues/lobehub/chat-plugin-template?color=ff80eb&labelColor=black&style=flat-square
-[github-license-link]: https://github.com/lobehub/chat-plugin-template/blob/main/LICENSE
-[github-license-shield]: https://img.shields.io/github/license/lobehub/chat-plugin-template?color=white&labelColor=black&style=flat-square
-[github-release-link]: https://github.com/lobehub/chat-plugin-template/releases
-[github-release-shield]: https://img.shields.io/github/v/release/lobehub/chat-plugin-template?color=369eff&labelColor=black&logo=github&style=flat-square
-[github-releasedate-link]: https://github.com/lobehub/chat-plugin-template/releases
-[github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/chat-plugin-template?labelColor=black&style=flat-square
-[github-stars-link]: https://github.com/lobehub/chat-plugin-template/network/stargazers
-[github-stars-shield]: https://img.shields.io/github/stars/lobehub/chat-plugin-template?color=ffcb47&labelColor=black&style=flat-square
+[github-contrib-link]: https://github.com/lobehub/chat-plugin-midjourney/graphs/contributors
+[github-contrib-shield]: https://contrib.rocks/image?repo=lobehub%2Fchat-plugin-midjourney
+[github-contributors-link]: https://github.com/lobehub/chat-plugin-midjourney/graphs/contributors
+[github-contributors-shield]: https://img.shields.io/github/contributors/lobehub/chat-plugin-midjourney?color=c4f042&labelColor=black&style=flat-square
+[github-forks-link]: https://github.com/lobehub/chat-plugin-midjourney/network/members
+[github-forks-shield]: https://img.shields.io/github/forks/lobehub/chat-plugin-midjourney?color=8ae8ff&labelColor=black&style=flat-square
+[github-issues-link]: https://github.com/lobehub/chat-plugin-midjourney/issues
+[github-issues-shield]: https://img.shields.io/github/issues/lobehub/chat-plugin-midjourney?color=ff80eb&labelColor=black&style=flat-square
+[github-license-link]: https://github.com/lobehub/chat-plugin-midjourney/blob/main/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/lobehub/chat-plugin-midjourney?color=white&labelColor=black&style=flat-square
+[github-release-link]: https://github.com/lobehub/chat-plugin-midjourney/releases
+[github-release-shield]: https://img.shields.io/github/v/release/lobehub/chat-plugin-midjourney?color=369eff&labelColor=black&logo=github&style=flat-square
+[github-releasedate-link]: https://github.com/lobehub/chat-plugin-midjourney/releases
+[github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/chat-plugin-midjourney?labelColor=black&style=flat-square
+[github-stars-link]: https://github.com/lobehub/chat-plugin-midjourney/network/stargazers
+[github-stars-shield]: https://img.shields.io/github/stars/lobehub/chat-plugin-midjourney?color=ffcb47&labelColor=black&style=flat-square
 [lobe-chat-plugins]: https://github.com/lobehub/lobe-chat-plugins
-[pr-welcome-link]: https://github.com/lobehub/chat-plugin-template/pulls
+[pr-welcome-link]: https://github.com/lobehub/chat-plugin-midjourney/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/%F0%9F%A4%AF%20PR%20WELCOME-%E2%86%92-ffcb47?labelColor=black&style=for-the-badge
 [profile-url]: https://github.com/lobehub

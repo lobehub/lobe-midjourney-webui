@@ -50,3 +50,4 @@ docs-dist
 bun.lockb
 docs/.dumi/*
 public/docs
+.env
