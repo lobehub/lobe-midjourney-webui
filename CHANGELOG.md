@@ -2,6 +2,32 @@
 
 # Changelog
 
+## [Version 1.1.0](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.0.1...v1.1.0)
+
+<sup>Released on **2024-01-17**</sup>
+
+#### ✨ Features
+
+- **misc**: Update prod manifest, 优化兼容 LobeChat 插件内逻辑.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Update prod manifest ([89a08e8](https://github.com/lobehub/chat-plugin-midjourney/commit/89a08e8))
+- **misc**: 优化兼容 LobeChat 插件内逻辑 ([16b3a80](https://github.com/lobehub/chat-plugin-midjourney/commit/16b3a80))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.0.1](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.0.0...v1.0.1)
 
 <sup>Released on **2024-01-15**</sup>
