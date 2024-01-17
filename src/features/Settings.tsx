@@ -22,7 +22,7 @@ const getErrorContent = (errorType: string | { type: string }) => {
 const Settings = memo(() => {
   const [isSettingsModalOpen, MIDJOURNEY_API_URL, updateSettings] = useStore((s) => [
     s.isSettingsModalOpen,
-    s.settings.MIDJOURNEY_API_URL,
+    s.settings.MIDJOURNEY_PROXY_URL,
     s.updateSettings,
   ]);
   const requestError = useStore((s) => s.requestError, isEqual);
@@ -49,7 +49,7 @@ const Settings = memo(() => {
             <div>MIDJOURNEY API 代理地址</div>
             <Input
               onChange={(e) => {
-                updateSettings({ MIDJOURNEY_API_URL: e.target.value });
+                updateSettings({ MIDJOURNEY_PROXY_URL: e.target.value });
               }}
               placeholder={'http://localhost:8080/'}
               value={MIDJOURNEY_API_URL}

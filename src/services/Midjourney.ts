@@ -64,7 +64,7 @@ class MidjourneyService {
         body: data ? JSON.stringify(data) : undefined,
         headers: {
           'Content-Type': 'application/json',
-          'X-Midjourney-Proxy-Url': useStore.getState().settings.MIDJOURNEY_API_URL || '',
+          'X-Midjourney-Proxy-Url': useStore.getState().settings.MIDJOURNEY_PROXY_URL || '',
         },
         method,
       });

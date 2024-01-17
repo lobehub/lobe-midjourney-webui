@@ -53,12 +53,20 @@ export const actions: StateCreator<
     await pollTaskStatus(taskId);
   },
   createImagineTask: async (shouldActiveTask = true) => {
-    const { dispatchTask, activeTask, pollTaskStatus } = get();
-    const taskId = await midjourneyService.createImagineTask({ prompt: get().prompts });
+    const { dispatchTask, activeTask, pollTaskStatus, toggleTaskLoading, inLobeChat, prompts } =
+      get();
+    const taskId = await midjourneyService.createImagineTask({ prompt: prompts });
+
     if (!taskId) return;
 
-    const task = await midjourneyService.getTaskById(taskId);
+    // 如果在 LobeChat 中，更新插件消息
+    if (inLobeChat) {
+      lobeChat.setPluginMessage(prompts, false);
+    }
 
+    toggleTaskLoading(taskId, true);
+
+    const task = await midjourneyService.getTaskById(taskId);
     // 添加任务
     dispatchTask({ task, type: 'addTask' });
 
@@ -125,15 +133,17 @@ export const actions: StateCreator<
   },
   toggleTaskLoading: (id, loading) => {
     if (loading) {
-      get().updateAppState(
-        { runningTaskIds: [...get().runningTaskIds, id] },
-        { id, loading, type: 'toggleTaskLoading' },
-      );
+      set({ runningTaskIds: [...get().runningTaskIds, id] }, false, {
+        id,
+        loading,
+        type: 'toggleTaskLoading',
+      });
     } else {
-      get().updateAppState(
+      set(
         {
           runningTaskIds: get().runningTaskIds.filter((taskId) => taskId !== id),
         },
+        false,
         { id, loading, type: 'toggleTaskLoading' },
       );
     }
@@ -178,7 +188,12 @@ export const actions: StateCreator<
         if (payload?.name === 'showMJ') {
           const { prompts } = payload.arguments!;
 
-          return { ...payload.state, inLobeChat: true, prompts: payload.state?.prompts || prompts };
+          return {
+            ...payload.state,
+            inLobeChat: true,
+            prompts: payload.state?.prompts || prompts,
+            settings: payload.settings,
+          };
         }
       },
       {

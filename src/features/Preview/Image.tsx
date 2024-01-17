@@ -31,7 +31,7 @@ const getContainerSize = (content?: Dimensions, container?: Dimensions) => {
 
   const maxWidth = container.width;
   const maxHeight = container.height;
-  let maxValue;
+  let maxValue: number = 0;
 
   if (content?.height >= content?.width && content?.height >= maxHeight) {
     maxValue = maxHeight;
@@ -45,29 +45,32 @@ const getContainerSize = (content?: Dimensions, container?: Dimensions) => {
     width = width + 'px';
     height = height + 'px';
   }
+  maxValue = maxValue - 16;
 
   return { height, maxValue, width };
 };
 
-const useStyles = createStyles(({ css, prefixCls }) => ({
-  image: css`
-    border-radius: 24px;
-  `,
-  imageWrapper: css`
-    width: fit-content;
-    height: fit-content;
-    margin-block: 0;
-    border-radius: 24px;
-  `,
-  imagine: css`
-    .${prefixCls}-image-mask:hover {
-      opacity: 0;
-    }
-  `,
-}));
+const useStyles = createStyles(({ css, prefixCls }, inLobeChat: boolean) => {
+  return {
+    image: css`
+      border-radius: ${inLobeChat ? 8 : 24}px;
+    `,
+    imageWrapper: css`
+      margin-block: 0;
+      border-radius: ${inLobeChat ? 8 : 24}px;
+    `,
+    imagine: css`
+      .${prefixCls}-image-mask:hover {
+        opacity: 0;
+      }
+    `,
+  };
+});
 
 const ImagePreview = memo(() => {
-  const { styles, cx, theme } = useStyles();
+  const inLobeChat = useStore((s) => s.inLobeChat);
+
+  const { styles, cx, theme } = useStyles(inLobeChat);
 
   const [modal, setMask] = useState<boolean>(false);
   const [dim, setDims] = useState<Size>();
@@ -108,11 +111,11 @@ const ImagePreview = memo(() => {
         <Skeleton.Node
           active
           style={{
-            borderRadius: 24,
+            borderRadius: inLobeChat ? 8 : 24,
             color: theme.colorTextTertiary,
 
-            height: imageContainerSize.maxValue || 600,
-            width: imageContainerSize.maxValue || 600,
+            height: imageContainerSize.maxValue || inLobeChat ? 400 : 600,
+            width: imageContainerSize.maxValue || inLobeChat ? 400 : 600,
           }}
         >
           Task is waiting to start...

@@ -11,14 +11,14 @@ const useStyles = createStyles(({ css, token }) => ({
   container: css`
     overflow: hidden;
     background: ${token.colorFillTertiary};
-    border-radius: 24px;
   `,
 }));
 
 const Preview = memo(() => {
-  const [progress, taskLoading] = useStore((s) => [
+  const [progress, taskLoading, inLobeChat] = useStore((s) => [
     midjourneySelectors.currentTaskProgress(s),
     midjourneySelectors.isCurrentTaskRunning(s),
+    s.inLobeChat,
   ]);
 
   const { styles } = useStyles();
@@ -32,6 +32,7 @@ const Preview = memo(() => {
         gap={8}
         height={'calc(100vh - 80px - 64px - 8*2px - 2*16px )'}
         padding={16}
+        style={{ borderRadius: inLobeChat ? 8 : 24 }}
       >
         <ImagePreview />
         {progress !== 100 && <Progress percent={progress} />}

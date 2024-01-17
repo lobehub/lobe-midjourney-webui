@@ -1,7 +1,7 @@
 import { MidjourneyTask } from '@/types/task';
 
 export interface AppSettings {
-  MIDJOURNEY_API_URL?: string;
+  MIDJOURNEY_PROXY_URL?: string;
 }
 
 export interface AppState {

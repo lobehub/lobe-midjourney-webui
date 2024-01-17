@@ -3,7 +3,9 @@
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { App } from '@/app/App';
+import PromptInput from '@/features/Input';
+import ImagePreview from '@/features/Preview';
+import TaskList from '@/features/TaskList';
 import { useStore } from '@/store';
 
 import './global.css';
@@ -14,8 +16,10 @@ const InLobeChatPage = memo(() => {
   useInitApp();
 
   return (
-    <Flexbox padding={16} style={{ height: '100vh' }}>
-      <App />
+    <Flexbox gap={12} padding={16} style={{ height: '100vh' }}>
+      <PromptInput />
+      <TaskList />
+      <ImagePreview />
     </Flexbox>
   );
 });

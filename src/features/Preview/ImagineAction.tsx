@@ -3,7 +3,7 @@ import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { useStore } from '@/store';
+import { midjourneySelectors, useStore } from '@/store';
 
 const useStyles = createStyles(({ css, cx }) => {
   const buttonCtn = css`
@@ -34,6 +34,12 @@ const useStyles = createStyles(({ css, cx }) => {
       top: 16px;
       right: 16px;
     `,
+    rerollInLobeChat: css`
+      position: absolute;
+      bottom: -44px;
+      left: 50%;
+      transform: translateX(-50%);
+    `,
   };
 });
 
@@ -46,62 +52,68 @@ interface ImageActionProps {
 const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
   const { styles } = useStyles();
 
-  const [createSimpleChangeTask] = useStore((s) => [s.createChangeTask]);
+  const [inLobeChat, createSimpleChangeTask, isSuccess] = useStore((s) => [
+    s.inLobeChat,
+    s.createChangeTask,
+    midjourneySelectors.getTaskById(id)(s)?.status === 'SUCCESS',
+  ]);
 
   return (
-    <>
-      <Flexbox
-        height={'100%'}
-        horizontal
-        onClick={() => {
-          setMask(true);
-        }}
-        style={{ cursor: 'pointer', flexWrap: 'wrap' }}
-      >
-        {array.map((index) => (
-          <Flexbox className={styles.item} height={'50%'} key={index} width={'50%'}>
-            <Flexbox className={styles.buttonCtn} gap={16} horizontal>
-              <Button
-                onClick={(e) => {
-                  e.stopPropagation();
+    isSuccess && (
+      <>
+        <Flexbox
+          height={'100%'}
+          horizontal
+          onClick={() => {
+            setMask(true);
+          }}
+          style={{ cursor: 'pointer', flexWrap: 'wrap' }}
+        >
+          {array.map((index) => (
+            <Flexbox className={styles.item} height={'50%'} key={index} width={'50%'}>
+              <Flexbox className={styles.buttonCtn} gap={16} horizontal>
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
 
-                  if (!id) return;
-                  createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
-                }}
-                shape={'round'}
-                type={'primary'}
-              >
-                高清化
-              </Button>
-              {/*<Button*/}
-              {/*  onClick={(e) => {*/}
-              {/*    e.stopPropagation();*/}
+                    if (!id) return;
+                    createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
+                  }}
+                  shape={'round'}
+                  type={'primary'}
+                >
+                  高清化
+                </Button>
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
 
-              {/*    if (!id) return;*/}
-              {/*    createSimpleChangeTask({ action: 'VARIATION', index, taskId: id });*/}
-              {/*  }}*/}
-              {/*  shape={'round'}*/}
-              {/*>*/}
-              {/*  风格化*/}
-              {/*</Button>*/}
+                    if (!id) return;
+                    createSimpleChangeTask({ action: 'VARIATION', index, taskId: id });
+                  }}
+                  shape={'round'}
+                >
+                  风格化
+                </Button>
+              </Flexbox>
             </Flexbox>
-          </Flexbox>
-        ))}
-      </Flexbox>
-      {/*<div className={styles.reroll}>*/}
-      {/*  <Button*/}
-      {/*    onClick={(e) => {*/}
-      {/*      e.stopPropagation();*/}
+          ))}
+        </Flexbox>
+        <div className={inLobeChat ? styles.rerollInLobeChat : styles.reroll}>
+          <Button
+            onClick={(e) => {
+              e.stopPropagation();
 
-      {/*      if (!id) return;*/}
-      {/*      createSimpleChangeTask({ action: 'REROLL', taskId: id });*/}
-      {/*    }}*/}
-      {/*    shape={'round'}*/}
-      {/*  >*/}
-      {/*    重新生成*/}
-      {/*  </Button>*/}
-      {/*</div>*/}
-    </>
+              if (!id) return;
+              createSimpleChangeTask({ action: 'REROLL', taskId: id });
+            }}
+            shape={'round'}
+          >
+            重新生成
+          </Button>
+        </div>
+      </>
+    )
   );
 });
 
