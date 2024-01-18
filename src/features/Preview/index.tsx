@@ -62,7 +62,7 @@ const Preview = memo(() => {
           <Progress
             percent={progress}
             showInfo={false}
-            size={['100%', 16]}
+            size={['100%', inLobeChat ? 12 : 16]}
             strokeColor={{ from: theme.blue7, to: theme.green7 }}
             strokeLinecap={'square'}
           />

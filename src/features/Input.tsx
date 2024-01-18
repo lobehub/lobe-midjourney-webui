@@ -25,7 +25,7 @@ const PromptInput = memo(() => {
         value={prompts}
       />
       <Flexbox direction={'vertical-reverse'} gap={8}>
-        <Button onClick={() => createImagineTask()} type={'primary'}>
+        <Button onClick={() => createImagineTask()} style={{ height: '100%' }} type={'primary'}>
           生成
         </Button>
       </Flexbox>
