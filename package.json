@@ -1,6 +1,6 @@
 {
   "name": "plugin-identifier",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "This is the plugin template for LobeChat plugin development",
   "homepage": "https://github.com/lobehub/chat-plugin-midjourney",
