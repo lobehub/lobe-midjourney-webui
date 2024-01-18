@@ -1,10 +1,11 @@
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-import { Flexbox } from 'react-layout-kit';
+import { Center, Flexbox } from 'react-layout-kit';
 
 import { midjourneySelectors, useStore } from '@/store';
 
+import Guide from './Guide';
 import ImagePreview from './Image';
 
 const useStyles = createStyles(({ css, token }) => ({
@@ -48,7 +49,13 @@ const Preview = memo(() => {
       padding={16}
       style={{ borderRadius: inLobeChat ? 8 : 24 }}
     >
-      {showImage && <ImagePreview />}
+      {showImage ? (
+        <ImagePreview />
+      ) : (
+        <Center height={'100%'} width={'100%'}>
+          <Guide />
+        </Center>
+      )}
       {taskLoading && progress !== 100 && (
         <div className={styles.process}>
           <Progress
