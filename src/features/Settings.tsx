@@ -1,9 +1,9 @@
 import { Alert, Icon, Input } from '@lobehub/ui';
-import { Drawer, FloatButton, Typography } from 'antd';
+import { Button, Drawer, FloatButton, Typography } from 'antd';
 import isEqual from 'fast-deep-equal';
 import { LucideSettings } from 'lucide-react';
 import Link from 'next/link';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import { useStore } from '@/store';
@@ -27,6 +27,7 @@ const Settings = memo(() => {
   ]);
   const requestError = useStore((s) => s.requestError, isEqual);
 
+  const [url, setUrl] = useState(MIDJOURNEY_API_URL);
   return (
     <>
       <Drawer
@@ -46,13 +47,13 @@ const Settings = memo(() => {
             />
           )}
           <Flexbox gap={12}>
-            <div>MIDJOURNEY API 代理地址</div>
+            <div>Midjourney API 代理地址</div>
             <Input
               onChange={(e) => {
-                updateSettings({ MIDJOURNEY_PROXY_URL: e.target.value });
+                setUrl(e.target.value);
               }}
               placeholder={'http://localhost:8080/'}
-              value={MIDJOURNEY_API_URL}
+              value={url}
             />
             <Typography.Text type={'secondary'}>
               请参考{' '}
@@ -60,6 +61,14 @@ const Settings = memo(() => {
               部署好服务端后使用
             </Typography.Text>
           </Flexbox>
+          <Button
+            onClick={() => {
+              updateSettings({ MIDJOURNEY_PROXY_URL: url });
+            }}
+            type={'primary'}
+          >
+            保存
+          </Button>
         </Flexbox>
       </Drawer>
       <FloatButton

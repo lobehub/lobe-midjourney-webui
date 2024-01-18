@@ -168,6 +168,8 @@ export const actions: StateCreator<
 
   updateSettings: (settings) => {
     set({ settings: { ...get().settings, ...settings } });
+
+    storageService.setSettings(settings);
   },
   useInitApp: () => {
     return useSWR<AppState>(
