@@ -29,6 +29,7 @@ const Actions = memo<{ setMask: (mask: boolean) => void }>(({ setMask }) => {
   const content = useMemo(() => {
     switch (currentTask?.action) {
       case 'VARIATION':
+      case 'REROLL':
       case 'IMAGINE': {
         return <ImagineAction id={currentTask.id || ''} setMask={setMask} />;
       }
@@ -36,9 +37,6 @@ const Actions = memo<{ setMask: (mask: boolean) => void }>(({ setMask }) => {
         break;
       }
 
-      case 'REROLL': {
-        break;
-      }
       case 'DESCRIBE': {
         break;
       }

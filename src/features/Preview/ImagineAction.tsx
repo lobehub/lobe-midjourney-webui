@@ -1,5 +1,7 @@
+import { Icon } from '@lobehub/ui';
 import { Button } from 'antd';
 import { createStyles } from 'antd-style';
+import { LucideScaling, LucideWand, RefreshCwIcon } from 'lucide-react';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
@@ -44,6 +46,8 @@ const useStyles = createStyles(({ css, cx }) => {
       left: 50%;
       transform: translateX(-50%);
 
+      opacity: 0;
+
       transition: opacity 0.3s;
     `,
   };
@@ -58,8 +62,7 @@ interface ImageActionProps {
 const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
   const { styles, cx } = useStyles();
 
-  const [inLobeChat, createSimpleChangeTask, isSuccess] = useStore((s) => [
-    s.inLobeChat,
+  const [createSimpleChangeTask, isSuccess] = useStore((s) => [
     s.createChangeTask,
     midjourneySelectors.getTaskById(id)(s)?.status === 'SUCCESS',
   ]);
@@ -79,6 +82,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
             <Flexbox className={styles.item} height={'50%'} key={index} width={'50%'}>
               <Flexbox className={styles.buttonCtn} gap={16} horizontal>
                 <Button
+                  icon={<Icon icon={LucideScaling} />}
                   onClick={(e) => {
                     e.stopPropagation();
 
@@ -91,6 +95,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
                   高清化
                 </Button>
                 <Button
+                  icon={<Icon icon={LucideWand} />}
                   onClick={(e) => {
                     e.stopPropagation();
 
@@ -105,8 +110,9 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
             </Flexbox>
           ))}
         </Flexbox>
-        <div className={cx('action-reroll', inLobeChat ? styles.rerollInLobeChat : styles.reroll)}>
+        <div className={cx('action-reroll', styles.reroll)}>
           <Button
+            icon={<Icon icon={RefreshCwIcon} />}
             onClick={(e) => {
               e.stopPropagation();
 

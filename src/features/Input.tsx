@@ -1,6 +1,7 @@
 import { TextArea } from '@lobehub/ui';
 import { Button, Flex } from 'antd';
 import { memo } from 'react';
+import { Flexbox } from 'react-layout-kit';
 
 import { useStore } from '@/store';
 
@@ -23,18 +24,11 @@ const PromptInput = memo(() => {
         type={'block'}
         value={prompts}
       />
-      <Flex gap={8} vertical>
+      <Flexbox direction={'vertical-reverse'} gap={8}>
         <Button onClick={() => createImagineTask()} type={'primary'}>
           生成
         </Button>
-        <Button
-          onClick={() => {
-            updatePrompts('');
-          }}
-        >
-          重置
-        </Button>
-      </Flex>
+      </Flexbox>
     </Flex>
   );
 });

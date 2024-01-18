@@ -40,6 +40,7 @@ const Preview = memo(() => {
   const currentTask = useStore(midjourneySelectors.currentActiveTask);
 
   const showImage = taskLoading || currentTask?.imageUrl;
+
   return (
     <Flexbox
       className={styles.container}
