@@ -34,6 +34,7 @@ This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
 - [🌟 Features](#-features)
 - [🤯 Usage](#-usage)
+  - [部署 midjourney-proxy](#部署-midjourney-proxy)
 - [⌨️ Local Development](#️-local-development)
 - [🤝 Contributing](#-contributing)
 - [🔗 Links](#-links)
@@ -44,10 +45,13 @@ This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
 ## 🌟 Features
 
-- [x] 💨 **Quick start with low learning curve**: This template provides a quick start option, allowing users to get started quickly. Additionally, the template includes detailed documentation to help users understand and use the features easily.
-- [x] 📚 **Beautiful and comprehensive documentation**: The template aims for aesthetics, with carefully designed interfaces and layouts that make the documentation more intuitive, readable, and user-friendly. Moreover, the template offers a wide range of styles and components for users to customize the appearance and functionality of their documentation.
-- [x] 🔄 **Complete workflow, automatic publishing and partner updates**: The template provides a complete workflow, including automatic publishing and automatic partner updates. Users can easily complete the publishing and updating tasks by following the specified steps.
-- [x] 🖱️ **One-click document generation**: The template offers a one-click document generation feature, allowing users to quickly generate complete documentation with simple operations. This saves users a significant amount of time and effort, allowing them to focus on improving the content and quality of their documentation.
+- 🖼️ **AI Image Generation**: The Midjourney plugin utilizes AI technology to quickly generate a variety of rich and diverse images based on user's text prompts, sparking creativity and beautifying conversations.
+- 🧙‍♂️ **Easy Activation**: Users can easily activate the MJ plugin panel and embark on an image creation journey simply by inputting natural language.
+- 🎚️ **Customized Prompts**: Custom prompt input function is provided, allowing users to customize prompts according to their needs, guiding AI to create ideal images.
+- 🔗 **Seamless Integration**: Seamless integration between the plugin and Midjourney service is achieved by configuring the Midjourney proxy URL.
+- 🛠️ **Diverse Parameters**: A series of parameter settings are supported, enabling users to precisely control the style, proportion, details, etc. of the images and create visual works that meet specific requirements.
+- 🚀 **Quick Adaptation**: The plugin is designed for fast deployment and ease of use, enabling users to enable it with simple settings and providing a convenient image generation experience.
+- 🖥️ **Dedicated Interface**: A dedicated UI interface is provided, allowing users to generate and preview images in an intuitive operation panel.
 
 <div align="right">
 
@@ -57,21 +61,9 @@ This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
 ## 🤯 Usage
 
-> \[!IMPORTANT]\
-> See detail on [📘 Template usage](https://chat-plugin-sdk.lobehub.com/guides/template)
+### 部署 midjourney-proxy
 
-> \[!Note]\
-> Plugins provide a means to extend the [Function Calling][fc-link] capabilities of LobeChat. They can be used to introduce new function calls, and even new ways to render message results. If you are interested in plugin development, please refer to our [📘 Plugin Development Guide](https://github.com/lobehub/lobe-chat/wiki/Plugin-Development) in the Wiki.
->
-> - [@lobehub/lobe-chat-plugins][lobe-chat-plugins]: This is the plugin index for LobeChat. It accesses index.json from this repository to display a list of available plugins for LobeChat to the user.
-> - [@lobehub/chat-plugin-sdk][chat-plugin-sdk]: The LobeChat Plugin SDK assists you in creating exceptional chat plugins for Lobe Chat.
-> - [@lobehub/chat-plugins-gateway][chat-plugins-gateway]: The LobeChat Plugins Gateway is a backend service that serves as a gateway for LobeChat plugins. We deploy this service using Vercel. The primary API POST /api/v1/runner is deployed as an Edge Function.
-
-| Official Plugin                                 | Description                                                                                                                                       |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SearchEngine][chat-plugin-search-engine]       | This plugin allows for the use of the SerpApi search engine.                                                                                      |
-| [RealtimeWeather][chat-plugin-realtime-weather] | This plugin provides practical weather information by obtaining real-time weather data and can automatically update based on the user's location. |
-| [WebsiteCrawler][chat-plugin-web-crawler]       | This plugin automatically crawls the main content of a specified URL webpage and uses it as context input.                                        |
+本插件基于 [midjourney-proxy](https://github.com/novicezk/midjourney-proxy/) 作为 Midjourney 服务的提供方，你需要自行部署一个 midjourney-proxy 服务。部署方法请参考 [📘 midjourney-proxy 部署文档](https://github.com/novicezk/midjourney-proxy/?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E5%89%8D%E6%8F%90)
 
 <div align="right">
 
@@ -87,13 +79,11 @@ You can use Github Codespaces for online development:
 
 Or clone it for local development:
 
-[![][bun-shield]][bun-link]
-
 ```bash
 $ git clone https://github.com/lobehub/chat-plugin-midjourney.git
 $ cd chat-plugin-midjourney
-$ bun install
-$ bun dev
+$ pnpm run install
+$ pnpm run dev
 ```
 
 <div align="right">
@@ -139,14 +129,6 @@ This project is [MIT](./LICENSE) licensed.
 [🤯-🧩-lobehub-link]: https://github.com/lobehub/lobe-chat-plugins
 [🤯-🧩-lobehub-shield]: https://img.shields.io/badge/%F0%9F%A4%AF%20%26%20%F0%9F%A7%A9%20LobeHub-Plugin-95f3d9?labelColor=black&style=flat-square
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
-[bun-link]: https://bun.sh
-[bun-shield]: https://img.shields.io/badge/-speedup%20with%20bun-black?logo=bun&style=for-the-badge
-[chat-plugin-realtime-weather]: https://github.com/lobehub/chat-plugin-realtime-weather
-[chat-plugin-sdk]: https://github.com/lobehub/chat-plugin-sdk
-[chat-plugin-search-engine]: https://github.com/lobehub/chat-plugin-search-engine
-[chat-plugin-web-crawler]: https://github.com/lobehub/chat-plugin-web-crawler
-[chat-plugins-gateway]: https://github.com/lobehub/chat-plugins-gateway
-[fc-link]: https://sspai.com/post/81986
 [github-action-release-link]: https://github.com/lobehub/chat-plugin-midjourney/actions/workflows/release.yml
 [github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/chat-plugin-midjourney/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
 [github-action-test-link]: https://github.com/lobehub/chat-plugin-midjourney/actions/workflows/test.yml
@@ -169,7 +151,6 @@ This project is [MIT](./LICENSE) licensed.
 [github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/chat-plugin-midjourney?labelColor=black&style=flat-square
 [github-stars-link]: https://github.com/lobehub/chat-plugin-midjourney/network/stargazers
 [github-stars-shield]: https://img.shields.io/github/stars/lobehub/chat-plugin-midjourney?color=ffcb47&labelColor=black&style=flat-square
-[lobe-chat-plugins]: https://github.com/lobehub/lobe-chat-plugins
 [pr-welcome-link]: https://github.com/lobehub/chat-plugin-midjourney/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/%F0%9F%A4%AF%20PR%20WELCOME-%E2%86%92-ffcb47?labelColor=black&style=for-the-badge
 [profile-url]: https://github.com/lobehub
