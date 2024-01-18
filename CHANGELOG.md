@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.2.5](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.4...v1.2.5)
+
+<sup>Released on **2024-01-18**</sup>
+
+#### 💄 Styles
+
+- **misc**: Improve style.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Improve style ([1342cd2](https://github.com/lobehub/chat-plugin-midjourney/commit/1342cd2))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.4](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.3...v1.2.4)
 
 <sup>Released on **2024-01-18**</sup>
