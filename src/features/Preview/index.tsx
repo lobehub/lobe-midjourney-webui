@@ -33,7 +33,7 @@ const Preview = memo(() => {
   const [progress, taskLoading, inLobeChat] = useStore((s) => [
     midjourneySelectors.currentTaskProgress(s),
     midjourneySelectors.isCurrentTaskRunning(s),
-    s.inLobeChat,
+    midjourneySelectors.isInLobeChat(s),
   ]);
 
   const { styles, theme } = useStyles();
@@ -51,7 +51,7 @@ const Preview = memo(() => {
     >
       {showImage ? (
         <ImagePreview />
-      ) : (
+      ) : inLobeChat ? null : (
         <Center height={'100%'} width={'100%'}>
           <Guide />
         </Center>

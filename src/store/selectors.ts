@@ -31,6 +31,7 @@ const isCurrentTaskRunning = (s: MidjourneyStore) => {
 const isTaskActive = (id: string) => (s: MidjourneyStore) => {
   return getTaskById(id)(s)?.id === s.activeTaskId;
 };
+const isInLobeChat = (s: MidjourneyStore) => s.inLobeChat;
 
 export const midjourneySelectors = {
   currentActiveTask,
@@ -38,6 +39,7 @@ export const midjourneySelectors = {
   getTaskById,
   isAnyTaskRunning,
   isCurrentTaskRunning,
+  isInLobeChat,
   isTaskActive,
   isTasksEmpty,
 };

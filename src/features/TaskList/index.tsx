@@ -10,11 +10,13 @@ const TaskList = memo(() => {
   const tasks = useStore((s) => s.tasks.map((t) => t.id), isEqual);
 
   return (
-    <Flexbox gap={6} height={64} horizontal>
-      {tasks.map((task) => (
-        <TaskItem id={task} key={task} />
-      ))}
-    </Flexbox>
+    tasks.length > 1 && (
+      <Flexbox gap={6} height={64} horizontal>
+        {tasks.map((task) => (
+          <TaskItem id={task} key={task} />
+        ))}
+      </Flexbox>
+    )
   );
 });
 

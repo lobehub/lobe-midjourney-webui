@@ -202,6 +202,11 @@ export const actions: StateCreator<
       {
         onSuccess: (data: AppState) => {
           if (data) get().updateAppState(data, 'initApp');
+
+          // 如果第一次在 LobeChat 中触发插件，则创建 imagine 任务
+          if (data.inLobeChat && data.tasks?.length === 0 && !!data.prompts) {
+            get().createImagineTask();
+          }
         },
         revalidateOnFocus: false,
       },
