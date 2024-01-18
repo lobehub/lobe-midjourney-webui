@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.2.3](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.2...v1.2.3)
+
+<sup>Released on **2024-01-18**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Improve plugin ux.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Improve plugin ux ([7a7b97b](https://github.com/lobehub/chat-plugin-midjourney/commit/7a7b97b))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.2](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.1...v1.2.2)
 
 <sup>Released on **2024-01-18**</sup>
