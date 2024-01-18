@@ -14,6 +14,12 @@ const useStyles = createStyles(({ css }) => ({
 
     width: 100%;
     height: 100%;
+
+    :hover {
+      .action-reroll {
+        opacity: 1;
+      }
+    }
   `,
 }));
 
@@ -22,15 +28,14 @@ const Actions = memo<{ setMask: (mask: boolean) => void }>(({ setMask }) => {
   const { styles } = useStyles();
   const content = useMemo(() => {
     switch (currentTask?.action) {
+      case 'VARIATION':
       case 'IMAGINE': {
         return <ImagineAction id={currentTask.id || ''} setMask={setMask} />;
       }
       case 'UPSCALE': {
         break;
       }
-      case 'VARIATION': {
-        break;
-      }
+
       case 'REROLL': {
         break;
       }

@@ -4,11 +4,14 @@ import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
 import { ChangeTaskDTO, midjourneyService } from '@/services/Midjourney';
+import { storageService } from '@/services/storageService';
 import { TaskDispatch, tasksReducer } from '@/store/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
 import { MidjourneyStore } from '.';
 import { AppSettings, AppState, initialState } from './initialState';
+
+const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== undefined;
 
 interface MJFunction {
   prompts: string;
@@ -149,15 +152,14 @@ export const actions: StateCreator<
     }
   },
 
-  updateAppState: (state, action) => {
+  updateAppState: async (state, action) => {
     set({ ...state }, false, action);
 
-    if (!get().inLobeChat) return;
-
-    // TODO: 替换为更好用的 setPluginState 方法
-    for (const [key, value] of Object.entries(state)) {
-      lobeChat.setPluginState(key, value);
+    if (!get().inLobeChat) {
+      await storageService.saveToLocalStorage(state);
     }
+
+    await storageService.saveToLobeChat(state);
   },
 
   updatePrompts: (data) => {
@@ -175,14 +177,13 @@ export const actions: StateCreator<
 
         // 说明不在 LobeChat 中
         if (!payload) {
-          // 开发环境下，使用 mock 数据
-          if (process.env.NODE_ENV === 'development') {
+          // 开发环境下，按需开启 mock 数据
+          if (useMockData && process.env.NODE_ENV === 'development') {
             const { mockState } = await import('./_mockdata');
-
             return mockState;
           }
 
-          return;
+          return await storageService.getFromLocalStorage();
         }
 
         if (payload?.name === 'showMJ') {

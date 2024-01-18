@@ -2,12 +2,11 @@ import { TextArea } from '@lobehub/ui';
 import { Button, Flex } from 'antd';
 import { memo } from 'react';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { useStore } from '@/store';
 
 const PromptInput = memo(() => {
-  const [prompts, running, updatePrompts, createImagineTask] = useStore((s) => [
+  const [prompts, updatePrompts, createImagineTask] = useStore((s) => [
     s.prompts,
-    midjourneySelectors.isAnyTaskRunning(s),
     s.updatePrompts,
     s.createImagineTask,
   ]);
@@ -25,11 +24,10 @@ const PromptInput = memo(() => {
         value={prompts}
       />
       <Flex gap={8} vertical>
-        <Button loading={running} onClick={() => createImagineTask()} type={'primary'}>
+        <Button onClick={() => createImagineTask()} type={'primary'}>
           生成
         </Button>
         <Button
-          disabled={running}
           onClick={() => {
             updatePrompts('');
           }}

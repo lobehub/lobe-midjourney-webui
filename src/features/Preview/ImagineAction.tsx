@@ -33,12 +33,18 @@ const useStyles = createStyles(({ css, cx }) => {
       position: absolute;
       top: 16px;
       right: 16px;
+
+      opacity: 0;
+
+      transition: opacity 0.3s;
     `,
     rerollInLobeChat: css`
       position: absolute;
       bottom: -44px;
       left: 50%;
       transform: translateX(-50%);
+
+      transition: opacity 0.3s;
     `,
   };
 });
@@ -50,7 +56,7 @@ interface ImageActionProps {
   setMask: (mask: boolean) => void;
 }
 const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
-  const { styles } = useStyles();
+  const { styles, cx } = useStyles();
 
   const [inLobeChat, createSimpleChangeTask, isSuccess] = useStore((s) => [
     s.inLobeChat,
@@ -99,7 +105,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
             </Flexbox>
           ))}
         </Flexbox>
-        <div className={inLobeChat ? styles.rerollInLobeChat : styles.reroll}>
+        <div className={cx('action-reroll', inLobeChat ? styles.rerollInLobeChat : styles.reroll)}>
           <Button
             onClick={(e) => {
               e.stopPropagation();
