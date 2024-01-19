@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.2.7](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.6...v1.2.7)
+
+<sup>Released on **2024-01-19**</sup>
+
+#### ♻ Code Refactoring
+
+- **misc**: Refactor with mj store.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- **misc**: Refactor with mj store ([4d7e9d3](https://github.com/lobehub/chat-plugin-midjourney/commit/4d7e9d3))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.6](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.5...v1.2.6)
 
 <sup>Released on **2024-01-19**</sup>
