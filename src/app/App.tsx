@@ -10,10 +10,10 @@ interface AppProps {
 }
 export const App = memo<AppProps>(({ style }) => {
   return (
-    <Flexbox gap={8} style={style}>
+    <Flexbox gap={12} style={{ maxHeight: '100dvh', overflow: 'hidden', ...style }}>
       <PromptInput />
-      <TaskList />
       <ImagePreview />
+      <TaskList />
     </Flexbox>
   );
 });

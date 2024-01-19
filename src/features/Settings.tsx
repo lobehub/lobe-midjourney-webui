@@ -1,7 +1,7 @@
-import { Alert, Icon, Input } from '@lobehub/ui';
-import { Button, Drawer, FloatButton, Typography } from 'antd';
+import { ActionIcon, Alert, Icon, Input, Modal } from '@lobehub/ui';
+import { Button, Typography } from 'antd';
 import isEqual from 'fast-deep-equal';
-import { LucideSettings } from 'lucide-react';
+import { LucideSettings, Save } from 'lucide-react';
 import Link from 'next/link';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
@@ -30,12 +30,25 @@ const Settings = memo(() => {
   const [url, setUrl] = useState(MIDJOURNEY_API_URL);
   return (
     <>
-      <Drawer
-        onClose={() => {
+      <Modal
+        centered
+        footer={
+          <Button
+            block
+            icon={<Icon icon={Save} />}
+            onClick={() => {
+              updateSettings({ MIDJOURNEY_PROXY_URL: url });
+              useMidjourneyStore.setState({ isSettingsModalOpen: false });
+            }}
+            type={'primary'}
+          />
+        }
+        onCancel={() => {
           useMidjourneyStore.setState({ isSettingsModalOpen: false });
         }}
         open={isSettingsModalOpen}
-        title={'设置'}
+        title={'Setting'}
+        width={375}
       >
         <Flexbox gap={24}>
           {requestError && (
@@ -47,12 +60,12 @@ const Settings = memo(() => {
             />
           )}
           <Flexbox gap={12}>
-            <div>Midjourney API 代理地址</div>
+            <div>Midjourney API Proxy</div>
             <Input
               onChange={(e) => {
                 setUrl(e.target.value);
               }}
-              placeholder={'http://localhost:8080/'}
+              placeholder={'https://your-midjourney-proxy'}
               value={url}
             />
             <Typography.Text type={'secondary'}>
@@ -61,22 +74,14 @@ const Settings = memo(() => {
               部署好服务端后使用
             </Typography.Text>
           </Flexbox>
-          <Button
-            onClick={() => {
-              updateSettings({ MIDJOURNEY_PROXY_URL: url });
-              useMidjourneyStore.setState({ isSettingsModalOpen: false });
-            }}
-            type={'primary'}
-          >
-            保存
-          </Button>
         </Flexbox>
-      </Drawer>
-      <FloatButton
-        icon={<Icon icon={LucideSettings} />}
+      </Modal>
+      <ActionIcon
+        icon={LucideSettings}
         onClick={() => {
           useMidjourneyStore.setState({ isSettingsModalOpen: true });
         }}
+        size={'site'}
       />
     </>
   );

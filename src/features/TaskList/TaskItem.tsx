@@ -1,4 +1,5 @@
 import { ActionIcon, Image } from '@lobehub/ui';
+import { Popconfirm } from 'antd';
 import { createStyles } from 'antd-style';
 import { Trash } from 'lucide-react';
 import { memo } from 'react';
@@ -9,7 +10,8 @@ import { MIN_IMAGE_SIZE } from './style';
 
 export const useStyles = createStyles(({ css, token }) => ({
   active: css`
-    box-shadow: 0 0 0 3px ${token.colorPrimary};
+    opacity: 1;
+    box-shadow: 0 0 0 2px ${token.colorPrimary};
   `,
   deleteButton: css`
     color: #fff;
@@ -25,7 +27,18 @@ export const useStyles = createStyles(({ css, token }) => ({
   `,
   image: css`
     cursor: pointer;
+
+    overflow: hidden;
+    flex: none;
+
+    width: ${MIN_IMAGE_SIZE}px;
+    height: ${MIN_IMAGE_SIZE}px;
     margin-block: 0 !important;
+
+    opacity: 0.75;
+    border-radius: ${token.borderRadiusLG}px;
+
+    transition: all 0.2s ease-in-out;
   `,
 }));
 
@@ -34,7 +47,6 @@ interface TaskItemProps {
 }
 
 const TaskItem = memo<TaskItemProps>(({ id }) => {
-  const IMAGE_SIZE = MIN_IMAGE_SIZE;
   const task = useMidjourneyStore(midjourneySelectors.getTaskById(id));
   const [removeTask, activeTask, isActive] = useMidjourneyStore((s) => [
     s.removeTask,
@@ -45,29 +57,29 @@ const TaskItem = memo<TaskItemProps>(({ id }) => {
   const { styles, cx } = useStyles();
 
   return (
-    <Image
-      actions={
-        <ActionIcon
-          className={styles.deleteButton}
-          glass
-          icon={Trash}
-          onClick={(e) => {
-            e.stopPropagation();
-            removeTask(id);
-          }}
-          size={'small'}
-        />
-      }
-      alt={task?.prompt}
-      isLoading={task?.status === 'IN_PROGRESS'}
-      onClick={() => {
-        activeTask(id);
-      }}
-      preview={false}
-      size={IMAGE_SIZE}
-      src={task?.imageUrl}
-      wrapperClassName={cx(styles.image, isActive && styles.active, styles.editableImage)}
-    />
+    <div className={cx(styles.image, isActive && styles.active, styles.editableImage)}>
+      <Image
+        actions={
+          <Popconfirm
+            arrow={false}
+            onConfirm={(e) => {
+              e?.stopPropagation();
+              removeTask(id);
+            }}
+            title={'Are you sure you want to delete this image?'}
+          >
+            <ActionIcon className={styles.deleteButton} glass icon={Trash} size={'small'} />
+          </Popconfirm>
+        }
+        alt={task?.prompt}
+        isLoading={task?.status === 'IN_PROGRESS'}
+        onClick={() => {
+          activeTask(id);
+        }}
+        preview={false}
+        src={task?.imageUrl}
+      />
+    </div>
   );
 });
 
