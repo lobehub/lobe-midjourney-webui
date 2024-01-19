@@ -185,10 +185,7 @@ export const actions: StateCreator<
             return mockState;
           }
 
-          const app = await storageService.getFromLocalStorage();
-          const settings = await storageService.getFromLocalStorage();
-
-          return { ...app, settings };
+          return await storageService.getFromLocalStorage();
         }
 
         if (payload?.name === 'showMJ') {

@@ -5,8 +5,9 @@ import { LucideSettings, Save } from 'lucide-react';
 import Link from 'next/link';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
+import { useGlobalStore } from 'src/store/global';
 
-import { useMidjourneyStore } from '@/store/midjourney';
+import { settingsSelectors } from '@/store/global/selectors';
 
 const getErrorContent = (errorType: string | { type: string }) => {
   if (typeof errorType === 'string') return errorType;
@@ -19,15 +20,18 @@ const getErrorContent = (errorType: string | { type: string }) => {
 
   return '网络请求错误';
 };
+
 const Settings = memo(() => {
-  const [isSettingsModalOpen, MIDJOURNEY_API_URL, updateSettings] = useMidjourneyStore((s) => [
+  const [isSettingsModalOpen, MIDJOURNEY_API_URL, updateSettings] = useGlobalStore((s) => [
     s.isSettingsModalOpen,
-    s.settings.MIDJOURNEY_PROXY_URL,
+    settingsSelectors.proxyURL(s),
     s.updateSettings,
   ]);
-  const requestError = useMidjourneyStore((s) => s.requestError, isEqual);
+
+  const requestError = useGlobalStore((s) => s.requestError, isEqual);
 
   const [url, setUrl] = useState(MIDJOURNEY_API_URL);
+
   return (
     <>
       <Modal
@@ -38,13 +42,13 @@ const Settings = memo(() => {
             icon={<Icon icon={Save} />}
             onClick={() => {
               updateSettings({ MIDJOURNEY_PROXY_URL: url });
-              useMidjourneyStore.setState({ isSettingsModalOpen: false });
+              useGlobalStore.setState({ isSettingsModalOpen: false });
             }}
             type={'primary'}
           />
         }
         onCancel={() => {
-          useMidjourneyStore.setState({ isSettingsModalOpen: false });
+          useGlobalStore.setState({ isSettingsModalOpen: false });
         }}
         open={isSettingsModalOpen}
         title={'Setting'}
@@ -79,7 +83,7 @@ const Settings = memo(() => {
       <ActionIcon
         icon={LucideSettings}
         onClick={() => {
-          useMidjourneyStore.setState({ isSettingsModalOpen: true });
+          useGlobalStore.setState({ isSettingsModalOpen: true });
         }}
         size={'site'}
       />
