@@ -28,6 +28,9 @@ const isCurrentTaskRunning = (s: MidjourneyStore) => {
   return s.runningTaskIds.includes(task.id);
 };
 
+const isLoading = (s: MidjourneyStore) => {
+  return isCurrentTaskRunning(s) && currentTaskProgress(s) !== 100;
+};
 const isTaskActive = (id: string) => (s: MidjourneyStore) => {
   return getTaskById(id)(s)?.id === s.activeTaskId;
 };
@@ -42,6 +45,7 @@ export const midjourneySelectors = {
   isAnyTaskRunning,
   isCurrentTaskRunning,
   isInLobeChat,
+  isLoading,
   isTaskActive,
   isTasksEmpty,
 };

@@ -15,7 +15,6 @@ const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
     overflow: hidden;
   `,
   process: cx(
-    // @ts-ignore
     stylish.blur,
     css`
       position: absolute;

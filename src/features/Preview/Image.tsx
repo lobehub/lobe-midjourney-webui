@@ -3,12 +3,20 @@ import { createStyles } from 'antd-style';
 import { memo, useState } from 'react';
 import { Center } from 'react-layout-kit';
 
+import ActionsBar from '@/features/Preview/ActionsBar';
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Actions from './Actions';
 
 const useStyles = createStyles(({ css, prefixCls, token }) => {
   return {
+    container: css`
+      &:hover {
+        .actions {
+          opacity: 1;
+        }
+      }
+    `,
     empty: css`
       width: var(--max);
       height: var(--max);
@@ -23,8 +31,8 @@ const useStyles = createStyles(({ css, prefixCls, token }) => {
       border-radius: ${token.borderRadiusLG}px;
 
       img {
-        width: var(--max);
-        height: var(--max);
+        min-width: var(--max) !important;
+        min-height: var(--max) !important;
       }
     `,
     imagine: css`
@@ -43,7 +51,7 @@ const ImagePreview = memo(() => {
   const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
 
   return (
-    <Center flex={1} height={`var(--max)`} width={`var(--max)`}>
+    <Center className={styles.container} flex={1} height={`var(--max)`} width={`var(--max)`}>
       {currentTask?.imageUrl ? (
         <div style={{ height: `var(--max)`, maxWidth: `var(--max)`, position: 'relative' }}>
           <Image
@@ -56,6 +64,7 @@ const ImagePreview = memo(() => {
             )}
           />
           {currentTask.action !== 'UPSCALE' && <Actions setMask={setMask} />}
+          <ActionsBar hideReroll={currentTask.action === 'UPSCALE'} taskId={currentTask?.id} />
         </div>
       ) : (
         <div className={styles.empty} />

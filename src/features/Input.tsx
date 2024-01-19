@@ -4,31 +4,37 @@ import { createStyles } from 'antd-style';
 import { SendHorizontal } from 'lucide-react';
 import { memo } from 'react';
 
-import { useMidjourneyStore } from '@/store/midjourney';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
-const useStyles = createStyles(({ css, token }) => ({
+const useStyles = createStyles(({ css, token, stylish, cx }) => ({
   container: css`
     padding: 4px;
     background: ${token.colorFillTertiary};
     border: 1px solid ${token.colorBorderSecondary};
     border-radius: ${token.borderRadiusLG}px;
   `,
-  prompt: css`
-    padding: 6px;
-    font-family: ${token.fontFamilyCode};
-  `,
+  prompt: cx(
+    stylish.noScrollbar,
+    css`
+      padding: 6px;
+      font-family: ${token.fontFamilyCode};
+      font-size: 13px;
+      line-height: 1.4 !important;
+    `,
+  ),
 }));
 
 const PromptInput = memo(() => {
   const { styles } = useStyles();
-  const [prompts, updatePrompts, createImagineTask] = useMidjourneyStore((s) => [
+  const [prompts, updatePrompts, createImagineTask, isLoading] = useMidjourneyStore((s) => [
     s.prompts,
     s.updatePrompts,
     s.createImagineTask,
+    midjourneySelectors.isLoading(s),
   ]);
 
   return (
-    <Flex align={'flex-end'} className={styles.container} gap={8}>
+    <Flex align={'center'} className={styles.container} gap={8}>
       <TextArea
         autoSize={{ maxRows: 3, minRows: 1 }}
         className={styles.prompt}
@@ -40,7 +46,12 @@ const PromptInput = memo(() => {
         type={'pure'}
         value={prompts}
       />
-      <ActionIcon active icon={SendHorizontal} onClick={() => createImagineTask()} />
+      <ActionIcon
+        active
+        icon={SendHorizontal}
+        loading={isLoading}
+        onClick={() => createImagineTask()}
+      />
     </Flex>
   );
 });

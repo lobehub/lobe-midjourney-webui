@@ -7,7 +7,7 @@ import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import TaskItem from './TaskItem';
 
-export const useStyles = createStyles(({ css }) => ({
+export const useStyles = createStyles(({ css, stylish, cx }) => ({
   container: css`
     position: relative;
     overflow: hidden;
@@ -15,11 +15,14 @@ export const useStyles = createStyles(({ css }) => ({
 
     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
   `,
-  scroll: css`
-    position: relative;
-    overflow: auto hidden;
-    max-width: 100%;
-  `,
+  scroll: cx(
+    stylish.bottomScrollbar,
+    css`
+      position: relative;
+      overflow: auto hidden;
+      max-width: 100%;
+    `,
+  ),
 }));
 
 const TaskList = memo(() => {

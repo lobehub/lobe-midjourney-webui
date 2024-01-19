@@ -14,12 +14,6 @@ const useStyles = createStyles(({ css }) => ({
 
     width: 100%;
     height: 100%;
-
-    :hover {
-      .actions {
-        opacity: 1;
-      }
-    }
   `,
 }));
 
