@@ -40,22 +40,21 @@ const Preview = memo(() => {
     midjourneySelectors.isCurrentTaskRunning(s),
     midjourneySelectors.isInLobeChat(s),
   ]);
-
   const { styles } = useStyles();
   const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
 
   const showImage = taskLoading || currentTask?.imageUrl;
+  const showProgress = taskLoading && progress !== 100;
 
   useEffect(() => {
     if (!size) return;
     const maxSize = size.width > size.height ? size.height : size.width;
     document.documentElement.style.setProperty('--max', `${maxSize}px`);
-    console.log(maxSize);
   }, [size]);
 
   return (
     <Center className={styles.container} flex={1} gap={8} justify={'center'} ref={ref}>
-      {taskLoading && progress !== 100 && (
+      {showProgress && (
         <div className={styles.process}>
           <Progress percent={progress} size="small" type="circle" />
         </div>

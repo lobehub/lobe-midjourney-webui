@@ -16,7 +16,7 @@ const useStyles = createStyles(({ css }) => ({
     height: 100%;
 
     :hover {
-      .action-reroll {
+      .actions {
         opacity: 1;
       }
     }

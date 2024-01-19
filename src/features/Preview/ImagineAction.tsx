@@ -1,15 +1,25 @@
-import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
-import { RefreshCwIcon } from 'lucide-react';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import DeleteButton from '@/features/Preview/DeleteButton';
+import RerollButton from '@/features/Preview/RerollButton';
+import { useMinimode } from '@/hooks/useMinimode';
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import ImagineActionItem from './ImagineActionItem';
 
 const useStyles = createStyles(({ css, token }) => {
   return {
+    actions: css`
+      position: absolute;
+      top: 16px;
+      right: 16px;
+
+      opacity: 0;
+
+      transition: opacity 0.3s;
+    `,
     container: css`
       border-radius: ${token.borderRadiusLG}px;
 
@@ -18,15 +28,6 @@ const useStyles = createStyles(({ css, token }) => {
           background: rgba(0, 0, 0, 50%);
         }
       }
-    `,
-    reroll: css`
-      position: absolute;
-      top: 16px;
-      right: 16px;
-
-      opacity: 0;
-
-      transition: opacity 0.3s;
     `,
     rerollInLobeChat: css`
       position: absolute;
@@ -49,7 +50,7 @@ interface ImageActionProps {
 }
 const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
   const { styles, cx } = useStyles();
-
+  const { isMobile } = useMinimode();
   const [createSimpleChangeTask, isSuccess] = useMidjourneyStore((s) => [
     s.createChangeTask,
     midjourneySelectors.getTaskById(id)(s)?.status === 'SUCCESS',
@@ -72,31 +73,26 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
               key={index}
               onUpscale={(e) => {
                 e.stopPropagation();
-
                 if (!id) return;
                 createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
               }}
               onVary={(e) => {
                 e.stopPropagation();
-
                 if (!id) return;
                 createSimpleChangeTask({ action: 'VARIATION', index, taskId: id });
               }}
             />
           ))}
         </Flexbox>
-        <ActionIcon
-          active
-          className={cx('action-reroll', styles.reroll)}
-          glass
-          icon={RefreshCwIcon}
-          onClick={(e) => {
-            e.stopPropagation();
-
-            if (!id) return;
-            createSimpleChangeTask({ action: 'REROLL', taskId: id });
-          }}
-        />
+        <Flexbox
+          className={cx('actions', styles.actions)}
+          gap={4}
+          horizontal
+          style={isMobile ? { opacity: 1 } : {}}
+        >
+          <RerollButton taskId={id} />
+          <DeleteButton taskId={id} />
+        </Flexbox>
       </>
     )
   );
