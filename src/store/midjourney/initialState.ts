@@ -4,7 +4,7 @@ export interface AppSettings {
   MIDJOURNEY_PROXY_URL?: string;
 }
 
-export interface AppState {
+export interface MidjourneyState {
   activeTaskId?: string;
   inLobeChat?: boolean;
   isSettingsModalOpen: boolean;
@@ -15,7 +15,7 @@ export interface AppState {
   tasks: MidjourneyTask[];
 }
 
-export const initialState: AppState = {
+export const initialState: MidjourneyState = {
   inLobeChat: false,
   isSettingsModalOpen: false,
   prompts: '',

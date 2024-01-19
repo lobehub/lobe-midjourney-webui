@@ -3,7 +3,7 @@ import { createStyles } from 'antd-style';
 import { Trash } from 'lucide-react';
 import { memo } from 'react';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import { MIN_IMAGE_SIZE } from './style';
 
@@ -35,8 +35,8 @@ interface TaskItemProps {
 
 const TaskItem = memo<TaskItemProps>(({ id }) => {
   const IMAGE_SIZE = MIN_IMAGE_SIZE;
-  const task = useStore(midjourneySelectors.getTaskById(id));
-  const [removeTask, activeTask, isActive] = useStore((s) => [
+  const task = useMidjourneyStore(midjourneySelectors.getTaskById(id));
+  const [removeTask, activeTask, isActive] = useMidjourneyStore((s) => [
     s.removeTask,
     s.activeTask,
     midjourneySelectors.isTaskActive(id)(s),

@@ -1,6 +1,6 @@
-import { AppState } from './initialState';
+import { MidjourneyState } from './initialState';
 
-export const mockState: Partial<AppState> = {
+export const mockState: Partial<MidjourneyState> = {
   activeTaskId: '1705298817774894',
   prompts: 'cute little duckling, soft fluffy feathers, bright eyes, standing by a pond',
   runningTaskIds: [],

@@ -1,10 +1,12 @@
 import { lobeChat } from '@lobehub/chat-plugin-sdk/client';
 
-import { AppSettings } from '@/store/initialState';
+import { AppSettings } from '@/store/midjourney/initialState';
+
+type StorageKey = 'MIDJOURNEY_DATA' | 'APP_SETTINGS';
 
 class StorageService {
-  private storageKey = 'MIDJOURNEY_DATA';
-  private settingKey = 'APP_SETTINGS';
+  private storageKey: StorageKey = 'MIDJOURNEY_DATA';
+  private settingKey: StorageKey = 'APP_SETTINGS';
 
   async saveToLocalStorage(state: object) {
     const data = await this.getFromLocalStorage();
@@ -12,7 +14,7 @@ class StorageService {
     localStorage.setItem(this.storageKey, JSON.stringify({ ...data, ...state }));
   }
 
-  async getFromLocalStorage(key = this.storageKey): Promise<object> {
+  async getFromLocalStorage(key: StorageKey = this.storageKey): Promise<object> {
     return JSON.parse(localStorage.getItem(key) || '{}');
   }
 

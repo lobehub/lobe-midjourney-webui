@@ -3,7 +3,7 @@ import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Guide from './Guide';
 import ImagePreview from './Image';
@@ -30,14 +30,14 @@ const useStyles = createStyles(({ css, token }) => ({
 }));
 
 const Preview = memo(() => {
-  const [progress, taskLoading, inLobeChat] = useStore((s) => [
+  const [progress, taskLoading, inLobeChat] = useMidjourneyStore((s) => [
     midjourneySelectors.currentTaskProgress(s),
     midjourneySelectors.isCurrentTaskRunning(s),
     midjourneySelectors.isInLobeChat(s),
   ]);
 
   const { styles, theme } = useStyles();
-  const currentTask = useStore(midjourneySelectors.currentActiveTask);
+  const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
 
   const showImage = taskLoading || currentTask?.imageUrl;
 

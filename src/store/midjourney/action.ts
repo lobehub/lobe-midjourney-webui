@@ -5,11 +5,11 @@ import { StateCreator } from 'zustand';
 
 import { ChangeTaskDTO, midjourneyService } from '@/services/Midjourney';
 import { storageService } from '@/services/storageService';
-import { TaskDispatch, tasksReducer } from '@/store/reducers/task';
+import { TaskDispatch, tasksReducer } from '@/store/midjourney/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
-import { MidjourneyStore } from '.';
-import { AppSettings, AppState, initialState } from './initialState';
+import { MidjourneyStore } from './index';
+import { AppSettings, MidjourneyState, initialState } from './initialState';
 
 const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== undefined;
 
@@ -25,10 +25,10 @@ export interface StoreAction {
   pollTaskStatus: (id: string) => Promise<void>;
   removeTask: (id: string) => void;
   toggleTaskLoading: (id: string, loading: boolean) => void;
-  updateAppState: (state: Partial<AppState>, action?: any) => void;
+  updateAppState: (state: Partial<MidjourneyState>, action?: any) => void;
   updatePrompts: (input: string) => void;
   updateSettings: (settings: Partial<AppSettings>) => void;
-  useInitApp: () => SWRResponse<AppState>;
+  useInitApp: () => SWRResponse<MidjourneyState>;
 }
 
 export const actions: StateCreator<
@@ -172,7 +172,7 @@ export const actions: StateCreator<
     storageService.setSettings(settings);
   },
   useInitApp: () => {
-    return useSWR<AppState>(
+    return useSWR<MidjourneyState>(
       'init',
       async () => {
         const payload = await lobeChat.getPluginPayload<MJFunction>();
@@ -185,7 +185,10 @@ export const actions: StateCreator<
             return mockState;
           }
 
-          return await storageService.getFromLocalStorage();
+          const app = await storageService.getFromLocalStorage();
+          const settings = await storageService.getFromLocalStorage();
+
+          return { ...app, settings };
         }
 
         if (payload?.name === 'showMJ') {
@@ -200,7 +203,7 @@ export const actions: StateCreator<
         }
       },
       {
-        onSuccess: (data: AppState) => {
+        onSuccess: (data: MidjourneyState) => {
           if (data) get().updateAppState(data, 'initApp');
 
           // 如果第一次在 LobeChat 中触发插件，则创建 imagine 任务

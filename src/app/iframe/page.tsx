@@ -6,12 +6,12 @@ import { Flexbox } from 'react-layout-kit';
 import PromptInput from '@/features/Input';
 import ImagePreview from '@/features/Preview';
 import TaskList from '@/features/TaskList';
-import { useStore } from '@/store';
+import { useMidjourneyStore } from '@/store/midjourney';
 
 import './global.css';
 
 const InLobeChatPage = memo(() => {
-  const [useInitApp] = useStore((s) => [s.useInitApp]);
+  const [useInitApp] = useMidjourneyStore((s) => [s.useInitApp]);
 
   useInitApp();
 

@@ -5,7 +5,7 @@ import { LucideScaling, LucideWand, RefreshCwIcon } from 'lucide-react';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 const useStyles = createStyles(({ css, cx }) => {
   const buttonCtn = css`
@@ -62,7 +62,7 @@ interface ImageActionProps {
 const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
   const { styles, cx } = useStyles();
 
-  const [createSimpleChangeTask, isSuccess] = useStore((s) => [
+  const [createSimpleChangeTask, isSuccess] = useMidjourneyStore((s) => [
     s.createChangeTask,
     midjourneySelectors.getTaskById(id)(s)?.status === 'SUCCESS',
   ]);

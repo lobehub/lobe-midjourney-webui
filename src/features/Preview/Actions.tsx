@@ -2,7 +2,7 @@ import { createStyles } from 'antd-style';
 import { memo, useMemo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import ImagineAction from './ImagineAction';
 
@@ -24,7 +24,7 @@ const useStyles = createStyles(({ css }) => ({
 }));
 
 const Actions = memo<{ setMask: (mask: boolean) => void }>(({ setMask }) => {
-  const currentTask = useStore(midjourneySelectors.currentActiveTask);
+  const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
   const { styles } = useStyles();
   const content = useMemo(() => {
     switch (currentTask?.action) {

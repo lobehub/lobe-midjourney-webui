@@ -2,13 +2,13 @@ import isEqual from 'fast-deep-equal';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import TaskItem from './TaskItem';
 
 const TaskList = memo(() => {
-  const tasks = useStore((s) => s.tasks.map((t) => t.id), isEqual);
-  const hasMultiTasks = useStore(midjourneySelectors.hasMultiTasks);
+  const tasks = useMidjourneyStore((s) => s.tasks.map((t) => t.id), isEqual);
+  const hasMultiTasks = useMidjourneyStore(midjourneySelectors.hasMultiTasks);
 
   return (
     hasMultiTasks && (

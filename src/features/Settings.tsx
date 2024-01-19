@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { useStore } from '@/store';
+import { useMidjourneyStore } from '@/store/midjourney';
 
 const getErrorContent = (errorType: string | { type: string }) => {
   if (typeof errorType === 'string') return errorType;
@@ -20,19 +20,19 @@ const getErrorContent = (errorType: string | { type: string }) => {
   return '网络请求错误';
 };
 const Settings = memo(() => {
-  const [isSettingsModalOpen, MIDJOURNEY_API_URL, updateSettings] = useStore((s) => [
+  const [isSettingsModalOpen, MIDJOURNEY_API_URL, updateSettings] = useMidjourneyStore((s) => [
     s.isSettingsModalOpen,
     s.settings.MIDJOURNEY_PROXY_URL,
     s.updateSettings,
   ]);
-  const requestError = useStore((s) => s.requestError, isEqual);
+  const requestError = useMidjourneyStore((s) => s.requestError, isEqual);
 
   const [url, setUrl] = useState(MIDJOURNEY_API_URL);
   return (
     <>
       <Drawer
         onClose={() => {
-          useStore.setState({ isSettingsModalOpen: false });
+          useMidjourneyStore.setState({ isSettingsModalOpen: false });
         }}
         open={isSettingsModalOpen}
         title={'设置'}
@@ -64,7 +64,7 @@ const Settings = memo(() => {
           <Button
             onClick={() => {
               updateSettings({ MIDJOURNEY_PROXY_URL: url });
-              useStore.setState({ isSettingsModalOpen: false });
+              useMidjourneyStore.setState({ isSettingsModalOpen: false });
             }}
             type={'primary'}
           >
@@ -75,7 +75,7 @@ const Settings = memo(() => {
       <FloatButton
         icon={<Icon icon={LucideSettings} />}
         onClick={() => {
-          useStore.setState({ isSettingsModalOpen: true });
+          useMidjourneyStore.setState({ isSettingsModalOpen: true });
         }}
       />
     </>

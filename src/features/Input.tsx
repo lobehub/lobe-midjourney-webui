@@ -3,10 +3,10 @@ import { Button, Flex } from 'antd';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { useStore } from '@/store';
+import { useMidjourneyStore } from '@/store/midjourney';
 
 const PromptInput = memo(() => {
-  const [prompts, updatePrompts, createImagineTask] = useStore((s) => [
+  const [prompts, updatePrompts, createImagineTask] = useMidjourneyStore((s) => [
     s.prompts,
     s.updatePrompts,
     s.createImagineTask,

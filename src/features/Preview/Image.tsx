@@ -6,7 +6,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { Dimensions, getImageSize } from 'react-image-size';
 import { Center } from 'react-layout-kit';
 
-import { midjourneySelectors, useStore } from '@/store';
+import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Actions from './Actions';
 
@@ -68,7 +68,7 @@ const useStyles = createStyles(({ css, prefixCls }, inLobeChat: boolean) => {
 });
 
 const ImagePreview = memo(() => {
-  const inLobeChat = useStore((s) => s.inLobeChat);
+  const inLobeChat = useMidjourneyStore((s) => s.inLobeChat);
 
   const { styles, cx, theme } = useStyles(inLobeChat);
 
@@ -79,7 +79,7 @@ const ImagePreview = memo(() => {
 
   const imageContainerSize = getContainerSize(dim, size);
 
-  const currentTask = useStore(midjourneySelectors.currentActiveTask);
+  const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
 
   useEffect(() => {
     const url = currentTask?.imageUrl;

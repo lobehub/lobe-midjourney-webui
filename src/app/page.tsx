@@ -5,12 +5,12 @@ import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import Settings from '@/features/Settings';
-import { useStore } from '@/store';
+import { useMidjourneyStore } from '@/store/midjourney';
 
 import { App } from './App';
 
 const Page = memo(() => {
-  const [useInitApp] = useStore((s) => [s.useInitApp]);
+  const [useInitApp] = useMidjourneyStore((s) => [s.useInitApp]);
 
   useInitApp();
 
