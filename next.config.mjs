@@ -1,7 +1,20 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@lobehub/ui'],
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'registry.npmmirror.com',
+        pathname: '/@lobehub/**',
+        port: '',
+        protocol: 'https',
+      },
+    ],
+    unoptimized: !isProd,
+  },
   async headers() {
     return [
       {

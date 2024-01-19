@@ -16,10 +16,10 @@ const InLobeChatPage = memo(() => {
   useInitApp();
 
   return (
-    <Flexbox gap={12} padding={'0 4px 8px'} style={{ height: '100vh' }}>
+    <Flexbox gap={12} style={{ height: '100dvh' }}>
       <PromptInput />
-      <TaskList />
       <ImagePreview />
+      <TaskList />
     </Flexbox>
   );
 });

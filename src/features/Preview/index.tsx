@@ -1,55 +1,65 @@
+import { useSize } from 'ahooks';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
-import { memo } from 'react';
-import { Center, Flexbox } from 'react-layout-kit';
+import { memo, useEffect, useRef } from 'react';
+import { Center } from 'react-layout-kit';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Guide from './Guide';
 import ImagePreview from './Image';
 
-const useStyles = createStyles(({ css, token }) => ({
+const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
   container: css`
     position: relative;
     overflow: hidden;
-    background: ${token.colorFillTertiary};
   `,
-  process: css`
-    position: absolute;
-    right: 0;
-    bottom: -4px;
-    left: 0;
+  process: cx(
+    // @ts-ignore
+    stylish.blur,
+    css`
+      position: absolute;
+      z-index: 100;
 
-    width: 100%;
+      padding: 8px;
 
-    > .ant-progress-line {
-      margin-bottom: 0;
-      margin-inline-end: 0;
-    }
-  `,
+      background: ${token.colorFillTertiary};
+      border-radius: 50%;
+      .${prefixCls}-progress-text {
+        font-family: ${token.fontFamilyCode};
+      }
+    `,
+  ),
 }));
 
 const Preview = memo(() => {
+  const ref = useRef<HTMLDivElement>(null);
+  const size = useSize(ref);
   const [progress, taskLoading, inLobeChat] = useMidjourneyStore((s) => [
     midjourneySelectors.currentTaskProgress(s),
     midjourneySelectors.isCurrentTaskRunning(s),
     midjourneySelectors.isInLobeChat(s),
   ]);
 
-  const { styles, theme } = useStyles();
+  const { styles } = useStyles();
   const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
 
   const showImage = taskLoading || currentTask?.imageUrl;
 
+  useEffect(() => {
+    if (!size) return;
+    const maxSize = size.width > size.height ? size.height : size.width;
+    document.documentElement.style.setProperty('--max', `${maxSize}px`);
+    console.log(maxSize);
+  }, [size]);
+
   return (
-    <Flexbox
-      className={styles.container}
-      flex={1}
-      gap={8}
-      height={'calc(100vh - 80px - 64px - 8*2px - 2*16px )'}
-      padding={16}
-      style={{ borderRadius: inLobeChat ? 8 : 24 }}
-    >
+    <Center className={styles.container} flex={1} gap={8} justify={'center'} ref={ref}>
+      {taskLoading && progress !== 100 && (
+        <div className={styles.process}>
+          <Progress percent={progress} size="small" type="circle" />
+        </div>
+      )}
       {showImage ? (
         <ImagePreview />
       ) : inLobeChat ? null : (
@@ -57,18 +67,7 @@ const Preview = memo(() => {
           <Guide />
         </Center>
       )}
-      {taskLoading && progress !== 100 && (
-        <div className={styles.process}>
-          <Progress
-            percent={progress}
-            showInfo={false}
-            size={['100%', inLobeChat ? 12 : 16]}
-            strokeColor={{ from: theme.blue7, to: theme.green7 }}
-            strokeLinecap={'square'}
-          />
-        </div>
-      )}
-    </Flexbox>
+    </Center>
   );
 });
 

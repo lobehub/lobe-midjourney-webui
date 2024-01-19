@@ -1,36 +1,24 @@
-import { Icon } from '@lobehub/ui';
-import { Button } from 'antd';
+import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
-import { LucideScaling, LucideWand, RefreshCwIcon } from 'lucide-react';
+import { RefreshCwIcon } from 'lucide-react';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
-const useStyles = createStyles(({ css, cx }) => {
-  const buttonCtn = css`
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+import ImagineActionItem from './ImagineActionItem';
 
-    opacity: 0;
-
-    transition: opacity 0.3s;
-  `;
-
+const useStyles = createStyles(({ css, token }) => {
   return {
-    buttonCtn,
-    item: css`
-      position: relative;
+    container: css`
+      border-radius: ${token.borderRadiusLG}px;
 
       &:hover {
-        .${cx(buttonCtn)} {
-          opacity: 1;
+        .image-item {
+          background: rgba(0, 0, 0, 50%);
         }
       }
     `,
-
     reroll: css`
       position: absolute;
       top: 16px;
@@ -71,6 +59,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
     isSuccess && (
       <>
         <Flexbox
+          className={styles.container}
           height={'100%'}
           horizontal
           onClick={() => {
@@ -79,51 +68,35 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
           style={{ cursor: 'pointer', flexWrap: 'wrap' }}
         >
           {array.map((index) => (
-            <Flexbox className={styles.item} height={'50%'} key={index} width={'50%'}>
-              <Flexbox className={styles.buttonCtn} gap={16} horizontal>
-                <Button
-                  icon={<Icon icon={LucideScaling} />}
-                  onClick={(e) => {
-                    e.stopPropagation();
+            <ImagineActionItem
+              key={index}
+              onUpscale={(e) => {
+                e.stopPropagation();
 
-                    if (!id) return;
-                    createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
-                  }}
-                  shape={'round'}
-                  type={'primary'}
-                >
-                  高清化
-                </Button>
-                <Button
-                  icon={<Icon icon={LucideWand} />}
-                  onClick={(e) => {
-                    e.stopPropagation();
+                if (!id) return;
+                createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
+              }}
+              onVary={(e) => {
+                e.stopPropagation();
 
-                    if (!id) return;
-                    createSimpleChangeTask({ action: 'VARIATION', index, taskId: id });
-                  }}
-                  shape={'round'}
-                >
-                  风格化
-                </Button>
-              </Flexbox>
-            </Flexbox>
+                if (!id) return;
+                createSimpleChangeTask({ action: 'VARIATION', index, taskId: id });
+              }}
+            />
           ))}
         </Flexbox>
-        <div className={cx('action-reroll', styles.reroll)}>
-          <Button
-            icon={<Icon icon={RefreshCwIcon} />}
-            onClick={(e) => {
-              e.stopPropagation();
+        <ActionIcon
+          active
+          className={cx('action-reroll', styles.reroll)}
+          glass
+          icon={RefreshCwIcon}
+          onClick={(e) => {
+            e.stopPropagation();
 
-              if (!id) return;
-              createSimpleChangeTask({ action: 'REROLL', taskId: id });
-            }}
-            shape={'round'}
-          >
-            重新生成
-          </Button>
-        </div>
+            if (!id) return;
+            createSimpleChangeTask({ action: 'REROLL', taskId: id });
+          }}
+        />
       </>
     )
   );

@@ -1,11 +1,26 @@
-import { TextArea } from '@lobehub/ui';
-import { Button, Flex } from 'antd';
+import { ActionIcon, TextArea } from '@lobehub/ui';
+import { Flex } from 'antd';
+import { createStyles } from 'antd-style';
+import { SendHorizontal } from 'lucide-react';
 import { memo } from 'react';
-import { Flexbox } from 'react-layout-kit';
 
 import { useMidjourneyStore } from '@/store/midjourney';
 
+const useStyles = createStyles(({ css, token }) => ({
+  container: css`
+    padding: 4px;
+    background: ${token.colorFillTertiary};
+    border: 1px solid ${token.colorBorderSecondary};
+    border-radius: ${token.borderRadiusLG}px;
+  `,
+  prompt: css`
+    padding: 6px;
+    font-family: ${token.fontFamilyCode};
+  `,
+}));
+
 const PromptInput = memo(() => {
+  const { styles } = useStyles();
   const [prompts, updatePrompts, createImagineTask] = useMidjourneyStore((s) => [
     s.prompts,
     s.updatePrompts,
@@ -13,22 +28,19 @@ const PromptInput = memo(() => {
   ]);
 
   return (
-    <Flex gap={8}>
+    <Flex align={'flex-end'} className={styles.container} gap={8}>
       <TextArea
+        autoSize={{ maxRows: 3, minRows: 1 }}
+        className={styles.prompt}
         onChange={(e) => {
           updatePrompts(e.target.value);
         }}
-        placeholder={'请输入提示词'}
-        size={'large'}
-        style={{ maxHeight: 160, minHeight: 80 }}
-        type={'block'}
+        placeholder={'Midjourney Prompt...'}
+        resize={false}
+        type={'pure'}
         value={prompts}
       />
-      <Flexbox direction={'vertical-reverse'} gap={8}>
-        <Button onClick={() => createImagineTask()} style={{ height: '100%' }} type={'primary'}>
-          生成
-        </Button>
-      </Flexbox>
+      <ActionIcon active icon={SendHorizontal} onClick={() => createImagineTask()} />
     </Flex>
   );
 });
