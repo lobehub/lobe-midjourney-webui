@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.2.6](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.5...v1.2.6)
+
+<sup>Released on **2024-01-19**</sup>
+
+#### 💄 Styles
+
+- **misc**: Close drawer on press save.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Close drawer on press save ([91d65fe](https://github.com/lobehub/chat-plugin-midjourney/commit/91d65fe))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.5](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.4...v1.2.5)
 
 <sup>Released on **2024-01-18**</sup>
