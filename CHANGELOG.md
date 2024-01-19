@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.2.9](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.8...v1.2.9)
+
+<sup>Released on **2024-01-19**</sup>
+
+#### 💄 Styles
+
+- **misc**: Fix mobile usage.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Fix mobile usage ([bf67c55](https://github.com/lobehub/chat-plugin-midjourney/commit/bf67c55))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.8](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.7...v1.2.8)
 
 <sup>Released on **2024-01-19**</sup>
