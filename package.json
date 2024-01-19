@@ -1,6 +1,6 @@
 {
   "name": "midjourney-webui",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "private": true,
   "description": "This is the plugin template for LobeChat plugin development",
   "homepage": "https://github.com/lobehub/chat-plugin-midjourney",
