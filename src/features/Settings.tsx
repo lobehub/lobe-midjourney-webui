@@ -64,6 +64,7 @@ const Settings = memo(() => {
           <Button
             onClick={() => {
               updateSettings({ MIDJOURNEY_PROXY_URL: url });
+              useStore.setState({ isSettingsModalOpen: false });
             }}
             type={'primary'}
           >
