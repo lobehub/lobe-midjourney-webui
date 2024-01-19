@@ -5,16 +5,22 @@ import { Brush, Expand } from 'lucide-react';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-const useStyles = createStyles(({ css, cx }) => {
+import { useMinimode } from '@/hooks/useMinimode';
+
+const useStyles = createStyles(({ css, cx, responsive }) => {
   const buttonCtn = css`
     position: absolute;
-    bottom: 20px;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
 
     opacity: 0;
 
     transition: opacity 0.3s ease-in-out;
+
+    ${responsive.mobile} {
+      opacity: 1;
+    }
   `;
 
   return {
@@ -45,14 +51,20 @@ interface ImageActionItemProps {
 const ImagineActionItem = memo<ImageActionItemProps>(({ onUpscale, onVary }) => {
   const { styles } = useStyles();
 
+  const { isMini } = useMinimode();
+
   return (
     <Flexbox className={styles.item} height={'50%'} width={'50%'}>
       <Space.Compact className={styles.buttonCtn}>
-        <Button icon={<Icon icon={Expand} />} onClick={onUpscale}>
-          Upscale
+        <Button
+          icon={<Icon icon={Expand} />}
+          onClick={onUpscale}
+          size={isMini ? 'small' : 'middle'}
+        >
+          {isMini ? '' : 'Upscale'}
         </Button>
-        <Button icon={<Icon icon={Brush} />} onClick={onVary}>
-          Vary
+        <Button icon={<Icon icon={Brush} />} onClick={onVary} size={isMini ? 'small' : 'middle'}>
+          {isMini ? '' : 'Vary'}
         </Button>
       </Space.Compact>
     </Flexbox>

@@ -12,7 +12,7 @@ const useStyles = createStyles(({ css, prefixCls, token }) => {
     empty: css`
       width: var(--max);
       height: var(--max);
-      background: ${token.colorTextTertiary};
+      background: ${token.colorFillSecondary};
       border-radius: ${token.borderRadiusLG}px;
     `,
     image: css`

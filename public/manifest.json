@@ -39,8 +39,8 @@
   "type": "standalone",
   "ui": {
     "url": "https://midjourney.chat-plugin.lobehub.com/iframe",
-    "height": 700,
-    "width": 800
+    "height": 420,
+    "width": 360
   },
   "version": "1"
 }
