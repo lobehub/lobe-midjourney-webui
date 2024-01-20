@@ -11,7 +11,7 @@ import { TaskDispatch, tasksReducer } from '@/store/midjourney/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
 import { MidjourneyStore } from './index';
-import { AppSettings, MidjourneyState, initialState } from './initialState';
+import { MidjourneyState, initialState } from './initialState';
 
 const { useMockData } = getClientConfig();
 
@@ -29,7 +29,6 @@ export interface StoreAction {
   toggleTaskLoading: (id: string, loading: boolean) => void;
   updateAppState: (state: Partial<MidjourneyState>, action?: any) => void;
   updatePrompts: (input: string) => void;
-  updateSettings: (settings: Partial<AppSettings>) => void;
   useInitApp: () => SWRResponse<MidjourneyState>;
 }
 
@@ -176,11 +175,6 @@ export const actions: StateCreator<
     set({ prompts: data });
   },
 
-  updateSettings: (settings) => {
-    set({ settings: { ...get().settings, ...settings } });
-
-    storageService.setSettings(settings);
-  },
   useInitApp: () => {
     return useSWR<MidjourneyState>(
       'init',

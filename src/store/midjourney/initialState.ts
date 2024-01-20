@@ -13,7 +13,6 @@ export interface MidjourneyState {
   prompts: string;
   requestError?: { body: string | { type: string }; message: string; status: number };
   runningTaskIds: string[];
-  settings: AppSettings;
   tasks: MidjourneyTask[];
 }
 
@@ -23,6 +22,5 @@ export const initialState: MidjourneyState = {
   isSettingsModalOpen: false,
   prompts: '',
   runningTaskIds: [],
-  settings: {},
   tasks: [],
 };
