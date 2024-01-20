@@ -2,13 +2,12 @@ import { useSize } from 'ahooks';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import { memo, useEffect, useRef } from 'react';
-// @ts-ignore
-import ReactAnimatedEllipsis from 'react-animated-ellipsis';
 import { useTranslation } from 'react-i18next';
 import { Center } from 'react-layout-kit';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
+import ReactAnimatedEllipsis from './AnimatedEllipsis';
 import Guide from './Guide';
 import ImagePreview from './ImagePreview';
 import Loading from './Loading';
@@ -30,6 +29,7 @@ const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
       border-radius: 50%;
       .${prefixCls}-progress-text {
         font-family: ${token.fontFamilyCode};
+        color: ${token.colorTextLightSolid};
       }
     `,
   ),
@@ -67,8 +67,9 @@ const Preview = memo(() => {
           {showProgress && (
             <div className={styles.process}>
               {progress === 0 ? (
-                <Center className={styles.waiting} height={72} horizontal width={72}>
-                  {t('task.starting')} <ReactAnimatedEllipsis fontSize="1rem" />
+                <Center className={styles.waiting} gap={2} height={72} horizontal width={72}>
+                  <div>{t('task.starting')}</div>
+                  <ReactAnimatedEllipsis />
                 </Center>
               ) : (
                 <Progress percent={progress} size="small" type="circle" />
