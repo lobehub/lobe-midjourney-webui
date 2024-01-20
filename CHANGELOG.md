@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.3.1](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.3.0...v1.3.1)
+
+<sup>Released on **2024-01-20**</sup>
+
+#### 💄 Styles
+
+- **misc**: Improve open graph.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Improve open graph ([7f082b2](https://github.com/lobehub/lobe-midjourney-webui/commit/7f082b2))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 1.3.0](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.2.11...v1.3.0)
 
 <sup>Released on **2024-01-20**</sup>
