@@ -1,0 +1,40 @@
+{
+  "appIniting": "Приложение запускается...",
+  "guide": {
+    "step1": {
+      "description": "Зайдите в настройки и введите адрес прокси Midjourney API",
+      "title": "Привязка сервиса Midjourney API"
+    },
+    "step2": {
+      "description": "Введите подсказку в поле ввода и нажмите кнопку создать для начала процесса",
+      "title": "Начать создание изображения"
+    }
+  },
+  "images": {
+    "delete": "Удалить",
+    "deleteConfirm": "Вы уверены, что хотите удалить это изображение?"
+  },
+  "input": {
+    "placeholder": "Введите подсказку для Midjourney..."
+  },
+  "requestError": "Ошибка запроса, код ошибки {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Адрес прокси Midjourney API не указан, пожалуйста, укажите его и повторите попытку",
+    "fallback": "Ошибка запроса, пожалуйста, повторите попытку позже"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Пожалуйста, укажите адрес сервера для использования <1>midjourney-proxy</1>",
+      "title": "Адрес прокси Midjourney API"
+    },
+    "modalTitle": "Настройки",
+    "save": "Сохранить"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Перегенерировать",
+      "upscale": "Увеличить размер",
+      "variant": "Варианты"
+    }
+  }
+}

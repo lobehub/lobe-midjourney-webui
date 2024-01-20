@@ -2,8 +2,8 @@ import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import DeleteButton from '@/features/Preview/DeleteButton';
-import RerollButton from '@/features/Preview/RerollButton';
+import DeleteButton from '@/features/Preview/ImagePreview/DeleteButton';
+import RerollButton from '@/features/Preview/ImagePreview/RerollButton';
 import { useMinimode } from '@/hooks/useMinimode';
 
 const useStyles = createStyles(({ css, responsive }) => {
@@ -25,7 +25,7 @@ const useStyles = createStyles(({ css, responsive }) => {
   };
 });
 
-const ActionsBar = memo<{ hideReroll?: boolean; taskId?: string }>(({ taskId, hideReroll }) => {
+const MoreActions = memo<{ hideReroll?: boolean; taskId?: string }>(({ taskId, hideReroll }) => {
   const { cx, styles } = useStyles();
 
   const { isMobile } = useMinimode();
@@ -43,4 +43,4 @@ const ActionsBar = memo<{ hideReroll?: boolean; taskId?: string }>(({ taskId, hi
   );
 });
 
-export default ActionsBar;
+export default MoreActions;

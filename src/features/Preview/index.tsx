@@ -7,7 +7,8 @@ import { Center } from 'react-layout-kit';
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Guide from './Guide';
-import ImagePreview from './Image';
+import ImagePreview from './ImagePreview';
+import Loading from './Loading';
 
 const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
   container: css`
@@ -32,38 +33,45 @@ const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
 }));
 
 const Preview = memo(() => {
+  const { styles } = useStyles();
+
+  const [isAppInited, inLobeChat, showImage, showProgress, progress] = useMidjourneyStore((s) => [
+    midjourneySelectors.isAppInited(s),
+    midjourneySelectors.isInLobeChat(s),
+    midjourneySelectors.showImage(s),
+    midjourneySelectors.showProgress(s),
+    midjourneySelectors.currentTaskProgress(s),
+  ]);
+
   const ref = useRef<HTMLDivElement>(null);
   const size = useSize(ref);
-  const [progress, taskLoading, inLobeChat] = useMidjourneyStore((s) => [
-    midjourneySelectors.currentTaskProgress(s),
-    midjourneySelectors.isCurrentTaskRunning(s),
-    midjourneySelectors.isInLobeChat(s),
-  ]);
-  const { styles } = useStyles();
-  const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
-
-  const showImage = taskLoading || currentTask?.imageUrl;
-  const showProgress = taskLoading && progress !== 100;
 
   useEffect(() => {
     if (!size) return;
+
     const maxSize = size.width > size.height ? size.height : size.width;
     document.documentElement.style.setProperty('--max', `${maxSize}px`);
   }, [size]);
 
   return (
     <Center className={styles.container} flex={1} gap={8} justify={'center'} ref={ref}>
-      {showProgress && (
-        <div className={styles.process}>
-          <Progress percent={progress} size="small" type="circle" />
-        </div>
-      )}
-      {showImage ? (
-        <ImagePreview />
-      ) : inLobeChat ? null : (
-        <Center height={'100%'} width={'100%'}>
-          <Guide />
-        </Center>
+      {isAppInited ? (
+        <>
+          {showProgress && (
+            <div className={styles.process}>
+              <Progress percent={progress} size="small" type="circle" />
+            </div>
+          )}
+          {showImage ? (
+            <ImagePreview />
+          ) : inLobeChat ? null : (
+            <Center height={'100%'} width={'100%'}>
+              <Guide />
+            </Center>
+          )}
+        </>
+      ) : (
+        <Loading />
       )}
     </Center>
   );

@@ -1,0 +1,40 @@
+{
+  "appIniting": "앱 시작 중...",
+  "guide": {
+    "step1": {
+      "description": "설정으로 이동하여 Midjourney API 프록시 주소를 입력하세요",
+      "title": "Midjourney API 서비스 바인딩"
+    },
+    "step2": {
+      "description": "입력란에 힌트 단어를 입력하고 생성 버튼을 클릭하여 생성하세요",
+      "title": "그림 생성 시작"
+    }
+  },
+  "images": {
+    "delete": "삭제",
+    "deleteConfirm": "이 그림을 삭제하시겠습니까?"
+  },
+  "input": {
+    "placeholder": "Midjourney 힌트 단어를 입력하세요..."
+  },
+  "requestError": "요청 실패, 오류 코드 {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Midjourney API 프록시 주소가 비어 있습니다. 입력 후 다시 시도하세요",
+    "fallback": "요청 실패, 잠시 후 다시 시도하세요"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "<1>midjourney-proxy</1>를 참조하여 서버를 배포한 후 사용하세요",
+      "title": "Midjourney API 프록시 주소"
+    },
+    "modalTitle": "설정",
+    "save": "저장"
+  },
+  "task": {
+    "actions": {
+      "reroll": "다시 생성",
+      "upscale": "고화질화",
+      "variant": "다양화"
+    }
+  }
+}

@@ -3,10 +3,10 @@ import { createStyles } from 'antd-style';
 import { memo, useState } from 'react';
 import { Center } from 'react-layout-kit';
 
-import ActionsBar from '@/features/Preview/ActionsBar';
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
 import Actions from './Actions';
+import MoreActions from './MoreActions';
 
 const useStyles = createStyles(({ css, prefixCls, token }) => {
   return {
@@ -64,7 +64,7 @@ const ImagePreview = memo(() => {
             )}
           />
           {currentTask.action !== 'UPSCALE' && <Actions setMask={setMask} />}
-          <ActionsBar hideReroll={currentTask.action === 'UPSCALE'} taskId={currentTask?.id} />
+          <MoreActions hideReroll={currentTask.action === 'UPSCALE'} taskId={currentTask?.id} />
         </div>
       ) : (
         <div className={styles.empty} />

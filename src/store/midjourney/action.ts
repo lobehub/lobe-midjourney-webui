@@ -3,15 +3,17 @@ import isEqual from 'fast-deep-equal';
 import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
+import { getClientConfig } from '@/config/client';
 import { ChangeTaskDTO, midjourneyService } from '@/services/Midjourney';
 import { storageService } from '@/services/storageService';
+import { useGlobalStore } from '@/store/global';
 import { TaskDispatch, tasksReducer } from '@/store/midjourney/reducers/task';
 import { MidjourneyTask } from '@/types/task';
 
 import { MidjourneyStore } from './index';
 import { AppSettings, MidjourneyState, initialState } from './initialState';
 
-const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== undefined;
+const { useMockData } = getClientConfig();
 
 interface MJFunction {
   prompts: string;
@@ -43,14 +45,18 @@ export const actions: StateCreator<
   },
   createChangeTask: async (params) => {
     const { dispatchTask, activeTask, pollTaskStatus } = get();
+    set({ createTaskLoading: true });
     const taskId = await midjourneyService.createChangeTask(params);
-    if (!taskId) return;
+    if (!taskId) {
+      set({ createTaskLoading: false });
+      return;
+    }
 
     const task = await midjourneyService.getTaskById(taskId);
 
     // 添加任务
     dispatchTask({ task, type: 'addTask' });
-
+    set({ createTaskLoading: false });
     activeTask(taskId);
 
     await pollTaskStatus(taskId);
@@ -58,9 +64,13 @@ export const actions: StateCreator<
   createImagineTask: async (shouldActiveTask = true) => {
     const { dispatchTask, activeTask, pollTaskStatus, toggleTaskLoading, inLobeChat, prompts } =
       get();
+    set({ createTaskLoading: true });
     const taskId = await midjourneyService.createImagineTask({ prompt: prompts });
 
-    if (!taskId) return;
+    if (!taskId) {
+      set({ createTaskLoading: false });
+      return;
+    }
 
     // 如果在 LobeChat 中，更新插件消息
     if (inLobeChat) {
@@ -68,7 +78,7 @@ export const actions: StateCreator<
     }
 
     toggleTaskLoading(taskId, true);
-
+    set({ createTaskLoading: false });
     const task = await midjourneyService.getTaskById(taskId);
     // 添加任务
     dispatchTask({ task, type: 'addTask' });
@@ -185,10 +195,11 @@ export const actions: StateCreator<
             return mockState;
           }
 
-          const app = await storageService.getFromLocalStorage();
-          const settings = await storageService.getFromLocalStorage();
+          const settings = await storageService.getFromLocalStorage('APP_SETTINGS');
 
-          return { ...app, settings };
+          useGlobalStore.setState({ settings });
+
+          return await storageService.getFromLocalStorage();
         }
 
         if (payload?.name === 'showMJ') {
@@ -204,6 +215,7 @@ export const actions: StateCreator<
       },
       {
         onSuccess: (data: MidjourneyState) => {
+          set({ appInited: true });
           if (data) get().updateAppState(data, 'initApp');
 
           // 如果第一次在 LobeChat 中触发插件，则创建 imagine 任务

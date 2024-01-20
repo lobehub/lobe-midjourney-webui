@@ -1,4 +1,5 @@
-import { useMidjourneyStore } from '@/store/midjourney';
+import { useGlobalStore } from 'src/store/global';
+
 import { MidjourneyTask } from '@/types/task';
 
 interface DescribeDTO {
@@ -64,8 +65,7 @@ class MidjourneyService {
         body: data ? JSON.stringify(data) : undefined,
         headers: {
           'Content-Type': 'application/json',
-          'X-Midjourney-Proxy-Url':
-            useMidjourneyStore.getState().settings.MIDJOURNEY_PROXY_URL || '',
+          'X-Midjourney-Proxy-Url': useGlobalStore.getState().settings.MIDJOURNEY_PROXY_URL || '',
         },
         method,
       });
@@ -86,7 +86,7 @@ class MidjourneyService {
         /* empty */
       }
 
-      useMidjourneyStore.setState({
+      useGlobalStore.setState({
         isSettingsModalOpen: true,
         requestError: { ...requestError, body },
       });

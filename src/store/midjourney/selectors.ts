@@ -28,14 +28,21 @@ const isCurrentTaskRunning = (s: MidjourneyStore) => {
   return s.runningTaskIds.includes(task.id);
 };
 
-const isLoading = (s: MidjourneyStore) => {
-  return isCurrentTaskRunning(s) && currentTaskProgress(s) !== 100;
-};
+const isCreatingTaskLoading = (s: MidjourneyStore) => s.createTaskLoading;
+
 const isTaskActive = (id: string) => (s: MidjourneyStore) => {
   return getTaskById(id)(s)?.id === s.activeTaskId;
 };
 const hasMultiTasks = (s: MidjourneyStore) => s.tasks.length > 1;
 const isInLobeChat = (s: MidjourneyStore) => s.inLobeChat;
+const isAppInited = (s: MidjourneyStore) => s.appInited;
+
+const showImage = (s: MidjourneyStore) => isCurrentTaskRunning(s) || currentActiveTask(s)?.imageUrl;
+
+const showProgress = (s: MidjourneyStore) => {
+  const progress = currentTaskProgress(s);
+  return isCurrentTaskRunning(s) && progress !== 100;
+};
 
 export const midjourneySelectors = {
   currentActiveTask,
@@ -43,9 +50,12 @@ export const midjourneySelectors = {
   getTaskById,
   hasMultiTasks,
   isAnyTaskRunning,
+  isAppInited,
+  isCreatingTaskLoading,
   isCurrentTaskRunning,
   isInLobeChat,
-  isLoading,
   isTaskActive,
   isTasksEmpty,
+  showImage,
+  showProgress,
 };

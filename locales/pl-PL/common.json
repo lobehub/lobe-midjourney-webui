@@ -1,0 +1,40 @@
+{
+  "appIniting": "Uruchamianie aplikacji...",
+  "guide": {
+    "step1": {
+      "description": "Przejdź do ustawień i wprowadź adres proxy API Midjourney",
+      "title": "Powiąż usługę API Midjourney"
+    },
+    "step2": {
+      "description": "Wprowadź sugestię w polu tekstowym i kliknij przycisk generowania",
+      "title": "Rozpocznij generowanie obrazu"
+    }
+  },
+  "images": {
+    "delete": "Usuń",
+    "deleteConfirm": "Czy na pewno chcesz usunąć ten obraz?"
+  },
+  "input": {
+    "placeholder": "Wprowadź sugestię dla Midjourney..."
+  },
+  "requestError": "Błąd żądania, kod błędu {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Adres proxy API Midjourney jest pusty. Proszę wypełnić i spróbować ponownie",
+    "fallback": "Żądanie nie powiodło się. Proszę spróbować ponownie później"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Proszę skonsultować się z <1>midjourney-proxy</1> w celu skonfigurowania serwera",
+      "title": "Adres proxy API Midjourney"
+    },
+    "modalTitle": "Ustawienia",
+    "save": "Zapisz"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Generuj ponownie",
+      "upscale": "Zwiększ jakość",
+      "variant": "Warianty"
+    }
+  }
+}

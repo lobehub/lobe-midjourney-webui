@@ -4,6 +4,7 @@ import { createStyles } from 'antd-style';
 import { Trash } from 'lucide-react';
 import { rgba } from 'polished';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useMinimode } from '@/hooks/useMinimode';
 import { useMidjourneyStore } from '@/store/midjourney';
@@ -19,6 +20,8 @@ export const DeleteButton = memo<{ className?: string; taskId?: string }>(({ tas
   const removeTask = useMidjourneyStore((s) => s.removeTask);
   const { styles } = useStyles();
   const { isMini } = useMinimode();
+  const { t } = useTranslation('common');
+
   return (
     <Popconfirm
       arrow={false}
@@ -28,7 +31,7 @@ export const DeleteButton = memo<{ className?: string; taskId?: string }>(({ tas
         removeTask(taskId);
       }}
       placement={'bottomLeft'}
-      title={'Are you sure you want to delete this image?'}
+      title={t('images.deleteConfirm')}
     >
       <ActionIcon
         active
@@ -36,6 +39,7 @@ export const DeleteButton = memo<{ className?: string; taskId?: string }>(({ tas
         glass
         icon={Trash}
         size={isMini ? 'small' : 'normal'}
+        title={t('images.delete')}
       />
     </Popconfirm>
   );

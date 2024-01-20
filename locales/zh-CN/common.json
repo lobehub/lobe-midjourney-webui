@@ -1,0 +1,40 @@
+{
+  "appIniting": "应用启动中...",
+  "guide": {
+    "step1": {
+      "title": "绑定 Midjourney API 服务",
+      "description": "进入设置，填写 Midjourney API 代理地址"
+    },
+    "step2": {
+      "title": "开始出图",
+      "description": "输入框中输入提示词，点击生成按钮开始生成"
+    }
+  },
+  "images": {
+    "delete": "删除",
+    "deleteConfirm": "确定要删除这张图片吗？"
+  },
+  "input": {
+    "placeholder": "请输入 Midjourney 提示词..."
+  },
+  "requestError": "`请求失败，错误码 {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Midjourney API 代理地址为空，请填写后重试",
+    "fallback": "请求失败，请稍后重试"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "title": "Midjourney API 代理地址",
+      "description": "请参考 <1>midjourney-proxy</1> 部署好服务端后使用"
+    },
+    "modalTitle": "设置",
+    "save": "保存"
+  },
+  "task": {
+    "actions": {
+      "reroll": "重新生成",
+      "upscale": "高清化",
+      "variant": "多样化"
+    }
+  }
+}

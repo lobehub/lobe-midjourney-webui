@@ -1,0 +1,40 @@
+{
+  "appIniting": "Uygulama başlatılıyor...",
+  "guide": {
+    "step1": {
+      "description": "Ayarlar'a gidin ve Midjourney API vekil adresini girin",
+      "title": "Midjourney API Servisine Bağlan"
+    },
+    "step2": {
+      "description": "Giriş kutusuna ipucu kelime girin ve oluştur'a tıklayarak oluşturmaya başlayın",
+      "title": "Harita Oluşturmaya Başla"
+    }
+  },
+  "images": {
+    "delete": "Sil",
+    "deleteConfirm": "Bu resmi silmek istediğinize emin misiniz?"
+  },
+  "input": {
+    "placeholder": "Midjourney ipucu kelimesini girin..."
+  },
+  "requestError": "İstek başarısız oldu, hata kodu {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Midjourney API vekil adresi boş, lütfen doldurup tekrar deneyin",
+    "fallback": "İstek başarısız, lütfen sonra tekrar deneyin"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Lütfen <1>midjourney-proxy</1> bağlantısına giderek sunucu tarafını kurduktan sonra kullanın",
+      "title": "Midjourney API Vekil Adresi"
+    },
+    "modalTitle": "Ayarlar",
+    "save": "Kaydet"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Yeniden Oluştur",
+      "upscale": "Yüksek Kalite",
+      "variant": "Çeşitlendir"
+    }
+  }
+}

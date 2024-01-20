@@ -1,6 +1,7 @@
 import { Steps } from 'antd';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = createStyles(({ css }) => ({
   step: css`
@@ -12,6 +13,8 @@ const useStyles = createStyles(({ css }) => ({
 
 const Guide = memo(() => {
   const { styles } = useStyles();
+  const { t } = useTranslation('common');
+
   return (
     <Steps
       className={styles.step}
@@ -19,12 +22,12 @@ const Guide = memo(() => {
       direction="vertical"
       items={[
         {
-          description: '进入设置，填写 Midjourney API 代理地址',
-          title: '绑定 Midjourney API 服务',
+          description: t('guide.step1.description'),
+          title: t('guide.step1.title'),
         },
         {
-          description: '输入框中输入提示词，点击生成按钮开始生成',
-          title: '开始出图',
+          description: t('guide.step2.description'),
+          title: t('guide.step2.title'),
         },
       ]}
       style={{ gap: 24, width: 'fit-content' }}
