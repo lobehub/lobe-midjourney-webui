@@ -188,7 +188,6 @@ export const actions: StateCreator<
   },
 
   uploadImage: async (file) => {
-    console.log(file);
     const url = await fileService.uploadFile(file);
 
     if (!url) return;
