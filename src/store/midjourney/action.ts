@@ -4,6 +4,7 @@ import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
 import { getClientConfig } from '@/config/client';
+import { fileService } from '@/services/file';
 import { ChangeTaskDTO, midjourneyService } from '@/services/midjourney';
 import { storageService } from '@/services/storage';
 import { useGlobalStore } from '@/store/global';
@@ -29,6 +30,7 @@ export interface StoreAction {
   toggleTaskLoading: (id: string, loading: boolean) => void;
   updateAppState: (state: Partial<MidjourneyState>, action?: any) => void;
   updatePrompts: (input: string) => void;
+  uploadImage: (file: File) => Promise<void>;
   useInitApp: () => SWRResponse<MidjourneyState>;
 }
 
@@ -61,10 +63,20 @@ export const actions: StateCreator<
     await pollTaskStatus(taskId);
   },
   createImagineTask: async (shouldActiveTask = true) => {
-    const { dispatchTask, activeTask, pollTaskStatus, toggleTaskLoading, inLobeChat, prompts } =
-      get();
+    const {
+      dispatchTask,
+      activeTask,
+      pollTaskStatus,
+      toggleTaskLoading,
+      inLobeChat,
+      prompts,
+      referenceImageUrl = '',
+    } = get();
     set({ createTaskLoading: true });
-    const taskId = await midjourneyService.createImagineTask({ prompt: prompts });
+
+    const taskId = await midjourneyService.createImagineTask({
+      prompt: referenceImageUrl + ' ' + prompts,
+    });
 
     if (!taskId) {
       set({ createTaskLoading: false });
@@ -175,6 +187,13 @@ export const actions: StateCreator<
     set({ prompts: data });
   },
 
+  uploadImage: async (file) => {
+    const url = await fileService.uploadFile(file);
+
+    if (!url) return;
+
+    get().updateAppState({ referenceImageUrl: url });
+  },
   useInitApp: () => {
     return useSWR<MidjourneyState>(
       'init',

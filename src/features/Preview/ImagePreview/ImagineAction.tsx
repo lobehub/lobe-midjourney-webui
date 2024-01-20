@@ -1,6 +1,6 @@
 import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
-import { Brush, Expand } from 'lucide-react';
+import { Expand, SwatchBookIcon } from 'lucide-react';
 import { rgba } from 'polished';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -121,7 +121,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
                 gap={4}
                 glass
                 horizontal
-                icon={Brush}
+                icon={SwatchBookIcon}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (!id) return;

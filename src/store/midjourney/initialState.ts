@@ -11,6 +11,7 @@ export interface MidjourneyState {
   inLobeChat?: boolean;
   isSettingsModalOpen: boolean;
   prompts: string;
+  referenceImageUrl?: string;
   requestError?: { body: string | { type: string }; message: string; status: number };
   runningTaskIds: string[];
   tasks: MidjourneyTask[];

@@ -15,7 +15,8 @@
     "deleteConfirm": "确定要删除这张图片吗？"
   },
   "input": {
-    "placeholder": "请输入 Midjourney 提示词..."
+    "placeholder": "请输入 Midjourney 提示词...",
+    "uploadImage": "上传图片"
   },
   "requestError": "请求失败，错误码 {{errorCode}}",
   "response": {
