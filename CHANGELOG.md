@@ -2,6 +2,31 @@
 
 # Changelog
 
+## [Version 1.4.0](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.3.3...v1.4.0)
+
+<sup>Released on **2024-01-20**</sup>
+
+#### ✨ Features
+
+- **misc**: Support image upload feature.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support image upload feature, closes [#9](https://github.com/lobehub/lobe-midjourney-webui/issues/9) ([d3e2fe4](https://github.com/lobehub/lobe-midjourney-webui/commit/d3e2fe4))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.3.3](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.3.2...v1.3.3)
 
 <sup>Released on **2024-01-20**</sup>

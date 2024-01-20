@@ -1,6 +1,6 @@
 {
   "name": "midjourney-webui",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "private": true,
   "description": "Unleash creativity with Midjourney, effortlessly generating unique AI-driven images through simple prompts.",
   "homepage": "https://github.com/lobehub/lobe-midjourney-webui",
