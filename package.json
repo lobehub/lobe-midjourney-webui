@@ -41,11 +41,6 @@
       "eslint --fix"
     ]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
-  ],
   "dependencies": {
     "@lobehub/chat-plugin-sdk": "^1",
     "@lobehub/chat-plugins-gateway": "^1",
@@ -62,7 +57,7 @@
     "i18next-resources-to-backend": "^1.2.0",
     "immer": "^10.0.3",
     "lucide-react": "latest",
-    "next": "14.0.4",
+    "next": "^14.1",
     "polished": "^4.2.2",
     "qs": "^6.11.2",
     "react": "^18",
@@ -78,7 +73,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18",
     "@lobehub/lint": "latest",
-    "@next/eslint-plugin-next": "14.0.4",
+    "@next/eslint-plugin-next": "^14.1",
     "@types/qs": "^6.9.11",
     "@types/react": "18",
     "@types/rtl-detect": "^1.0.3",
