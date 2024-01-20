@@ -3,6 +3,7 @@ import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
 import { SendHorizontal } from 'lucide-react';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
@@ -30,8 +31,9 @@ const PromptInput = memo(() => {
     s.prompts,
     s.updatePrompts,
     s.createImagineTask,
-    midjourneySelectors.isLoading(s),
+    midjourneySelectors.isCreatingTaskLoading(s),
   ]);
+  const { t } = useTranslation('common');
 
   return (
     <Flex align={'center'} className={styles.container} gap={8}>
@@ -41,7 +43,7 @@ const PromptInput = memo(() => {
         onChange={(e) => {
           updatePrompts(e.target.value);
         }}
-        placeholder={'Midjourney Prompt...'}
+        placeholder={t('input.placeholder')}
         resize={false}
         type={'pure'}
         value={prompts}

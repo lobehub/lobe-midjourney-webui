@@ -1,5 +1,5 @@
 import { useResponsive } from 'antd-style';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
@@ -13,9 +13,12 @@ export const useMinimode = () => {
     setIsMobile(mobileRegex.test(navigator.userAgent));
   }, []);
 
-  return {
-    inLobeChat,
-    isMini: inLobeChat || mobile,
-    isMobile,
-  };
+  return useMemo(
+    () => ({
+      inLobeChat,
+      isMini: inLobeChat || mobile,
+      isMobile,
+    }),
+    [inLobeChat, mobile, isMobile],
+  );
 };

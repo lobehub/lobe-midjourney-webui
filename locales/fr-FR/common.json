@@ -1,0 +1,40 @@
+{
+  "appIniting": "L'application démarre...",
+  "guide": {
+    "step1": {
+      "description": "Accédez aux paramètres et saisissez l'adresse du proxy Midjourney API",
+      "title": "Associer le service Midjourney API"
+    },
+    "step2": {
+      "description": "Saisissez un mot-clé dans le champ de saisie, puis cliquez sur le bouton de génération",
+      "title": "Commencer la génération d'images"
+    }
+  },
+  "images": {
+    "delete": "Supprimer",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette image ?"
+  },
+  "input": {
+    "placeholder": "Veuillez saisir un mot-clé Midjourney..."
+  },
+  "requestError": "Échec de la requête, code d'erreur {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "L'adresse du proxy Midjourney API est vide, veuillez la remplir et réessayer",
+    "fallback": "Échec de la requête, veuillez réessayer ultérieurement"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Veuillez consulter <1>midjourney-proxy</1> pour déployer le service côté serveur avant utilisation",
+      "title": "Adresse du proxy Midjourney API"
+    },
+    "modalTitle": "Paramètres",
+    "save": "Enregistrer"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Nouvelle génération",
+      "upscale": "Améliorer la qualité",
+      "variant": "Diversifier"
+    }
+  }
+}

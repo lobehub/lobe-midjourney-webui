@@ -1,8 +1,10 @@
 import urlJoin from 'url-join';
 
+import { getServerConfig } from '@/config/server';
+
 export const runtime = 'edge';
 
-const base = process.env.MIDJOURNEY_PROXY_URL;
+const { MIDJOURNEY_PROXY_URL: base } = getServerConfig();
 
 const getBase = (req: Request) => {
   const userDefineBaseUrl = req.headers.get('X-Midjourney-Proxy-Url');

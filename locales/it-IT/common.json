@@ -1,0 +1,40 @@
+{
+  "appIniting": "Avvio dell'applicazione...",
+  "guide": {
+    "step1": {
+      "description": "Vai alle impostazioni e inserisci l'indirizzo del proxy API di Midjourney",
+      "title": "Collega il servizio API di Midjourney"
+    },
+    "step2": {
+      "description": "Inserisci le parole chiave nel campo di input e clicca sul pulsante di generazione",
+      "title": "Inizia a generare l'immagine"
+    }
+  },
+  "images": {
+    "delete": "Elimina",
+    "deleteConfirm": "Sei sicuro di voler eliminare questa immagine?"
+  },
+  "input": {
+    "placeholder": "Inserisci le parole chiave di Midjourney..."
+  },
+  "requestError": "Richiesta fallita, codice di errore {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "L'indirizzo del proxy API di Midjourney è vuoto, si prega di compilare e riprovare",
+    "fallback": "Richiesta fallita, si prega di riprovare più tardi"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Si prega di fare riferimento a <1>midjourney-proxy</1> per utilizzare il servizio lato server",
+      "title": "Indirizzo del proxy API di Midjourney"
+    },
+    "modalTitle": "Impostazioni",
+    "save": "Salva"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Rigenera",
+      "upscale": "Aumenta la risoluzione",
+      "variant": "Variazione"
+    }
+  }
+}

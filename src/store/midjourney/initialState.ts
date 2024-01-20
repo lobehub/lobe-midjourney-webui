@@ -6,6 +6,8 @@ export interface AppSettings {
 
 export interface MidjourneyState {
   activeTaskId?: string;
+  appInited?: boolean;
+  createTaskLoading?: boolean;
   inLobeChat?: boolean;
   isSettingsModalOpen: boolean;
   prompts: string;
@@ -16,6 +18,7 @@ export interface MidjourneyState {
 }
 
 export const initialState: MidjourneyState = {
+  appInited: false,
   inLobeChat: false,
   isSettingsModalOpen: false,
   prompts: '',

@@ -1,0 +1,40 @@
+{
+  "appIniting": "Ứng dụng đang khởi động...",
+  "guide": {
+    "step1": {
+      "description": "Điều hướng đến cài đặt, điền địa chỉ proxy API Midjourney",
+      "title": "Liên kết dịch vụ API Midjourney"
+    },
+    "step2": {
+      "description": "Nhập từ khóa gợi ý vào ô nhập và nhấn nút tạo để bắt đầu tạo",
+      "title": "Bắt đầu tạo hình ảnh"
+    }
+  },
+  "images": {
+    "delete": "Xóa",
+    "deleteConfirm": "Bạn có chắc muốn xóa hình ảnh này không?"
+  },
+  "input": {
+    "placeholder": "Vui lòng nhập từ khóa Midjourney..."
+  },
+  "requestError": "Yêu cầu thất bại, mã lỗi {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Địa chỉ proxy API Midjourney trống, vui lòng điền và thử lại",
+    "fallback": "Yêu cầu thất bại, vui lòng thử lại sau"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Vui lòng tham khảo <1>midjourney-proxy</1> để triển khai dịch vụ máy chủ trước khi sử dụng",
+      "title": "Địa chỉ proxy API Midjourney"
+    },
+    "modalTitle": "Cài đặt",
+    "save": "Lưu"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Tạo lại",
+      "upscale": "Nâng cấp chất lượng",
+      "variant": "Đa dạng hóa"
+    }
+  }
+}

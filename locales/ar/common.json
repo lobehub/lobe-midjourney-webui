@@ -1,0 +1,40 @@
+{
+  "appIniting": "جار تشغيل التطبيق...",
+  "guide": {
+    "step1": {
+      "description": "انتقل إلى الإعدادات واملأ عنوان وكيل Midjourney API",
+      "title": "ربط خدمة Midjourney API"
+    },
+    "step2": {
+      "description": "أدخل كلمات الإرشاد في الحقل وانقر على زر الإنشاء لبدء الإنشاء",
+      "title": "بدء الرسم"
+    }
+  },
+  "images": {
+    "delete": "حذف",
+    "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذه الصورة؟"
+  },
+  "input": {
+    "placeholder": "الرجاء إدخال كلمات الإرشاد لـ Midjourney..."
+  },
+  "requestError": "فشل الطلب، رمز الخطأ {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "عنوان وكيل Midjourney API فارغ، يرجى ملء العنوان والمحاولة مرة أخرى",
+    "fallback": "فشل الطلب، يرجى المحاولة مرة أخرى في وقت لاحق"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "يرجى الرجوع إلى <1>midjourney-proxy</1> ونشر الخدمة الخادمية لاستخدامها",
+      "title": "عنوان وكيل Midjourney API"
+    },
+    "modalTitle": "الإعدادات",
+    "save": "حفظ"
+  },
+  "task": {
+    "actions": {
+      "reroll": "إعادة الإنشاء",
+      "upscale": "تحسين الجودة",
+      "variant": "تنويع"
+    }
+  }
+}

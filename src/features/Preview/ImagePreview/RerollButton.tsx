@@ -3,6 +3,7 @@ import { createStyles } from 'antd-style';
 import { RefreshCwIcon } from 'lucide-react';
 import { rgba } from 'polished';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useMinimode } from '@/hooks/useMinimode';
 import { useMidjourneyStore } from '@/store/midjourney';
@@ -18,6 +19,8 @@ export const RerollButton = memo<{ taskId?: string }>(({ taskId }) => {
   const createSimpleChangeTask = useMidjourneyStore((s) => s.createChangeTask);
   const { styles } = useStyles();
   const { isMini } = useMinimode();
+  const { t } = useTranslation('common');
+
   return (
     <ActionIcon
       active
@@ -30,6 +33,7 @@ export const RerollButton = memo<{ taskId?: string }>(({ taskId }) => {
         createSimpleChangeTask({ action: 'REROLL', taskId: taskId });
       }}
       size={isMini ? 'small' : 'normal'}
+      title={t('task.actions.reroll')}
     />
   );
 });

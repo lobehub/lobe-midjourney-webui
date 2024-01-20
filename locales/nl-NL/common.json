@@ -1,0 +1,40 @@
+{
+  "appIniting": "Applicatie wordt gestart...",
+  "guide": {
+    "step1": {
+      "description": "Ga naar instellingen en vul het adres van de Midjourney API-proxy in",
+      "title": "Bind Midjourney API-service"
+    },
+    "step2": {
+      "description": "Voer een suggestiewoord in het invoerveld in en klik op de knop Genereren om te starten",
+      "title": "Begin met genereren van afbeeldingen"
+    }
+  },
+  "images": {
+    "delete": "Verwijderen",
+    "deleteConfirm": "Weet je zeker dat je deze afbeelding wilt verwijderen?"
+  },
+  "input": {
+    "placeholder": "Voer een suggestiewoord voor Midjourney in..."
+  },
+  "requestError": "Verzoek mislukt, foutcode {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "Het adres van de Midjourney API-proxy is leeg, vul het in en probeer het opnieuw",
+    "fallback": "Verzoek mislukt, probeer het later opnieuw"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Raadpleeg <1>midjourney-proxy</1> voor het implementeren van de serverzijde service",
+      "title": "Adres van de Midjourney API-proxy"
+    },
+    "modalTitle": "Instellingen",
+    "save": "Opslaan"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Opnieuw genereren",
+      "upscale": "Opschalen",
+      "variant": "Diversifiëren"
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { createStyles } from 'antd-style';
 import { Brush, Expand } from 'lucide-react';
 import { rgba } from 'polished';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { useMinimode } from '@/hooks/useMinimode';
@@ -76,6 +77,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
     s.createChangeTask,
     midjourneySelectors.getTaskById(id)(s)?.status === 'SUCCESS',
   ]);
+  const { t } = useTranslation('common');
 
   return (
     isSuccess && (
@@ -106,11 +108,12 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   if (!id) return;
+
                   createSimpleChangeTask({ action: 'UPSCALE', index, taskId: id });
                 }}
                 size={isMini ? 'small' : 'normal'}
               >
-                {isMini ? 'U' : 'Upscale'}
+                {isMini ? 'U' : t('task.actions.upscale')}
               </ActionIcon>
               <ActionIcon
                 active
@@ -126,7 +129,7 @@ const ImageAction = memo<ImageActionProps>(({ setMask, id }) => {
                 }}
                 size={isMini ? 'small' : 'normal'}
               >
-                {isMini ? 'V' : 'Vary'}
+                {isMini ? 'V' : t('task.actions.variant')}
               </ActionIcon>
             </Flexbox>
           </Flexbox>

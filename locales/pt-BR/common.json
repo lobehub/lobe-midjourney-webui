@@ -1,0 +1,40 @@
+{
+  "appIniting": "Iniciando o aplicativo...",
+  "guide": {
+    "step1": {
+      "description": "Acesse as configurações e insira o endereço do proxy da API Midjourney",
+      "title": "Vincular o serviço Midjourney API"
+    },
+    "step2": {
+      "description": "Digite palavras-chave na caixa de entrada e clique no botão de geração para começar",
+      "title": "Começar a criar imagens"
+    }
+  },
+  "images": {
+    "delete": "Excluir",
+    "deleteConfirm": "Tem certeza de que deseja excluir esta imagem?"
+  },
+  "input": {
+    "placeholder": "Digite as palavras-chave do Midjourney..."
+  },
+  "requestError": "Falha na solicitação, código de erro {{errorCode}}",
+  "response": {
+    "NO_BASE_URL": "O endereço do proxy da API Midjourney está vazio, por favor preencha e tente novamente",
+    "fallback": "Falha na solicitação, por favor tente novamente mais tarde"
+  },
+  "settings": {
+    "MidjourneyAPIProxy": {
+      "description": "Consulte <1>midjourney-proxy</1> para implantar o servidor e usá-lo",
+      "title": "Endereço do proxy da API Midjourney"
+    },
+    "modalTitle": "Configurações",
+    "save": "Salvar"
+  },
+  "task": {
+    "actions": {
+      "reroll": "Rolar novamente",
+      "upscale": "Aprimorar",
+      "variant": "Variar"
+    }
+  }
+}
