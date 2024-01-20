@@ -2,6 +2,31 @@
 
 # Changelog
 
+## [Version 1.3.0](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.11...v1.3.0)
+
+<sup>Released on **2024-01-20**</sup>
+
+#### ✨ Features
+
+- **misc**: Support locale and fix settings.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support locale and fix settings, closes [#6](https://github.com/lobehub/chat-plugin-midjourney/issues/6) ([11857ea](https://github.com/lobehub/chat-plugin-midjourney/commit/11857ea))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.2.11](https://github.com/lobehub/chat-plugin-midjourney/compare/v1.2.10...v1.2.11)
 
 <sup>Released on **2024-01-19**</sup>
