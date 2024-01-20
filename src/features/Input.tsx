@@ -1,8 +1,8 @@
 import { ActionIcon, TextArea } from '@lobehub/ui';
-import { Flex } from 'antd';
+import { Flex, Upload } from 'antd';
 import { createStyles } from 'antd-style';
-import { SendHorizontal } from 'lucide-react';
-import { memo } from 'react';
+import { FileImageIcon, SendHorizontal } from 'lucide-react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
@@ -27,16 +27,39 @@ const useStyles = createStyles(({ css, token, stylish, cx }) => ({
 
 const PromptInput = memo(() => {
   const { styles } = useStyles();
-  const [prompts, updatePrompts, createImagineTask, isLoading] = useMidjourneyStore((s) => [
-    s.prompts,
-    s.updatePrompts,
-    s.createImagineTask,
-    midjourneySelectors.isCreatingTaskLoading(s),
-  ]);
+  const [prompts, uploadImageUrl, isLoading, updatePrompts, createImagineTask, uploadImage] =
+    useMidjourneyStore((s) => [
+      s.prompts,
+      s.uploadImageUrl,
+      midjourneySelectors.isCreatingTaskLoading(s),
+      s.updatePrompts,
+      s.createImagineTask,
+      s.uploadImage,
+    ]);
   const { t } = useTranslation('common');
+  const [imageUploading, setImageUploading] = useState(false);
+
+  console.log(uploadImageUrl);
 
   return (
     <Flex align={'center'} className={styles.container} gap={8}>
+      <Upload
+        accept="image/*"
+        beforeUpload={async (file) => {
+          setImageUploading(true);
+
+          try {
+            await uploadImage(file);
+          } catch {}
+
+          setImageUploading(false);
+          return false;
+        }}
+        multiple={true}
+        showUploadList={false}
+      >
+        <ActionIcon icon={FileImageIcon} loading={imageUploading} title={t('input.uploadImage')} />
+      </Upload>
       <TextArea
         autoSize={{ maxRows: 3, minRows: 1 }}
         className={styles.prompt}
@@ -51,7 +74,7 @@ const PromptInput = memo(() => {
       <ActionIcon
         active
         icon={SendHorizontal}
-        loading={isLoading}
+        loading={isLoading || imageUploading}
         onClick={() => createImagineTask()}
       />
     </Flex>

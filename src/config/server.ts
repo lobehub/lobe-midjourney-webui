@@ -5,9 +5,15 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       MIDJOURNEY_PROXY_URL?: string;
+
+      IMGUR_CLIENT_ID?: string;
     }
   }
 }
+
+// we apply a free imgur app to get a client id
+// refs: https://apidocs.imgur.com/
+const DEFAULT_IMAGUR_CLIENT_ID = 'e415f320d6e24f9';
 
 export const getServerConfig = () => {
   if (typeof process === 'undefined') {
@@ -16,5 +22,7 @@ export const getServerConfig = () => {
 
   return {
     MIDJOURNEY_PROXY_URL: process.env.MIDJOURNEY_PROXY_URL,
+
+    IMGUR_CLIENT_ID: process.env.IMGUR_CLIENT_ID || DEFAULT_IMAGUR_CLIENT_ID,
   };
 };

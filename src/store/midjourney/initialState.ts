@@ -14,6 +14,7 @@ export interface MidjourneyState {
   requestError?: { body: string | { type: string }; message: string; status: number };
   runningTaskIds: string[];
   tasks: MidjourneyTask[];
+  uploadImageUrl?: string;
 }
 
 export const initialState: MidjourneyState = {
