@@ -1,7 +1,7 @@
 class FileService {
   async uploadFile(file: File) {
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('image', file);
 
     const res = await fetch('/api/files/image', {
       body: formData,
