@@ -6,7 +6,7 @@
 <img height="120" src="https://gw.alipayobjects.com/zos/kitchen/qJ3l3EPsdW/split.svg">
 <img height="120" src="https://github-production-user-asset-6210df.s3.amazonaws.com/28616219/281042486-5e3b9283-9f47-4201-b468-1cb8ef86b3d5.png">
 
-<h1>Midjourney<br/><sup>LobeChat Plugin</sup></h1>
+<h1>Lobe Midjourney Web UI<br/></h1>
 
 This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
