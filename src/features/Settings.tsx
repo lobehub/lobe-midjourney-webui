@@ -60,7 +60,7 @@ const Settings = memo(() => {
             <Alert
               closable
               description={getErrorContent(requestError.body)}
-              message={t('requestError', { erroCode: requestError.status })}
+              message={t('requestError', { errorCode: requestError.status })}
               type={'error'}
             />
           )}

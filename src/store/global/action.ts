@@ -1,6 +1,6 @@
 import { StateCreator } from 'zustand';
 
-import { storageService } from '@/services/storageService';
+import { storageService } from '@/services/storage';
 
 import { AppSettings, initialState } from './initialState';
 import { SettingsStore } from './store';

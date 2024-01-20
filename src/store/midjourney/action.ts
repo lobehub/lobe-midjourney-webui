@@ -4,8 +4,8 @@ import useSWR, { SWRResponse } from 'swr';
 import { StateCreator } from 'zustand';
 
 import { getClientConfig } from '@/config/client';
-import { ChangeTaskDTO, midjourneyService } from '@/services/Midjourney';
-import { storageService } from '@/services/storageService';
+import { ChangeTaskDTO, midjourneyService } from '@/services/midjourney';
+import { storageService } from '@/services/storage';
 import { useGlobalStore } from '@/store/global';
 import { TaskDispatch, tasksReducer } from '@/store/midjourney/reducers/task';
 import { MidjourneyTask } from '@/types/task';

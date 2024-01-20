@@ -17,7 +17,7 @@
   "input": {
     "placeholder": "请输入 Midjourney 提示词..."
   },
-  "requestError": "`请求失败，错误码 {{errorCode}}",
+  "requestError": "请求失败，错误码 {{errorCode}}",
   "response": {
     "NO_BASE_URL": "Midjourney API 代理地址为空，请填写后重试",
     "fallback": "请求失败，请稍后重试"
