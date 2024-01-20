@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.4.2](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.1...v1.4.2)
+
+<sup>Released on **2024-01-20**</sup>
+
+#### 💄 Styles
+
+- **misc**: Improve loading.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Improve loading ([0bd5002](https://github.com/lobehub/lobe-midjourney-webui/commit/0bd5002))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.4.1](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.0...v1.4.1)
 
 <sup>Released on **2024-01-20**</sup>
