@@ -21,7 +21,7 @@ const nextConfig = {
 
   async headers() {
     return isProd
-      ? undefined
+      ? []
       : [
           {
             source: '/:path*',
