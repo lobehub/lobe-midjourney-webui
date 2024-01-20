@@ -8,11 +8,13 @@ export const POST = async (req: Request) => {
   const clientId = getServerConfig().IMGUR_CLIENT_ID;
 
   const res = await fetch(`${baseURL}/upload`, {
-    body: req.body,
+    body: await req.blob(),
     headers: {
       Authorization: `Client-ID ${clientId}`,
     },
     method: 'POST',
+  }).catch((error) => {
+    return new Response(JSON.stringify(error.cause), { status: 400 });
   });
 
   if (!res.ok) {
