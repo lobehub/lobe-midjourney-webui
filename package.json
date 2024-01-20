@@ -62,7 +62,7 @@
     "i18next-resources-to-backend": "^1.2.0",
     "immer": "^10.0.3",
     "lucide-react": "latest",
-    "next": "14.0.4",
+    "next": "14.1.0",
     "polished": "^4.2.2",
     "qs": "^6.11.2",
     "react": "^18",
