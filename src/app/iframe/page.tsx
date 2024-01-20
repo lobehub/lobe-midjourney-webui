@@ -3,8 +3,8 @@
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import PromptInput from '@/features/Input';
 import ImagePreview from '@/features/Preview';
+import PromptInput from '@/features/PromptEditor';
 import TaskList from '@/features/TaskList';
 import { useMidjourneyStore } from '@/store/midjourney';
 

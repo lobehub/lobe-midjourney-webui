@@ -63,10 +63,20 @@ export const actions: StateCreator<
     await pollTaskStatus(taskId);
   },
   createImagineTask: async (shouldActiveTask = true) => {
-    const { dispatchTask, activeTask, pollTaskStatus, toggleTaskLoading, inLobeChat, prompts } =
-      get();
+    const {
+      dispatchTask,
+      activeTask,
+      pollTaskStatus,
+      toggleTaskLoading,
+      inLobeChat,
+      prompts,
+      referenceImageUrl = '',
+    } = get();
     set({ createTaskLoading: true });
-    const taskId = await midjourneyService.createImagineTask({ prompt: prompts });
+
+    const taskId = await midjourneyService.createImagineTask({
+      prompt: referenceImageUrl + ' ' + prompts,
+    });
 
     if (!taskId) {
       set({ createTaskLoading: false });
@@ -183,7 +193,7 @@ export const actions: StateCreator<
 
     if (!url) return;
 
-    get().updateAppState({ uploadImageUrl: url });
+    get().updateAppState({ referenceImageUrl: url });
   },
   useInitApp: () => {
     return useSWR<MidjourneyState>(
