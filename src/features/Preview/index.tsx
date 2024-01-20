@@ -64,18 +64,17 @@ const Preview = memo(() => {
     <Center className={styles.container} flex={1} gap={8} justify={'center'} ref={ref}>
       {isAppInited ? (
         <>
-          {showProgress && (
-            <div className={styles.process}>
-              {progress === 0 ? (
-                <Center className={styles.waiting} gap={2} height={72} horizontal width={72}>
-                  <div>{t('task.starting')}</div>
-                  <ReactAnimatedEllipsis />
-                </Center>
-              ) : (
+          {showProgress &&
+            (progress === 0 ? (
+              <Center className={styles.waiting} gap={2} height={72} horizontal width={72}>
+                <div>{t('task.starting')}</div>
+                <ReactAnimatedEllipsis />
+              </Center>
+            ) : (
+              <div className={styles.process}>
                 <Progress percent={progress} size="small" type="circle" />
-              )}
-            </div>
-          )}
+              </div>
+            ))}
           {showImage ? (
             <ImagePreview />
           ) : inLobeChat ? null : (
