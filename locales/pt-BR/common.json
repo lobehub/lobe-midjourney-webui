@@ -15,7 +15,8 @@
     "deleteConfirm": "Tem certeza de que deseja excluir esta imagem?"
   },
   "input": {
-    "placeholder": "Digite as palavras-chave do Midjourney..."
+    "placeholder": "Digite as palavras-chave do Midjourney...",
+    "uploadImage": "Enviar imagem"
   },
   "requestError": "Falha na solicitação, código de erro {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Rolar novamente",
       "upscale": "Aprimorar",
       "variant": "Variar"
-    }
+    },
+    "starting": "Iniciando"
   }
 }

@@ -15,7 +15,8 @@
     "deleteConfirm": "Bạn có chắc muốn xóa hình ảnh này không?"
   },
   "input": {
-    "placeholder": "Vui lòng nhập từ khóa Midjourney..."
+    "placeholder": "Vui lòng nhập từ khóa Midjourney...",
+    "uploadImage": "Tải ảnh lên"
   },
   "requestError": "Yêu cầu thất bại, mã lỗi {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Tạo lại",
       "upscale": "Nâng cấp chất lượng",
       "variant": "Đa dạng hóa"
-    }
+    },
+    "starting": "Đang khởi động"
   }
 }

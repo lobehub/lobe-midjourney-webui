@@ -15,7 +15,8 @@
     "deleteConfirm": "Bu resmi silmek istediğinize emin misiniz?"
   },
   "input": {
-    "placeholder": "Midjourney ipucu kelimesini girin..."
+    "placeholder": "Midjourney ipucu kelimesini girin...",
+    "uploadImage": "Resim Yükle"
   },
   "requestError": "İstek başarısız oldu, hata kodu {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Yeniden Oluştur",
       "upscale": "Yüksek Kalite",
       "variant": "Çeşitlendir"
-    }
+    },
+    "starting": "Başlatılıyor"
   }
 }

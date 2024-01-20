@@ -15,7 +15,8 @@
     "deleteConfirm": "Czy na pewno chcesz usunąć ten obraz?"
   },
   "input": {
-    "placeholder": "Wprowadź sugestię dla Midjourney..."
+    "placeholder": "Wprowadź sugestię dla Midjourney...",
+    "uploadImage": "Prześlij obraz"
   },
   "requestError": "Błąd żądania, kod błędu {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Generuj ponownie",
       "upscale": "Zwiększ jakość",
       "variant": "Warianty"
-    }
+    },
+    "starting": "Rozpoczynanie"
   }
 }

@@ -15,7 +15,8 @@
     "deleteConfirm": "Weet je zeker dat je deze afbeelding wilt verwijderen?"
   },
   "input": {
-    "placeholder": "Voer een suggestiewoord voor Midjourney in..."
+    "placeholder": "Voer een suggestiewoord voor Midjourney in...",
+    "uploadImage": "Afbeelding uploaden"
   },
   "requestError": "Verzoek mislukt, foutcode {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Opnieuw genereren",
       "upscale": "Opschalen",
       "variant": "Diversifiëren"
-    }
+    },
+    "starting": "Opstarten"
   }
 }

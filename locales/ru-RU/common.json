@@ -15,7 +15,8 @@
     "deleteConfirm": "Вы уверены, что хотите удалить это изображение?"
   },
   "input": {
-    "placeholder": "Введите подсказку для Midjourney..."
+    "placeholder": "Введите подсказку для Midjourney...",
+    "uploadImage": "Загрузить изображение"
   },
   "requestError": "Ошибка запроса, код ошибки {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Перегенерировать",
       "upscale": "Увеличить размер",
       "variant": "Варианты"
-    }
+    },
+    "starting": "Запуск"
   }
 }

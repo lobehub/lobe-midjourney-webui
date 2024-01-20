@@ -15,7 +15,8 @@
     "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette image ?"
   },
   "input": {
-    "placeholder": "Veuillez saisir un mot-clé Midjourney..."
+    "placeholder": "Veuillez saisir un mot-clé Midjourney...",
+    "uploadImage": "Télécharger une image"
   },
   "requestError": "Échec de la requête, code d'erreur {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Nouvelle génération",
       "upscale": "Améliorer la qualité",
       "variant": "Diversifier"
-    }
+    },
+    "starting": "Démarrage en cours"
   }
 }

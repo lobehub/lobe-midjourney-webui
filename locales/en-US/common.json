@@ -15,7 +15,8 @@
     "deleteConfirm": "Are you sure you want to delete this image?"
   },
   "input": {
-    "placeholder": "Enter Midjourney prompt word..."
+    "placeholder": "Enter Midjourney prompt word...",
+    "uploadImage": "Upload Image"
   },
   "requestError": "Request failed, error code {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Reroll",
       "upscale": "Upscale",
       "variant": "Diversify"
-    }
+    },
+    "starting": "Starting"
   }
 }

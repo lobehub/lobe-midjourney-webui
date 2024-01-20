@@ -15,7 +15,8 @@
     "deleteConfirm": "この画像を削除してもよろしいですか？"
   },
   "input": {
-    "placeholder": "Midjourneyのヒントワードを入力してください..."
+    "placeholder": "Midjourneyのヒントワードを入力してください...",
+    "uploadImage": "画像をアップロード"
   },
   "requestError": "リクエストが失敗しました、エラーコード {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "再生成",
       "upscale": "高画質化",
       "variant": "多様化"
-    }
+    },
+    "starting": "開始中"
   }
 }

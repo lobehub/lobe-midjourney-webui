@@ -15,7 +15,8 @@
     "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذه الصورة؟"
   },
   "input": {
-    "placeholder": "الرجاء إدخال كلمات الإرشاد لـ Midjourney..."
+    "placeholder": "الرجاء إدخال كلمات الإرشاد لـ Midjourney...",
+    "uploadImage": "تحميل الصورة"
   },
   "requestError": "فشل الطلب، رمز الخطأ {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "إعادة الإنشاء",
       "upscale": "تحسين الجودة",
       "variant": "تنويع"
-    }
+    },
+    "starting": "جارٍ البدء"
   }
 }

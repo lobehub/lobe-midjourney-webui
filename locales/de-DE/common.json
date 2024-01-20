@@ -15,7 +15,8 @@
     "deleteConfirm": "Möchten Sie dieses Bild wirklich löschen?"
   },
   "input": {
-    "placeholder": "Geben Sie einen Midjourney-Hinweis ein..."
+    "placeholder": "Geben Sie einen Midjourney-Hinweis ein...",
+    "uploadImage": "Bild hochladen"
   },
   "requestError": "Anforderung fehlgeschlagen, Fehlercode {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "Neu generieren",
       "upscale": "Hochskalieren",
       "variant": "Varianten erstellen"
-    }
+    },
+    "starting": "Starten"
   }
 }

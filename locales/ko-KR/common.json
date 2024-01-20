@@ -15,7 +15,8 @@
     "deleteConfirm": "이 그림을 삭제하시겠습니까?"
   },
   "input": {
-    "placeholder": "Midjourney 힌트 단어를 입력하세요..."
+    "placeholder": "Midjourney 힌트 단어를 입력하세요...",
+    "uploadImage": "이미지 업로드"
   },
   "requestError": "요청 실패, 오류 코드 {{errorCode}}",
   "response": {
@@ -35,6 +36,7 @@
       "reroll": "다시 생성",
       "upscale": "고화질화",
       "variant": "다양화"
-    }
+    },
+    "starting": "시작 중"
   }
 }
