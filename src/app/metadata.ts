@@ -1,9 +1,15 @@
 import { Metadata } from 'next';
 
+import { getServerConfig } from '@/config/server';
+
 import pkg from '../../package.json';
 
 const title = 'Lobe Midjourney WebUI';
 const { description, homepage } = pkg;
+
+const { METADATA_BASE_URL } = getServerConfig();
+
+const metadataBase = METADATA_BASE_URL ? new URL(METADATA_BASE_URL!) : undefined;
 
 const metadata: Metadata = {
   appleWebApp: {
@@ -19,6 +25,7 @@ const metadata: Metadata = {
       'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/favicon.ico',
   },
   manifest: '/manifest.json',
+  metadataBase,
   openGraph: {
     description: description,
     locale: 'en-US',

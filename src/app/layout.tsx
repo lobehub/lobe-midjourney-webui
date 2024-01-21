@@ -30,6 +30,8 @@ const RootLayout = ({ children }: PropsWithChildren) => {
 
 export default RootLayout;
 
+export { default as metadata } from './metadata';
+
 export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
