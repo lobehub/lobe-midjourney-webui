@@ -6,7 +6,7 @@ const useStyles = createStyles(({ css, token }) => ({
     aspect-ratio: 4;
     width: 24px;
 
-    background: radial-gradient(circle closest-side, ${token.colorTextLightSolid} 40%, #0000) 0 /
+    background: radial-gradient(circle closest-side, ${token.colorText} 40%, #0000) 0 /
       calc(100% / 3) 80% space;
     clip-path: inset(0 100% 0 0);
 

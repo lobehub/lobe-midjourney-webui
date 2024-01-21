@@ -1,7 +1,7 @@
 import { ActionIcon, Image } from '@lobehub/ui';
 import { Upload } from 'antd';
 import { createStyles } from 'antd-style';
-import { FileImageIcon, Trash } from 'lucide-react';
+import { ImagePlus, Trash } from 'lucide-react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -95,7 +95,7 @@ const ReferenceImage = memo<ReferenceImageProps>(({ imageUploading, setImageUplo
       multiple={true}
       showUploadList={false}
     >
-      <ActionIcon icon={FileImageIcon} loading={imageUploading} title={t('input.uploadImage')} />
+      <ActionIcon icon={ImagePlus} loading={imageUploading} title={t('input.uploadImage')} />
     </Upload>
   );
 });

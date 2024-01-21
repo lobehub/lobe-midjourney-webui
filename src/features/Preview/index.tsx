@@ -29,12 +29,13 @@ const useStyles = createStyles(({ css, token, cx, stylish, prefixCls }) => ({
       border-radius: 50%;
       .${prefixCls}-progress-text {
         font-family: ${token.fontFamilyCode};
-        color: ${token.colorTextLightSolid};
+        color: ${token.colorTextLightSolid} !important;
       }
     `,
   ),
   waiting: css`
-    color: ${token.colorTextLightSolid};
+    position: absolute;
+    z-index: 10;
   `,
 }));
 
