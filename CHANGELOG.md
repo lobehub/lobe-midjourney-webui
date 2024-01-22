@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.4.5](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.4...v1.4.5)
+
+<sup>Released on **2024-01-22**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix broken links in READMEs.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix broken links in READMEs ([4bba684](https://github.com/lobehub/lobe-midjourney-webui/commit/4bba684))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.4.4](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.3...v1.4.4)
 
 <sup>Released on **2024-01-21**</sup>
