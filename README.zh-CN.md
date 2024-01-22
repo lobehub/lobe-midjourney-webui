@@ -65,7 +65,7 @@
 
 ### 部署 midjourney-proxy
 
-本插件基于 [midjourney-proxy](https://github.com/novicezk/midjourney-proxy/) 作为 Midjourney 服务的提供方，你需要自行部署一个 midjourney-proxy 服务。部署方法请参考 [📘 midjourney-proxy 部署文档](https://github.com/novicezk/midjourney-proxy/?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E5%89%8D%E6%8F%90) 或者 [指南](docs/Setup-Midjourney-Proxy.zh-CN)。
+本插件基于 [midjourney-proxy](https://github.com/novicezk/midjourney-proxy/) 作为 Midjourney 服务的提供方，你需要自行部署一个 midjourney-proxy 服务。部署方法请参考 [📘 midjourney-proxy 部署文档](https://github.com/novicezk/midjourney-proxy/?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E5%89%8D%E6%8F%90) 或者 [指南](docs/Setup-Midjourney-Proxy.zh-CN.md)。
 
 ### 在 Web 中独立使用
 
