@@ -66,7 +66,7 @@ This plugin can integrate with [Midjourney](https://www.midjourney.com/)
 
 ### Deploy midjourney-proxy
 
-This plugin relies on [midjourney-proxy](https://github.com/novicezk/midjourney-proxy/) as the provider for Midjourney services. You will need to deploy a midjourney-proxy service. Please refer to the [📘 midjourney-proxy Deployment Documentation](https://github.com/novicezk/midjourney-proxy/?tab=readme-ov-file#prerequisites) or [Set up Guide](docs/Setup-Midjourney-Proxy) for deployment instructions.
+This plugin relies on [midjourney-proxy](https://github.com/novicezk/midjourney-proxy/) as the provider for Midjourney services. You will need to deploy a midjourney-proxy service. Please refer to the [📘 midjourney-proxy Deployment Documentation](https://github.com/novicezk/midjourney-proxy/?tab=readme-ov-file#prerequisites) or [Set up Guide](docs/Setup-Midjourney-Proxy.md) for deployment instructions.
 
 ### Standalone Use in Web
 
