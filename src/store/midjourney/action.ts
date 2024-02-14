@@ -26,6 +26,7 @@ export interface StoreAction {
   createImagineTask: (shouldActiveTask?: boolean) => Promise<void>;
   dispatchTask: (payload: TaskDispatch) => void;
   pollTaskStatus: (id: string) => Promise<void>;
+  removeAllTasks: () => void;
   removeTask: (id: string) => void;
   toggleTaskLoading: (id: string, loading: boolean) => void;
   updateAppState: (state: Partial<MidjourneyState>, action?: any) => void;
@@ -141,6 +142,10 @@ export const actions: StateCreator<
     if (!finalTask) return;
 
     dispatchTask({ id: finalTask!.id, task: finalTask, type: 'updateTask' });
+  },
+  removeAllTasks: () => {
+    const tasks = get().tasks;
+    for (const task of tasks) get().removeTask(task.id);
   },
   removeTask: (id) => {
     const { dispatchTask, tasks, activeTaskId } = get();

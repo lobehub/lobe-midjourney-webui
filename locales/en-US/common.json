@@ -1,5 +1,6 @@
 {
   "appIniting": "App is initializing...",
+  "docs": "Documents",
   "guide": {
     "step1": {
       "description": "Go to settings and fill in the Midjourney API proxy address",
@@ -12,7 +13,16 @@
   },
   "images": {
     "delete": "Delete",
-    "deleteConfirm": "Are you sure you want to delete this image?"
+    "deleteAll": "Delete All Images",
+    "deleteAllConfirm": "Are you sure you want to delete all images?",
+    "deleteConfirm": "Are you sure you want to delete this image?",
+    "deleteCurrent": "Delete Current Image",
+    "task": {
+      "actions": {
+        "download": "Download",
+        "info": "Image Details"
+      }
+    }
   },
   "input": {
     "placeholder": "Enter Midjourney prompt word...",

@@ -1,5 +1,6 @@
 {
   "appIniting": "Uygulama başlatılıyor...",
+  "docs": "Belgeler",
   "guide": {
     "step1": {
       "description": "Ayarlar'a gidin ve Midjourney API vekil adresini girin",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "Sil",
-    "deleteConfirm": "Bu resmi silmek istediğinize emin misiniz?"
+    "deleteAll": "Tüm resimleri sil",
+    "deleteAllConfirm": "Tüm resimleri silmek istediğinize emin misiniz?",
+    "deleteConfirm": "Bu resmi silmek istediğinize emin misiniz?",
+    "deleteCurrent": "Geçerli resmi sil"
   },
   "input": {
     "placeholder": "Midjourney ipucu kelimesini girin...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "İndir",
+      "info": "Resim Bilgisi",
       "reroll": "Yeniden Oluştur",
       "upscale": "Yüksek Kalite",
       "variant": "Çeşitlendir"

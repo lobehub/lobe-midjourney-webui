@@ -1,5 +1,6 @@
 {
   "appIniting": "Uruchamianie aplikacji...",
+  "docs": "Dokumenty",
   "guide": {
     "step1": {
       "description": "Przejdź do ustawień i wprowadź adres proxy API Midjourney",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "Usuń",
-    "deleteConfirm": "Czy na pewno chcesz usunąć ten obraz?"
+    "deleteAll": "Usuń wszystkie zdjęcia",
+    "deleteAllConfirm": "Czy na pewno chcesz usunąć wszystkie zdjęcia?",
+    "deleteConfirm": "Czy na pewno chcesz usunąć ten obraz?",
+    "deleteCurrent": "Usuń bieżące zdjęcie"
   },
   "input": {
     "placeholder": "Wprowadź sugestię dla Midjourney...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "Pobierz",
+      "info": "Szczegóły zdjęcia",
       "reroll": "Generuj ponownie",
       "upscale": "Zwiększ jakość",
       "variant": "Warianty"

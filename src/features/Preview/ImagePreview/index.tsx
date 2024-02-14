@@ -1,6 +1,6 @@
 import { Image } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Center } from 'react-layout-kit';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
@@ -43,12 +43,16 @@ const useStyles = createStyles(({ css, prefixCls, token }) => {
   };
 });
 
-const ImagePreview = memo(() => {
+const ImagePreview = memo<{ setLoaded: (loaded: boolean) => void }>(({ setLoaded }) => {
   const { styles, cx } = useStyles();
 
   const [modal, setMask] = useState<boolean>(false);
 
   const currentTask = useMidjourneyStore(midjourneySelectors.currentActiveTask);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [currentTask?.imageUrl]);
 
   return (
     <Center className={styles.container} flex={1} height={`var(--max)`} width={`var(--max)`}>
@@ -56,6 +60,7 @@ const ImagePreview = memo(() => {
         <div style={{ height: `var(--max)`, maxWidth: `var(--max)`, position: 'relative' }}>
           <Image
             className={styles.image}
+            onLoad={() => setLoaded(true)}
             preview={{ onVisibleChange: setMask, visible: modal }}
             src={currentTask.imageUrl}
             wrapperClassName={cx(

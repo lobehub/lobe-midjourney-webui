@@ -1,5 +1,6 @@
 {
   "appIniting": "앱 시작 중...",
+  "docs": "문서",
   "guide": {
     "step1": {
       "description": "설정으로 이동하여 Midjourney API 프록시 주소를 입력하세요",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "삭제",
-    "deleteConfirm": "이 그림을 삭제하시겠습니까?"
+    "deleteAll": "모든 이미지 삭제",
+    "deleteAllConfirm": "모든 이미지를 삭제하시겠습니까?",
+    "deleteConfirm": "이 그림을 삭제하시겠습니까?",
+    "deleteCurrent": "현재 이미지 삭제"
   },
   "input": {
     "placeholder": "Midjourney 힌트 단어를 입력하세요...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "다운로드",
+      "info": "이미지 정보",
       "reroll": "다시 생성",
       "upscale": "고화질화",
       "variant": "다양화"

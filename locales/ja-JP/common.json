@@ -1,5 +1,6 @@
 {
   "appIniting": "アプリを起動しています...",
+  "docs": "文書",
   "guide": {
     "step1": {
       "description": "設定に入り、Midjourney APIプロキシアドレスを入力してください",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "削除",
-    "deleteConfirm": "この画像を削除してもよろしいですか？"
+    "deleteAll": "すべての画像を削除",
+    "deleteAllConfirm": "すべての画像を削除しますか？",
+    "deleteConfirm": "この画像を削除してもよろしいですか？",
+    "deleteCurrent": "現在の画像を削除"
   },
   "input": {
     "placeholder": "Midjourneyのヒントワードを入力してください...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "ダウンロード",
+      "info": "画像の詳細",
       "reroll": "再生成",
       "upscale": "高画質化",
       "variant": "多様化"

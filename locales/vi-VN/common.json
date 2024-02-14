@@ -1,5 +1,6 @@
 {
   "appIniting": "Ứng dụng đang khởi động...",
+  "docs": "Tài liệu",
   "guide": {
     "step1": {
       "description": "Điều hướng đến cài đặt, điền địa chỉ proxy API Midjourney",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "Xóa",
-    "deleteConfirm": "Bạn có chắc muốn xóa hình ảnh này không?"
+    "deleteAll": "Xóa tất cả ảnh",
+    "deleteAllConfirm": "Bạn có chắc muốn xóa tất cả ảnh không?",
+    "deleteConfirm": "Bạn có chắc muốn xóa hình ảnh này không?",
+    "deleteCurrent": "Xóa ảnh hiện tại"
   },
   "input": {
     "placeholder": "Vui lòng nhập từ khóa Midjourney...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "Tải xuống",
+      "info": "Thông tin ảnh",
       "reroll": "Tạo lại",
       "upscale": "Nâng cấp chất lượng",
       "variant": "Đa dạng hóa"

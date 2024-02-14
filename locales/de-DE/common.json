@@ -1,5 +1,6 @@
 {
   "appIniting": "Anwendung wird gestartet...",
+  "docs": "Dokumente",
   "guide": {
     "step1": {
       "description": "Gehen Sie zu den Einstellungen und geben Sie die Adresse des Midjourney API-Proxys ein",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "Löschen",
-    "deleteConfirm": "Möchten Sie dieses Bild wirklich löschen?"
+    "deleteAll": "Alle Bilder löschen",
+    "deleteAllConfirm": "Möchten Sie wirklich alle Bilder löschen?",
+    "deleteConfirm": "Möchten Sie dieses Bild wirklich löschen?",
+    "deleteCurrent": "Aktuelles Bild löschen"
   },
   "input": {
     "placeholder": "Geben Sie einen Midjourney-Hinweis ein...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "Herunterladen",
+      "info": "Bildinformationen",
       "reroll": "Neu generieren",
       "upscale": "Hochskalieren",
       "variant": "Varianten erstellen"

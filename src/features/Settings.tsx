@@ -34,8 +34,15 @@ const Settings = memo(() => {
 
   return (
     <>
+      <ActionIcon
+        icon={LucideSettings}
+        onClick={() => {
+          useGlobalStore.setState({ isSettingsModalOpen: true });
+        }}
+        size={'site'}
+        title={t('settings.modalTitle')}
+      />
       <Modal
-        centered
         footer={
           <Button
             block
@@ -83,13 +90,6 @@ const Settings = memo(() => {
           </Flexbox>
         </Flexbox>
       </Modal>
-      <ActionIcon
-        icon={LucideSettings}
-        onClick={() => {
-          useGlobalStore.setState({ isSettingsModalOpen: true });
-        }}
-        size={'site'}
-      />
     </>
   );
 });

@@ -1,42 +1,33 @@
-import { Typography } from 'antd';
+import { Icon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
+import { Loader2 } from 'lucide-react';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-const useStyles = createStyles(({ css, token }) => ({
-  container: css`
-    --mask: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+const useStyles = createStyles(({ css, token, cx, stylish }) => ({
+  waiting: cx(
+    stylish.blur,
+    css`
+      position: absolute;
+      z-index: 10;
 
-    aspect-ratio: 1;
-    width: 50px;
-    padding: 8px;
+      padding: 8px;
 
-    background: ${token.colorPrimaryHover};
-    border-radius: 50%;
-    mask: var(--mask);
-
-    animation: rotate 1s infinite linear;
-
-    mask-composite: source-out;
-    mask-composite: subtract;
-
-    @keyframes rotate {
-      to {
-        transform: rotate(1turn);
-      }
-    }
-  `,
+      background: ${token.colorFillTertiary};
+      border-radius: ${token.borderRadiusLG}px;
+    `,
+  ),
 }));
 
 const Loading = memo(() => {
-  const { styles } = useStyles();
   const { t } = useTranslation('common');
+  const { styles } = useStyles();
 
   return (
-    <Flexbox align={'center'} gap={16}>
-      <div className={styles.container} />
-      <Typography.Text type={'secondary'}>{t('appIniting')}</Typography.Text>
+    <Flexbox align={'center'} className={styles.waiting} gap={8} horizontal>
+      <Icon icon={Loader2} spin />
+      <div>{t('appIniting')}</div>
     </Flexbox>
   );
 });

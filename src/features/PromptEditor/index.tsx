@@ -1,9 +1,9 @@
 import { ActionIcon, TextArea } from '@lobehub/ui';
-import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
 import { Brush } from 'lucide-react';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Flexbox } from 'react-layout-kit';
 
 import { midjourneySelectors, useMidjourneyStore } from '@/store/midjourney';
 
@@ -42,7 +42,7 @@ const useStyles = createStyles(({ css, token, stylish, cx }) => ({
     css`
       align-self: flex-start;
 
-      padding: 6px;
+      padding: 10px 6px 6px;
 
       font-family: ${token.fontFamilyCode};
       font-size: 13px;
@@ -63,7 +63,7 @@ const PromptInput = memo(() => {
   const [imageUploading, setImageUploading] = useState(false);
 
   return (
-    <Flex align={'center'} className={styles.container} gap={8}>
+    <Flexbox align={'flex-start'} className={styles.container} gap={8} horizontal>
       <ReferenceImage imageUploading={imageUploading} setImageUploading={setImageUploading} />
       <TextArea
         autoSize={{ maxRows: 3, minRows: 1 }}
@@ -81,9 +81,8 @@ const PromptInput = memo(() => {
         icon={Brush}
         loading={isLoading || imageUploading}
         onClick={() => createImagineTask()}
-        style={{ height: '100%' }}
       />
-    </Flex>
+    </Flexbox>
   );
 });
 

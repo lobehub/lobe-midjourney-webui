@@ -1,5 +1,6 @@
 {
   "appIniting": "应用启动中...",
+  "docs": "文档",
   "guide": {
     "step1": {
       "title": "绑定 Midjourney API 服务",
@@ -11,8 +12,11 @@
     }
   },
   "images": {
+    "deleteCurrent": "删除当前图片",
+    "deleteAll": "删除全部图片",
     "delete": "删除",
-    "deleteConfirm": "确定要删除这张图片吗？"
+    "deleteConfirm": "确定要删除这张图片吗？",
+    "deleteAllConfirm": "确定要删除全部图片吗？"
   },
   "input": {
     "placeholder": "请输入 Midjourney 提示词...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "下载",
+      "info": "图片详情",
       "reroll": "重新生成",
       "upscale": "高清化",
       "variant": "多样化"

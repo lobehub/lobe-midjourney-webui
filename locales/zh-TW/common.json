@@ -1,5 +1,6 @@
 {
   "appIniting": "應用程式啟動中...",
+  "docs": "文件",
   "guide": {
     "step1": {
       "description": "進入設定，填寫 Midjourney API 代理地址",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "刪除",
-    "deleteConfirm": "確定要刪除這張圖片嗎？"
+    "deleteAll": "刪除所有圖片",
+    "deleteAllConfirm": "確定要刪除所有圖片嗎？",
+    "deleteConfirm": "確定要刪除這張圖片嗎？",
+    "deleteCurrent": "刪除當前圖片"
   },
   "input": {
     "placeholder": "請輸入 Midjourney 提示詞...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "下載",
+      "info": "圖片詳情",
       "reroll": "重新生成",
       "upscale": "高清化",
       "variant": "多樣化"

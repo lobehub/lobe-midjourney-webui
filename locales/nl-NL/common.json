@@ -1,5 +1,6 @@
 {
   "appIniting": "Applicatie wordt gestart...",
+  "docs": "Documenten",
   "guide": {
     "step1": {
       "description": "Ga naar instellingen en vul het adres van de Midjourney API-proxy in",
@@ -12,7 +13,16 @@
   },
   "images": {
     "delete": "Verwijderen",
-    "deleteConfirm": "Weet je zeker dat je deze afbeelding wilt verwijderen?"
+    "deleteAll": "Alle afbeeldingen verwijderen",
+    "deleteAllConfirm": "Weet je zeker dat je alle afbeeldingen wilt verwijderen?",
+    "deleteConfirm": "Weet je zeker dat je deze afbeelding wilt verwijderen?",
+    "deleteCurrent": "Huidige afbeelding verwijderen",
+    "task": {
+      "actions": {
+        "download": "Downloaden",
+        "info": "Afbeeldingsdetails"
+      }
+    }
   },
   "input": {
     "placeholder": "Voer een suggestiewoord voor Midjourney in...",

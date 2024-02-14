@@ -1,5 +1,6 @@
 {
   "appIniting": "L'application démarre...",
+  "docs": "Documents",
   "guide": {
     "step1": {
       "description": "Accédez aux paramètres et saisissez l'adresse du proxy Midjourney API",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "Supprimer",
-    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette image ?"
+    "deleteAll": "Supprimer toutes les images",
+    "deleteAllConfirm": "Êtes-vous sûr de vouloir supprimer toutes les images ?",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cette image ?",
+    "deleteCurrent": "Supprimer l'image actuelle"
   },
   "input": {
     "placeholder": "Veuillez saisir un mot-clé Midjourney...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "Télécharger",
+      "info": "Détails de l'image",
       "reroll": "Nouvelle génération",
       "upscale": "Améliorer la qualité",
       "variant": "Diversifier"

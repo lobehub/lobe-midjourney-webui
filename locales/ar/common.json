@@ -1,5 +1,6 @@
 {
   "appIniting": "جار تشغيل التطبيق...",
+  "docs": "مستندات",
   "guide": {
     "step1": {
       "description": "انتقل إلى الإعدادات واملأ عنوان وكيل Midjourney API",
@@ -12,7 +13,10 @@
   },
   "images": {
     "delete": "حذف",
-    "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذه الصورة؟"
+    "deleteAll": "حذف جميع الصور",
+    "deleteAllConfirm": "هل أنت متأكد من رغبتك في حذف جميع الصور؟",
+    "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذه الصورة؟",
+    "deleteCurrent": "حذف الصورة الحالية"
   },
   "input": {
     "placeholder": "الرجاء إدخال كلمات الإرشاد لـ Midjourney...",
@@ -33,6 +37,8 @@
   },
   "task": {
     "actions": {
+      "download": "تحميل",
+      "info": "تفاصيل الصورة",
       "reroll": "إعادة الإنشاء",
       "upscale": "تحسين الجودة",
       "variant": "تنويع"

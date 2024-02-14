@@ -1,5 +1,6 @@
 {
   "appIniting": "Iniciando la aplicación...",
+  "docs": "Documentos",
   "guide": {
     "step1": {
       "description": "Ir a configuración y completar la dirección del proxy de la API de Midjourney",
@@ -12,7 +13,16 @@
   },
   "images": {
     "delete": "Eliminar",
-    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta imagen?"
+    "deleteAll": "Eliminar todas las imágenes",
+    "deleteAllConfirm": "¿Estás seguro de que quieres eliminar todas las imágenes?",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta imagen?",
+    "deleteCurrent": "Eliminar imagen actual",
+    "task": {
+      "actions": {
+        "download": "Descargar",
+        "info": "Detalles de la imagen"
+      }
+    }
   },
   "input": {
     "placeholder": "Ingrese las palabras clave de Midjourney...",
