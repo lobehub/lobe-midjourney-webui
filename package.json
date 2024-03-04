@@ -79,7 +79,7 @@
     "@types/rtl-detect": "^1.0.3",
     "@vercel/node": "^3",
     "@vitest/coverage-v8": "^1",
-    "commitlint": "^18",
+    "commitlint": "^19.0.0",
     "cross-env": "^7",
     "eslint": "^8",
     "husky": "^8",
