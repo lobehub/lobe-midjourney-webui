@@ -71,7 +71,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18",
+    "@commitlint/cli": "^19.0.0",
     "@lobehub/lint": "latest",
     "@next/eslint-plugin-next": "^14.1",
     "@types/qs": "^6.9.11",
