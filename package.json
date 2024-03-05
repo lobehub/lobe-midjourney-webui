@@ -82,7 +82,7 @@
     "commitlint": "^19.0.0",
     "cross-env": "^7",
     "eslint": "^8",
-    "husky": "^8",
+    "husky": "^9.0.0",
     "lint-staged": "^15",
     "prettier": "^3",
     "remark": "^14",
