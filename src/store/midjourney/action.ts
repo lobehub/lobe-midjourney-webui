@@ -222,6 +222,7 @@ export const actions: StateCreator<
 
         if (payload?.name === 'showMJ') {
           const { prompts } = payload.arguments!;
+          useGlobalStore.setState({ settings: payload.settings });
 
           return {
             ...payload.state,
