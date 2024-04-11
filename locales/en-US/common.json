@@ -35,8 +35,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Please refer to <1>midjourney-proxy</1> for deploying the server and then use",
-      "title": "Midjourney API Proxy Address"
+      "baseUrl": {
+        "title": "Midjourney API Proxy Address"
+      },
+      "apiSecret": {
+        "title": "Midjourney API Proxy Secret"
+      },
+      "description": "Please refer to <1>midjourney-proxy</1> for deploying the server and then use"
     },
     "modalTitle": "Settings",
     "save": "Save"

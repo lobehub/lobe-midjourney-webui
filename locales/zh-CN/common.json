@@ -29,7 +29,12 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "title": "Midjourney API 代理地址",
+      "baseUrl": {
+        "title": "Midjourney API 代理地址"
+      },
+      "apiSecret": {
+        "title": "Midjourney API 代理 Secret"
+      },
       "description": "请参考 <1>midjourney-proxy</1> 部署好服务端后使用"
     },
     "modalTitle": "设置",

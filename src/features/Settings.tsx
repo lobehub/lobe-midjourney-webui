@@ -12,9 +12,10 @@ import { settingsSelectors } from '@/store/global/selectors';
 
 const Settings = memo(() => {
   const { t } = useTranslation('common');
-  const [isSettingsModalOpen, proxyURL, updateSettings] = useGlobalStore((s) => [
+  const [isSettingsModalOpen, proxyURL, proxyAPISecret, updateSettings] = useGlobalStore((s) => [
     s.isSettingsModalOpen,
     settingsSelectors.proxyURL(s),
+    settingsSelectors.proxyAPISecret(s),
     s.updateSettings,
   ]);
 
@@ -72,13 +73,21 @@ const Settings = memo(() => {
             />
           )}
           <Flexbox gap={12}>
-            <div>{t('settings.MidjourneyAPIProxy.title')}</div>
+            <div>{t('settings.MidjourneyAPIProxy.baseUrl.title')}</div>
             <Input
               onChange={(e) => {
                 updateSettings({ MIDJOURNEY_PROXY_URL: e.target.value });
               }}
               placeholder={'https://your-midjourney-proxy'}
               value={proxyURL}
+            />
+            <div>{t('settings.MidjourneyAPIProxy.apiSecret.title')}</div>
+            <Input
+              onChange={(e) => {
+                updateSettings({ MIDJOURNEY_PROXY_API_SECRET: e.target.value });
+              }}
+              placeholder={'your-midjourney-api-secret'}
+              value={proxyAPISecret}
             />
             <Typography.Text type={'secondary'}>
               <Trans i18nKey={'settings.MidjourneyAPIProxy.description'} ns={'common'}>
