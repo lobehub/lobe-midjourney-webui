@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "يرجى الرجوع إلى <1>midjourney-proxy</1> ونشر الخدمة الخادمية لاستخدامها",
-      "title": "عنوان وكيل Midjourney API"
+      "apiSecret": {
+        "title": "سر وكيل Midjourney API"
+      },
+      "baseUrl": {
+        "title": "عنوان وكيل Midjourney API"
+      },
+      "description": "يرجى الرجوع إلى <1>midjourney-proxy</1> ونشر الخدمة الخادمية لاستخدامها"
     },
     "modalTitle": "الإعدادات",
     "save": "حفظ"

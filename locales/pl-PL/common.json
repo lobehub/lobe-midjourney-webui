@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Proszę skonsultować się z <1>midjourney-proxy</1> w celu skonfigurowania serwera",
-      "title": "Adres proxy API Midjourney"
+      "apiSecret": {
+        "title": "Sekret proxy Midjourney API"
+      },
+      "baseUrl": {
+        "title": "Adres proxy Midjourney API"
+      },
+      "description": "Proszę skonsultować się z <1>midjourney-proxy</1> w celu skonfigurowania serwera"
     },
     "modalTitle": "Ustawienia",
     "save": "Zapisz"

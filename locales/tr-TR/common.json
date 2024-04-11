@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Lütfen <1>midjourney-proxy</1> bağlantısına giderek sunucu tarafını kurduktan sonra kullanın",
-      "title": "Midjourney API Vekil Adresi"
+      "apiSecret": {
+        "title": "Midjourney API Proxy Gizlisi"
+      },
+      "baseUrl": {
+        "title": "Midjourney API Proxy Adresi"
+      },
+      "description": "Lütfen <1>midjourney-proxy</1> bağlantısına giderek sunucu tarafını kurduktan sonra kullanın"
     },
     "modalTitle": "Ayarlar",
     "save": "Kaydet"

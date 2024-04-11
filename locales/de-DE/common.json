@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Bitte installieren Sie den <1>midjourney-proxy</1>-Server und verwenden Sie ihn",
-      "title": "Midjourney API-Proxy-Adresse"
+      "apiSecret": {
+        "title": "Midjourney API Proxy Secret"
+      },
+      "baseUrl": {
+        "title": "Midjourney API Proxy-URL"
+      },
+      "description": "Bitte installieren Sie den <1>midjourney-proxy</1>-Server und verwenden Sie ihn"
     },
     "modalTitle": "Einstellungen",
     "save": "Speichern"

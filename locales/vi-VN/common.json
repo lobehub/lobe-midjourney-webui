@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Vui lòng tham khảo <1>midjourney-proxy</1> để triển khai dịch vụ máy chủ trước khi sử dụng",
-      "title": "Địa chỉ proxy API Midjourney"
+      "apiSecret": {
+        "title": "Bí mật proxy API Midjourney"
+      },
+      "baseUrl": {
+        "title": "Địa chỉ proxy API Midjourney"
+      },
+      "description": "Vui lòng tham khảo <1>midjourney-proxy</1> để triển khai dịch vụ máy chủ trước khi sử dụng"
     },
     "modalTitle": "Cài đặt",
     "save": "Lưu"

@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "サーバーをデプロイした後、<1>midjourney-proxy</1> を参照して使用してください",
-      "title": "Midjourney APIプロキシアドレス"
+      "apiSecret": {
+        "title": "Midjourney API プロキシシークレット"
+      },
+      "baseUrl": {
+        "title": "Midjourney API プロキシアドレス"
+      },
+      "description": "サーバーをデプロイした後、<1>midjourney-proxy</1> を参照して使用してください"
     },
     "modalTitle": "設定",
     "save": "保存"

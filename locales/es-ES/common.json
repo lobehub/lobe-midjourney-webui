@@ -16,13 +16,7 @@
     "deleteAll": "Eliminar todas las imágenes",
     "deleteAllConfirm": "¿Estás seguro de que quieres eliminar todas las imágenes?",
     "deleteConfirm": "¿Estás seguro de que quieres eliminar esta imagen?",
-    "deleteCurrent": "Eliminar imagen actual",
-    "task": {
-      "actions": {
-        "download": "Descargar",
-        "info": "Detalles de la imagen"
-      }
-    }
+    "deleteCurrent": "Eliminar imagen actual"
   },
   "input": {
     "placeholder": "Ingrese las palabras clave de Midjourney...",
@@ -35,14 +29,21 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Por favor consulta <1>midjourney-proxy</1> para desplegar el servidor y luego utilizarlo",
-      "title": "Dirección del proxy de la API de Midjourney"
+      "apiSecret": {
+        "title": "Secreto de la API de Midjourney"
+      },
+      "baseUrl": {
+        "title": "Dirección de proxy de la API de Midjourney"
+      },
+      "description": "Por favor consulta <1>midjourney-proxy</1> para desplegar el servidor y luego utilizarlo"
     },
     "modalTitle": "Configuración",
     "save": "Guardar"
   },
   "task": {
     "actions": {
+      "download": "Descargar",
+      "info": "Detalles de la imagen",
       "reroll": "Volver a generar",
       "upscale": "Mejorar la calidad",
       "variant": "Variar"

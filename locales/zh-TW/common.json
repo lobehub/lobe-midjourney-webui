@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "請參考 <1>midjourney-proxy</1> 部署好服務端後使用",
-      "title": "Midjourney API 代理地址"
+      "apiSecret": {
+        "title": "Midjourney API 代理密鑰"
+      },
+      "baseUrl": {
+        "title": "Midjourney API 代理位址"
+      },
+      "description": "請參考 <1>midjourney-proxy</1> 部署好服務端後使用"
     },
     "modalTitle": "設定",
     "save": "保存"
