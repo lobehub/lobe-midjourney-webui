@@ -1,5 +1,5 @@
-import { ActionIcon, Alert, Icon, Input, Modal } from '@lobehub/ui';
-import { Button, Typography } from 'antd';
+import { ActionIcon, Alert, Icon, Modal } from '@lobehub/ui';
+import { Button, Input, Typography } from 'antd';
 import isEqual from 'fast-deep-equal';
 import { LucideSettings, Save } from 'lucide-react';
 import Link from 'next/link';
@@ -82,7 +82,7 @@ const Settings = memo(() => {
               value={proxyURL}
             />
             <div>{t('settings.MidjourneyAPIProxy.apiSecret.title')}</div>
-            <Input
+            <Input.Password
               onChange={(e) => {
                 updateSettings({ MIDJOURNEY_PROXY_API_SECRET: e.target.value });
               }}
