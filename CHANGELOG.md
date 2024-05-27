@@ -2,6 +2,31 @@
 
 # Changelog
 
+### [Version 1.4.8](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.7...v1.4.8)
+
+<sup>Released on **2024-05-27**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Upgrade deps and fix build.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Upgrade deps and fix build ([17fbe00](https://github.com/lobehub/lobe-midjourney-webui/commit/17fbe00))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.4.7](https://github.com/lobehub/lobe-midjourney-webui/compare/v1.4.6...v1.4.7)
 
 <sup>Released on **2024-03-16**</sup>
