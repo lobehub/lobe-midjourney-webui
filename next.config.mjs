@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ['@icons-pack/react-simple-icons', '@lobehub/ui'],
+    optimizePackageImports: ['@icons-pack/react-simple-icons', '@lobehub/ui', 'shiki'],
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
