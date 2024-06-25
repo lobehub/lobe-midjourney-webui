@@ -5,6 +5,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       MIDJOURNEY_PROXY_URL?: string;
+      MIDJOURNEY_PROXY_API_SECRET?: string;
       METADATA_BASE_URL?: string;
 
       IMGUR_CLIENT_ID?: string;
@@ -23,6 +24,7 @@ export const getServerConfig = () => {
 
   return {
     MIDJOURNEY_PROXY_URL: process.env.MIDJOURNEY_PROXY_URL,
+    MIDJOURNEY_PROXY_API_SECRET: process.env.MIDJOURNEY_PROXY_API_SECRET,
 
     METADATA_BASE_URL: process.env.METADATA_BASE_URL,
 

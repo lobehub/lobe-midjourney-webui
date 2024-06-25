@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Veuillez consulter <1>midjourney-proxy</1> pour déployer le service côté serveur avant utilisation",
-      "title": "Adresse du proxy Midjourney API"
+      "apiSecret": {
+        "title": "Secret du proxy API Midjourney"
+      },
+      "baseUrl": {
+        "title": "Adresse du proxy API Midjourney"
+      },
+      "description": "Veuillez consulter <1>midjourney-proxy</1> pour déployer le service côté serveur avant utilisation"
     },
     "modalTitle": "Paramètres",
     "save": "Enregistrer"

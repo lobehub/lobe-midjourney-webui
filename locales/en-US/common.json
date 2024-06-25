@@ -16,13 +16,7 @@
     "deleteAll": "Delete All Images",
     "deleteAllConfirm": "Are you sure you want to delete all images?",
     "deleteConfirm": "Are you sure you want to delete this image?",
-    "deleteCurrent": "Delete Current Image",
-    "task": {
-      "actions": {
-        "download": "Download",
-        "info": "Image Details"
-      }
-    }
+    "deleteCurrent": "Delete Current Image"
   },
   "input": {
     "placeholder": "Enter Midjourney prompt word...",
@@ -35,14 +29,21 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Please refer to <1>midjourney-proxy</1> for deploying the server and then use",
-      "title": "Midjourney API Proxy Address"
+      "apiSecret": {
+        "title": "Midjourney API Proxy Secret"
+      },
+      "baseUrl": {
+        "title": "Midjourney API Proxy Address"
+      },
+      "description": "Please refer to <1>midjourney-proxy</1> for deploying the server and then use"
     },
     "modalTitle": "Settings",
     "save": "Save"
   },
   "task": {
     "actions": {
+      "download": "Download",
+      "info": "Image Details",
       "reroll": "Reroll",
       "upscale": "Upscale",
       "variant": "Diversify"

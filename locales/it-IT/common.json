@@ -35,8 +35,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Si prega di fare riferimento a <1>midjourney-proxy</1> per utilizzare il servizio lato server",
-      "title": "Indirizzo del proxy API di Midjourney"
+      "apiSecret": {
+        "title": "Segreto del proxy API di Midjourney"
+      },
+      "baseUrl": {
+        "title": "Indirizzo del proxy API di Midjourney"
+      },
+      "description": "Si prega di fare riferimento a <1>midjourney-proxy</1> per utilizzare il servizio lato server"
     },
     "modalTitle": "Impostazioni",
     "save": "Salva"

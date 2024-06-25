@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "<1>midjourney-proxy</1>를 참조하여 서버를 배포한 후 사용하세요",
-      "title": "Midjourney API 프록시 주소"
+      "apiSecret": {
+        "title": "Midjourney API 프록시 비밀번호"
+      },
+      "baseUrl": {
+        "title": "Midjourney API 프록시 주소"
+      },
+      "description": "<1>midjourney-proxy</1>를 참조하여 서버를 배포한 후 사용하세요"
     },
     "modalTitle": "설정",
     "save": "저장"

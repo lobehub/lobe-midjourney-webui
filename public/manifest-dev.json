@@ -29,8 +29,15 @@
     "type": "object",
     "properties": {
       "MIDJOURNEY_PROXY_URL": {
+        "title": "Midjourney Proxy URL",
         "type": "string",
-        "description": "please add url of deployment of [midjourney-proxy](https://github.com/novicezk/midjourney-proxy)"
+        "description": "Please add URL of deployment of [midjourney-proxy](https://github.com/novicezk/midjourney-proxy)"
+      },
+      "MIDJOURNEY_PROXY_API_SECRET": {
+        "title": "Midjourney Proxy API Secret",
+        "type": "string",
+        "description": "Please add API secret of [midjourney-proxy](https://github.com/novicezk/midjourney-proxy)",
+        "format": "password"
       }
     },
     "required": ["MIDJOURNEY_PROXY_URL"]

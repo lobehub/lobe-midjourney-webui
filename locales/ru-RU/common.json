@@ -29,8 +29,13 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Пожалуйста, укажите адрес сервера для использования <1>midjourney-proxy</1>",
-      "title": "Адрес прокси Midjourney API"
+      "apiSecret": {
+        "title": "Секрет прокси Midjourney API"
+      },
+      "baseUrl": {
+        "title": "Адрес прокси Midjourney API"
+      },
+      "description": "Пожалуйста, укажите адрес сервера для использования <1>midjourney-proxy</1>"
     },
     "modalTitle": "Настройки",
     "save": "Сохранить"

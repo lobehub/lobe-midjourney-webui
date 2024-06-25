@@ -16,13 +16,7 @@
     "deleteAll": "Alle afbeeldingen verwijderen",
     "deleteAllConfirm": "Weet je zeker dat je alle afbeeldingen wilt verwijderen?",
     "deleteConfirm": "Weet je zeker dat je deze afbeelding wilt verwijderen?",
-    "deleteCurrent": "Huidige afbeelding verwijderen",
-    "task": {
-      "actions": {
-        "download": "Downloaden",
-        "info": "Afbeeldingsdetails"
-      }
-    }
+    "deleteCurrent": "Huidige afbeelding verwijderen"
   },
   "input": {
     "placeholder": "Voer een suggestiewoord voor Midjourney in...",
@@ -35,14 +29,21 @@
   },
   "settings": {
     "MidjourneyAPIProxy": {
-      "description": "Raadpleeg <1>midjourney-proxy</1> voor het implementeren van de serverzijde service",
-      "title": "Adres van de Midjourney API-proxy"
+      "apiSecret": {
+        "title": "Midjourney API Proxy-geheim"
+      },
+      "baseUrl": {
+        "title": "Midjourney API Proxy-adres"
+      },
+      "description": "Raadpleeg <1>midjourney-proxy</1> voor het implementeren van de serverzijde service"
     },
     "modalTitle": "Instellingen",
     "save": "Opslaan"
   },
   "task": {
     "actions": {
+      "download": "Downloaden",
+      "info": "Afbeeldingsdetails",
       "reroll": "Opnieuw genereren",
       "upscale": "Opschalen",
       "variant": "Diversifiëren"
