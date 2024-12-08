@@ -62,7 +62,7 @@
     "polished": "^4.3.1",
     "qs": "^6.12.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^19.0.0",
     "react-i18next": "^14.1.2",
     "react-layout-kit": "^1.9.0",
     "rtl-detect": "^1.1.2",
