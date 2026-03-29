@@ -89,7 +89,7 @@
     "remark-cli": "^11.0.0",
     "semantic-release": "^21.1.2",
     "stylelint": "^15.11.0",
-    "typescript": "^5.4.5",
+    "typescript": "^6.0.0",
     "vitest": "^1.6.0"
   }
 }
