@@ -90,6 +90,6 @@
     "semantic-release": "^21.1.2",
     "stylelint": "^15.11.0",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "vitest": "^5.0.0"
   }
 }
