@@ -73,7 +73,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@lobehub/lint": "latest",
-    "@next/eslint-plugin-next": "^14.2.3",
+    "@next/eslint-plugin-next": "^16.0.0",
     "@types/qs": "^6.9.15",
     "@types/react": "^18.3.3",
     "@types/rtl-detect": "^1.0.3",
