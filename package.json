@@ -68,7 +68,7 @@
     "rtl-detect": "^1.1.2",
     "swr": "^2.2.5",
     "url-join": "^5.0.0",
-    "zustand": "^4.5.2"
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
