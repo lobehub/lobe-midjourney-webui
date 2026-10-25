@@ -67,7 +67,7 @@
     "react-layout-kit": "^1.9.0",
     "rtl-detect": "^1.1.2",
     "swr": "^2.2.5",
-    "url-join": "^5.0.0",
+    "url-join": "^6.0.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
